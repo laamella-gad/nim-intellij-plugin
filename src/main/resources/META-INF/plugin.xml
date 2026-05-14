@@ -19,6 +19,8 @@
 
         <applicationService serviceImplementation="com.laamella.nim.settings.NimSettings"/>
 
+        <lang.syntaxHighlighterFactory language="Nim" implementationClass="com.laamella.nim.NimSyntaxHighlighterFactory"/>
+
         <nonProjectFileWritingAccessExtension implementation="com.laamella.nim.NimWritingAccessExtension"/>
         <directoryProjectConfigurator implementation="com.laamella.nim.NimProjectConfigurator"/>
 
