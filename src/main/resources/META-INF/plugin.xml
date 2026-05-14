@@ -19,6 +19,9 @@
 
         <applicationService serviceImplementation="com.laamella.nim.settings.NimSettings"/>
 
+        <nonProjectFileWritingAccessExtension implementation="com.laamella.nim.NimWritingAccessExtension"/>
+        <directoryProjectConfigurator implementation="com.laamella.nim.NimProjectConfigurator"/>
+
         <applicationConfigurable parentId="language"
                                  instance="com.laamella.nim.settings.NimSettingsConfigurable"
                                  id="com.laamella.nim.settings.NimSettingsConfigurable"
