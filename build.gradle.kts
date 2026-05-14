@@ -8,7 +8,7 @@ group = providers.gradleProperty("pluginGroup").get()
 version = providers.gradleProperty("pluginVersion").get()
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
 }
 
 dependencies {
@@ -17,14 +17,13 @@ dependencies {
             providers.gradleProperty("platformType"),
             providers.gradleProperty("platformVersion")
         )
-        // Check latest version at: https://plugins.jetbrains.com/plugin/23257-lsp4ij/versions
-        plugin("com.redhat.devtools.lsp4ij:0.7.0")
+        plugin("com.redhat.devtools.lsp4ij:0.19.3")
     }
 }
 
 intellijPlatform {
     pluginConfiguration {
-        name = "Nim Language Support"
+        name = "Nim"
         version = providers.gradleProperty("pluginVersion")
         ideaVersion {
             sinceBuild = providers.gradleProperty("pluginSinceBuild")
