@@ -1,7 +1,7 @@
 <idea-plugin>
-    <id>com.example.nim</id>
-    <name>Nim Language Support</name>
-    <vendor>Example</vendor>
+    <id>com.laamella.nim</id>
+    <name>Nim</name>
+    <vendor>Laamella Gad</vendor>
     <description><![CDATA[
         Nim language support via <a href="https://github.com/nim-lang/langserver">nimlangserver</a>.<br/>
         Provides completion, hover, go-to-definition, find usages, diagnostics, inlay hints, and more.
@@ -13,22 +13,22 @@
     <extensions defaultExtensionNs="com.intellij">
         <fileType name="Nim"
                   language="Nim"
-                  implementationClass="com.example.nim.NimFileType"
+                  implementationClass="com.laamella.nim.NimFileType"
                   extensions="nim;nims;nimble;nimscript"
                   fieldName="INSTANCE"/>
 
-        <applicationService serviceImplementation="com.example.nim.settings.NimSettings"/>
+        <applicationService serviceImplementation="com.laamella.nim.settings.NimSettings"/>
 
         <applicationConfigurable parentId="language"
-                                 instance="com.example.nim.settings.NimSettingsConfigurable"
-                                 id="com.example.nim.settings.NimSettingsConfigurable"
+                                 instance="com.laamella.nim.settings.NimSettingsConfigurable"
+                                 id="com.laamella.nim.settings.NimSettingsConfigurable"
                                  displayName="Nim"/>
     </extensions>
 
     <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
         <server id="nim"
                 name="Nim Language Server"
-                factoryClass="com.example.nim.lsp.NimLanguageServerFactory">
+                factoryClass="com.laamella.nim.lsp.NimLanguageServerFactory">
             <description><![CDATA[
                 nimlangserver — official Nim LSP wrapping nimsuggest.
                 Install: <code>nimble install nimlangserver</code>

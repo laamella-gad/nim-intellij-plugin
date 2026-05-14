@@ -1,0 +1,770 @@
+2026-05-14 20:44:00,562 [     21]   INFO - #c.i.p.i.b.AppStarter - ------------------------------------------------------ IDE STARTED ------------------------------------------------------
+2026-05-14 20:44:00,570 [     29]   INFO - #c.i.i.p.PluginManager - Using broken plugins file from IDE distribution
+2026-05-14 20:44:00,675 [    134]   INFO - #c.i.u.i.PageCacheUtils - File page caching params:
+2026-05-14 20:44:00,675 [    134]   INFO - #c.i.u.i.PageCacheUtils - 	DEFAULT_PAGE_SIZE: 10485760
+2026-05-14 20:44:00,676 [    135]   INFO - #c.i.u.i.PageCacheUtils - 	Direct memory to use, max: 2126512128
+2026-05-14 20:44:00,676 [    135]   INFO - #c.i.u.i.PageCacheUtils - 	FilePageCache: regular + lock-free (LOCK_FREE_PAGE_CACHE_ENABLED:true)
+2026-05-14 20:44:00,678 [    137]   INFO - #c.i.p.i.b.AppStarter - JNA library (64-bit) loaded in 62 ms
+2026-05-14 20:44:00,682 [    141]   INFO - #c.i.u.i.PageCacheUtils - 	NEW_PAGE_CACHE_MEMORY_FRACTION: 0.20000000298023224
+2026-05-14 20:44:00,689 [    148]   INFO - #c.i.u.i.PageCacheUtils - 	Regular FilePageCache: 503316478 bytes
+2026-05-14 20:44:00,690 [    149]   INFO - #c.i.u.i.PageCacheUtils - 	New     FilePageCache: 125829122 bytes (+ up to 10.0% overflow)
+2026-05-14 20:44:00,690 [    149]   INFO - #c.i.u.i.PageCacheUtils - 	DirectByteBuffers pool: 104857600 bytes
+2026-05-14 20:44:00,693 [    152]   INFO - #c.i.p.i.b.AppStarter - IDE: IntelliJ IDEA (build #IC-241.14494.240, Thu, 28 Mar 2024 05:12:00 GMT)
+2026-05-14 20:44:00,696 [    155]   INFO - #c.i.p.i.b.AppStarter - OS: Linux (6.8.0-111-generic)
+2026-05-14 20:44:00,697 [    156]   INFO - #c.i.p.i.b.AppStarter - JRE: 17.0.10+8-b1207.12, amd64 (JetBrains s.r.o.)
+2026-05-14 20:44:00,702 [    161]   INFO - #c.i.p.i.b.AppStarter - JVM: 17.0.10+8-b1207.12 (OpenJDK 64-Bit Server VM)
+2026-05-14 20:44:00,707 [    166]   INFO - #c.i.p.i.b.AppStarter - PID: 2614902
+2026-05-14 20:44:00,708 [    167]   INFO - #c.i.p.i.b.AppStarter - desktop: X-Cinnamon
+2026-05-14 20:44:00,708 [    167]   INFO - #c.i.p.i.b.AppStarter - toolkit: sun.awt.HeadlessToolkit
+2026-05-14 20:44:00,727 [    186]   INFO - #c.i.i.p.PluginManager - PluginDescriptor(name=Nim Language Support, id=com.example.nim, descriptorPath=plugin.xml, path=~/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/plugins/nim-intellij-plugin, version=0.1.0, package=null, isBundled=false) overrides PluginDescriptor(name=Nim Language Support, id=com.example.nim, descriptorPath=plugin.xml, path=~/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/plugins/nim-intellij-plugin, version=0.1.0, package=null, isBundled=false)
+2026-05-14 20:44:00,727 [    186]   INFO - #c.i.i.p.PluginManager - PluginDescriptor(name=LSP4IJ, id=com.redhat.devtools.lsp4ij, descriptorPath=plugin.xml, path=~/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/plugins/LSP4IJ, version=0.7.0, package=null, isBundled=false) overrides PluginDescriptor(name=LSP4IJ, id=com.redhat.devtools.lsp4ij, descriptorPath=plugin.xml, path=~/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/plugins/LSP4IJ, version=0.7.0, package=null, isBundled=false)
+2026-05-14 20:44:00,741 [    200]   INFO - #c.i.p.i.b.AppStarter - JVM options: [-Daether.connector.resumeDownloads=false, -Dawt.lock.fair=true, -Dide.native.launcher=false, -Dide.show.tips.on.startup.default.value=false, -Didea.config.path=/home/danny/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/config, -Didea.l10n.keys=only, -Didea.log.path=/home/danny/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/log, -Didea.paths.selector=IdeaIC2024.1, -Didea.platform.prefix=Idea, -Didea.plugins.path=/home/danny/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/plugins, -Didea.required.plugins.id=com.example.nim, -Didea.reset.classpath.from.manifest=true, -Didea.system.path=/home/danny/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/system, -Didea.vendor.name=JetBrains, -Dintellij.platform.runtime.repository.path=/home/danny/.gradle/caches/9.5.0/transforms/1834576f6aed411e23bab8bb51b18a4a/transformed/ideaIC-2024.1/modules/module-descriptors.jar, -Djava.system.class.loader=com.intellij.util.lang.PathClassLoader, -Djbr.catch.SIGABRT=true, -Djdk.attach.allowAttachSelf=true, -Djdk.http.auth.tunneling.disabledSchemes="", -Djdk.module.illegalAccess.silent=true, -Djna.boot.library.path=/home/danny/.gradle/caches/9.5.0/transforms/1834576f6aed411e23bab8bb51b18a4a/transformed/ideaIC-2024.1/lib/jna/amd64, -Djna.noclasspath=true, -Djna.nosys=true, -Dplugin.path=/home/danny/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/plugins/nim-intellij-plugin:,/home/danny/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/plugins/LSP4IJ, -Dpty4j.preferred.native.folder=/home/danny/.gradle/caches/9.5.0/transforms/1834576f6aed411e23bab8bb51b18a4a/transformed/ideaIC-2024.1/lib/pty4j, -Dsplash=true, -Dsun.io.useCanonCaches=false, -Dsun.java2d.metal=true, -Dsun.tools.attach.tmp.only=true, -XX:+HeapDumpOnOutOfMemoryError, -XX:-OmitStackTraceInFastThrow, -XX:+IgnoreUnrecognizedVMOptions, -XX:CICompilerCount=2, -XX:ReservedCodeCacheSize=512m, -XX:CompileCommand=exclude,com/intellij/openapi/vfs/impl/FilePartNodeRoot,trieDescend, -XX:SoftRefLRUPolicyMSPerMB=50, --add-opens=java.base/java.io=ALL-UNNAMED, --add-opens=java.base/java.lang=ALL-UNNAMED, --add-opens=java.base/java.lang.ref=ALL-UNNAMED, --add-opens=java.base/java.lang.reflect=ALL-UNNAMED, --add-opens=java.base/java.net=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.base/java.nio.charset=ALL-UNNAMED, --add-opens=java.base/java.text=ALL-UNNAMED, --add-opens=java.base/java.time=ALL-UNNAMED, --add-opens=java.base/java.util=ALL-UNNAMED, --add-opens=java.base/java.util.concurrent=ALL-UNNAMED, --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED, --add-opens=java.base/java.util.concurrent.locks=ALL-UNNAMED, --add-opens=java.base/jdk.internal.vm=ALL-UNNAMED, --add-opens=java.base/sun.nio.ch=ALL-UNNAMED, --add-opens=java.base/sun.nio.fs=ALL-UNNAMED, --add-opens=java.base/sun.security.ssl=ALL-UNNAMED, --add-opens=java.base/sun.security.util=ALL-UNNAMED, --add-opens=java.base/sun.net.dns=ALL-UNNAMED, --add-opens=java.desktop/com.sun.java.swing.plaf.gtk=ALL-UNNAMED, --add-opens=java.desktop/java.awt=ALL-UNNAMED, --add-opens=java.desktop/java.awt.dnd.peer=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-opens=java.desktop/java.awt.image=ALL-UNNAMED, --add-opens=java.desktop/java.awt.peer=ALL-UNNAMED, --add-opens=java.desktop/java.awt.font=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.text=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.text.html=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.datatransfer=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.image=ALL-UNNAMED, --add-opens=java.desktop/sun.awt=ALL-UNNAMED, --add-opens=java.desktop/sun.font=ALL-UNNAMED, --add-opens=java.desktop/sun.java2d=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/com.sun.java.swing=ALL-UNNAMED, --add-opens=jdk.attach/sun.tools.attach=ALL-UNNAMED, --add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED, --add-opens=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED, --add-opens=jdk.jdi/com.sun.tools.jdi=ALL-UNNAMED, -javaagent:/home/danny/IdeaProjects/nim-intellij-plugin/.intellijPlatform/coroutines-javaagent-legacy.jar, -Xms128m, -Xmx2048m, -Dfile.encoding=UTF-8, -Duser.country=US, -Duser.language=en, -Duser.variant, -ea]
+2026-05-14 20:44:00,744 [    203]   INFO - #c.i.p.i.b.AppStarter - args: traverseUI /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions true
+2026-05-14 20:44:00,747 [    206]   INFO - #c.i.p.i.b.AppStarter - library path: /usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2026-05-14 20:44:00,748 [    207]   INFO - #c.i.p.i.b.AppStarter - boot library path: /home/danny/.gradle/caches/9.5.0/transforms/1834576f6aed411e23bab8bb51b18a4a/transformed/ideaIC-2024.1/jbr/lib
+2026-05-14 20:44:00,770 [    229]   INFO - #c.i.p.i.b.AppStarter - locale=en_US JNU=UTF-8 file.encoding=UTF-8
+    idea.config.path=/home/danny/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/config
+    idea.system.path=/home/danny/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/system
+    idea.plugins.path=/home/danny/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/plugins
+    idea.log.path=/home/danny/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/log
+2026-05-14 20:44:00,776 [    235]   INFO - #c.i.p.i.b.AppStarter - CPU cores: 4; ForkJoinPool.commonPool: java.util.concurrent.ForkJoinPool@200b9cf2[Running, parallelism = 4, size = 0, active = 0, running = 0, steals = 0, tasks = 0, submissions = 0]; factory: com.intellij.concurrency.IdeaForkJoinWorkerThreadFactory@9919562
+2026-05-14 20:44:00,788 [    247]   INFO - #c.i.i.p.PluginManager - Module intellij.sh.python is not enabled because dependency intellij.python.community.impl is not available
+Module intellij.groovy/ant is not enabled because dependency AntSupport is not available
+Module intellij.qodana.jvm.swagger is not enabled because dependency com.intellij.swagger is not available
+Module intellij.qodana.python is not enabled because dependency intellij.python is not available
+Module intellij.qodana.php is not enabled because dependency com.jetbrains.php is not available
+Module intellij.qodana.js is not enabled because dependency JavaScript is not available
+Module intellij.qodana.inspectionKts.js is not enabled because dependency JavaScript is not available
+Module intellij.qodana.go is not enabled because dependency intellij.go.coverage is not available
+Module intellij.cwm.plugin.elevation is not enabled because dependency intellij.execution.process.elevation is not available
+Module intellij.packageChecker.php is not enabled because dependency com.jetbrains.php is not available
+Module intellij.packageChecker.python is not enabled because dependency intellij.python.community.impl is not available
+Module intellij.packageChecker.javascript is not enabled because dependency JavaScript is not available
+Module intellij.packageChecker.go is not enabled because dependency org.jetbrains.plugins.go is not available
+2026-05-14 20:44:00,820 [    279]   INFO - #c.i.i.p.PluginManager - Loaded bundled plugins: IDEA CORE (241.14494.240), TextMate Bundles (241.14494.240), Images (241.14494.240), Copyright (241.14494.240), Emoji Picker (241.14494.240), EditorConfig (241.14494.240), IDE Services / Provisioner API (241.14494.240), Machine Learning in Search Everywhere (241.14494.240), YAML (241.14494.240), JetBrains maven model api classes (241.14494.240), JetBrains Repository Search (241.14494.240), Maven server api classes (241.14494.240), Markdown (241.14494.240), Terminal (241.14494.240), Mercurial (241.14494.240), Properties (241.14494.240), Gradle (241.14494.240), NetBeans Keymap (241.14494.240), JetBrains Marketplace Licensing (241.14494.240), com.intellij.dev (241.14494.240), Remote Execution Agent (241.14494.240), Shell Script (241.14494.240), HTML Tools (241.14494.240), Visual Studio Keymap (241.14494.240), Machine Learning Code Completion (241.14494.240), Toml (241.14494.240), WebP Support (241.14494.240), Performance Testing (241.14494.240), Grazie Lite (241.14494.240), Eclipse Keymap (241.14494.240), Perforce Helix Core (241.14494.240), GitLab (241.14494.240), IDE Features Trainer (241.14494.240), Java (241.14494.240), com.intellij.tracing.ide (241.14494.240), Java Bytecode Decompiler (241.14494.240), Java Stream Debugger (241.14494.240), Task Management (241.14494.240), GitHub (241.14494.240), JUnit (241.14494.240), Eclipse Interoperability (241.14494.240), IntelliLang (241.14494.240), Groovy (241.14494.240), JavaFX (241.14494.240), Turbo Complete (241.14494.240), Kotlin (241.14494.240-IJ), Gradle DSL API (241.14494.240), Java Internationalization (241.14494.240), UI Designer (241.14494.240), Bytecode Viewer (241.14494.240), Maven (241.14494.240), TestNG (241.14494.240), Code Coverage for Java (241.14494.240), Gradle-Java (241.14494.240), Gradle-Java-Analysis (241.14494.240), Gradle-Maven (241.14494.240), Java IDE Customization (241.14494.240), Settings Sync (241.14494.240), Git (241.14494.240), Qodana (241.14494.240), Configuration Script (241.14494.240), Shared Indexes (241.14494.240), Code With Me (241.14494.240), Subversion (241.14494.240), Package Checker (241.14494.240), Gradle Dependency Updater Implementation (241.14494.240), Async Profiler for IDE Performance Testing (241.14494.240)
+2026-05-14 20:44:00,822 [    281]   INFO - #c.i.i.p.PluginManager - Loaded custom plugins: LSP4IJ (0.7.0), Nim Language Support (0.1.0)
+2026-05-14 20:44:00,973 [    432]   INFO - c.i.p.i.IdeFingerprint - Calculated dependencies fingerprint in 19 ms (hash=3fkyc9yptrwc9, buildTime=1711602720, appVersion=IC-241.14494.240)
+2026-05-14 20:44:02,948 [   2407]   INFO - #c.i.a.o.PathMacrosImpl - Loaded path macros: {MAVEN_REPOSITORY=/home/danny/.m2/repository}
+2026-05-14 20:44:03,142 [   2601]   INFO - #c.i.o.v.n.p.PersistentFSLoader - VFS uses 'fast' names enumerator (over mmapped file)
+2026-05-14 20:44:03,144 [   2603]   INFO - #c.i.o.v.n.p.PersistentFSLoader - VFS uses content storage over memory-mapped file, with compression algo: LZ4[ > 8000b ]
+2026-05-14 20:44:03,142 [   2601]   INFO - #c.i.o.v.n.p.PersistentFSLoader - VFS uses streamlined attributes storage (over mmapped file)
+2026-05-14 20:44:07,110 [   6569]   INFO - #c.i.o.v.n.p.PersistentFSLoader - VFS: impl (expected) version=846397, 0 file records, 0 content blobs
+2026-05-14 20:44:07,181 [   6640]   INFO - #c.i.o.v.n.p.FSRecordsImpl - VFS scanned: file-by-name index was populated
+2026-05-14 20:44:07,183 [   6642]   INFO - #c.i.o.v.n.p.FSRecordsImpl - VFS initialized: 4040 ms, 0 failed attempts, 0 error(s) were recovered
+2026-05-14 20:44:08,301 [   7760]   INFO - #c.i.u.n.s.CertificateManager - Default SSL context initialized
+2026-05-14 20:44:08,637 [   8096]   INFO - #JetprofileSource - No valid license found
+2026-05-14 20:44:08,658 [   8117]   INFO - #c.i.o.v.n.p.FSRecords - VFS health-check enabled: first after 600000 ms, and each following 43200000 ms, wrap in RA: true
+2026-05-14 20:44:08,728 [   8187]   INFO - #c.i.i.p.ExpiredPluginsState - Plugins to skip: []
+2026-05-14 20:44:09,023 [   8482] SEVERE - #c.i.o.f.i.FileTypeManagerImpl - Cannot load class com.example.nim.NimFileType (
+  error: com/example/nim/NimFileType has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0,
+  classLoader=PluginClassLoader(plugin=PluginDescriptor(name=Nim Language Support, id=com.example.nim, descriptorPath=plugin.xml, path=~/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/plugins/nim-intellij-plugin, version=0.1.0, package=null, isBundled=false), packagePrefix=null, state=active)
+)
+com.intellij.diagnostic.PluginException: Cannot load class com.example.nim.NimFileType (
+  error: com/example/nim/NimFileType has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0,
+  classLoader=PluginClassLoader(plugin=PluginDescriptor(name=Nim Language Support, id=com.example.nim, descriptorPath=plugin.xml, path=~/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/plugins/nim-intellij-plugin, version=0.1.0, package=null, isBundled=false), packagePrefix=null, state=active)
+)
+	at com.intellij.ide.plugins.cl.PluginClassLoader.loadClassInsideSelf(PluginClassLoader.kt:331)
+	at com.intellij.ide.plugins.cl.PluginClassLoader.tryLoadingClass(PluginClassLoader.kt:178)
+	at com.intellij.serviceContainer.ComponentManagerImplKt.doLoadClass(ComponentManagerImpl.kt:1466)
+	at com.intellij.serviceContainer.ComponentManagerImpl.loadClass(ComponentManagerImpl.kt:895)
+	at com.intellij.openapi.fileTypes.impl.FileTypeManagerImpl.instantiateFileTypeBean(FileTypeManagerImpl.java:517)
+	at com.intellij.openapi.fileTypes.impl.FileTypeManagerImpl.mergeOrInstantiateFileTypeBean(FileTypeManagerImpl.java:482)
+	at com.intellij.openapi.fileTypes.impl.FileTypeManagerImpl.instantiatePendingFileTypes(FileTypeManagerImpl.java:475)
+	at com.intellij.openapi.fileTypes.impl.FileTypeManagerImpl.initializeComponent(FileTypeManagerImpl.java:647)
+	at com.intellij.configurationStore.ComponentStoreImpl.initComponent(ComponentStoreImpl.kt:168)
+	at com.intellij.configurationStore.ComponentStoreWithExtraComponents.initComponent(ComponentStoreWithExtraComponents.kt:44)
+	at com.intellij.serviceContainer.ComponentManagerImpl.initializeService$intellij_platform_serviceContainer(ComponentManagerImpl.kt:659)
+	at com.intellij.serviceContainer.ServiceInstanceInitializer.createInstance$suspendImpl(ServiceInstanceInitializer.kt:70)
+	at com.intellij.serviceContainer.ServiceInstanceInitializer.createInstance(ServiceInstanceInitializer.kt)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder$initialize$1$1.invokeSuspend(LazyInstanceHolder.kt:162)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder$initialize$1$1.invoke(LazyInstanceHolder.kt)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder$initialize$1$1.invoke(LazyInstanceHolder.kt)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:78)
+	at kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:167)
+	at kotlinx.coroutines.BuildersKt.withContext(Unknown Source)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder$initialize$1.invokeSuspend(LazyInstanceHolder.kt:160)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder$initialize$1.invoke(LazyInstanceHolder.kt)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder$initialize$1.invoke(LazyInstanceHolder.kt)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startCoroutineUndispatched(Undispatched.kt:44)
+	at kotlinx.coroutines.CoroutineStart.invoke(CoroutineStart.kt:112)
+	at kotlinx.coroutines.AbstractCoroutine.start(AbstractCoroutine.kt:126)
+	at kotlinx.coroutines.BuildersKt__Builders_commonKt.launch(Builders.common.kt:56)
+	at kotlinx.coroutines.BuildersKt.launch(Unknown Source)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder.initialize(LazyInstanceHolder.kt:145)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder.access$initialize(LazyInstanceHolder.kt:13)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder.tryInitialize(LazyInstanceHolder.kt:135)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder.getInstance(LazyInstanceHolder.kt:95)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder.getInstance$suspendImpl(LazyInstanceHolder.kt:83)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder.getInstance(LazyInstanceHolder.kt)
+	at com.intellij.platform.instanceContainer.internal.InstanceContainerImpl.instance(InstanceContainerImpl.kt:68)
+	at com.intellij.serviceContainer.ComponentManagerImpl.getServiceAsync(ComponentManagerImpl.kt:702)
+	at com.intellij.platform.ide.bootstrap.AppServicePreloadingKt$postAppRegistered$1$fileTypeManagerJob$1.invokeSuspend(appServicePreloading.kt:180)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+Caused by: java.lang.UnsupportedClassVersionError: com/example/nim/NimFileType has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0
+	at java.base/java.lang.ClassLoader.defineClass2(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1108)
+	at com.intellij.util.lang.UrlClassLoader.consumeClassData(UrlClassLoader.java:291)
+	at com.intellij.util.lang.ZipResourceFile.findClass(ZipResourceFile.java:116)
+	at com.intellij.util.lang.JarLoader.findClass(JarLoader.java:58)
+	at com.intellij.util.lang.ClassPath.findClassInLoader(ClassPath.java:240)
+	at com.intellij.util.lang.ClassPath.findClassWithoutCache(ClassPath.java:229)
+	at com.intellij.util.lang.ClassPath.findClass(ClassPath.java:212)
+	at com.intellij.ide.plugins.cl.PluginClassLoader.loadClassInsideSelf(PluginClassLoader.kt:326)
+	... 41 more
+2026-05-14 20:44:09,032 [   8491] SEVERE - #c.i.o.f.i.FileTypeManagerImpl - IntelliJ IDEA 2024.1  Build #IC-241.14494.240
+2026-05-14 20:44:09,033 [   8492] SEVERE - #c.i.o.f.i.FileTypeManagerImpl - JDK: 17.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
+2026-05-14 20:44:09,034 [   8493] SEVERE - #c.i.o.f.i.FileTypeManagerImpl - OS: Linux
+2026-05-14 20:44:09,048 [   8507] SEVERE - #c.i.o.f.i.FileTypeManagerImpl - Plugin to blame: Nim Language Support version: 0.1.0
+2026-05-14 20:44:09,049 [   8508] SEVERE - #c.i.o.f.i.FileTypeManagerImpl - Last Action: 
+2026-05-14 20:44:09,255 [   8714]   INFO - #o.j.i.BuiltInServerManager - built-in server started, port 63343
+2026-05-14 20:44:09,741 [   9200]   INFO - #c.i.o.v.i.l.NativeFileWatcherImpl - Native file watcher is disabled
+2026-05-14 20:44:09,848 [   9307]   INFO - #c.i.i.s.p.i.SharedIndexMainZipStorage - Shared Indexes Storage is opened and empty
+2026-05-14 20:44:09,852 [   9311]   WARN - #c.i.i.s.p.i.BundledSharedIndexProvider - Bundled shared index is not found at: /home/danny/.gradle/caches/9.5.0/transforms/1834576f6aed411e23bab8bb51b18a4a/transformed/ideaIC-2024.1/jdk-shared-indexes
+2026-05-14 20:44:12,501 [  11960]   INFO - #c.i.u.i.FileBasedIndexImpl - Indices to be built:XmlTagNames(v = 1),javafx.id.name(v = 3),DomFileIndex(v = 0),filetypes(v = 4096),java.binary.plus.expression(v = 4),org.jetbrains.kotlin.idea.vfilefinder.KotlinMetadataFilePackageIndex(v = 2),editorconfig.index.name(v = 5),bytecodeAnalysis(v = 11),TodoIndex(v = 13),org.jetbrains.kotlin.idea.vfilefinder.KotlinPartialPackageNamesIndex(v = 5),FilenameIndex(v = 258),javafx.custom.component(v = 2),org.jetbrains.kotlin.idea.vfilefinder.KotlinClassFileIndex(v = 3),org.jetbrains.kotlin.idea.vfilefinder.KotlinJvmModuleAnnotationsIndex(v = 1),JavaFxControllerClassIndex(v = 1),org.jetbrains.kotlin.idea.versions.KotlinJsMetadataVersionIndex(v = 3),KotlinTopLevelClassLikeDeclarationByPackageShortNameIndex(v = 3),KotlinBinaryRootToPackageIndex(v = 5),KotlinPackageSourcesMemberNamesIndex(v = 2),org.jetbrains.kotlin.idea.vfilefinder.KotlinJavaScriptMetaFileIndex(v = 4),Trigram.Index(v = 4),org.jetbrains.kotlin.idea.vfilefinder.KotlinModuleMappingIndex(v = 5),IdIndex(v = 22),fileIncludes(v = 6),com.intellij.uiDesigner.FormClassIndex(v = 0),html5.custom.attributes.index(v = 1),org.jetbrains.kotlin.idea.vfilefinder.KotlinShortClassNameFileIndex(v = 3),org.jetbrains.kotlin.idea.versions.KotlinJvmMetadataVersionIndex(v = 5),Stubs(v = 46),java.auto.module.name(v = 6),java.null.method.argument(v = 1),org.jetbrains.kotlin.idea.vfilefinder.KotlinMetadataFileIndex(v = 2),xmlProperties(v = 2),yaml.keys.name(v = 1),SchemaTypeInheritance(v = 2),KotlinTopLevelCallableByPackageShortNameIndex(v = 3),java.source.module.name(v = 4),XmlNamespaces(v = 8),json.file.root.values(v = 5),org.jetbrains.kotlin.idea.vfilefinder.KotlinBuiltInsMetadataIndex(v = 4),HtmlTagIdIndex(v = 3),org.jetbrains.kotlin.idea.vfilefinder.KotlinStdlibIndex(v = 1),java.fun.expression(v = 6),org.jetbrains.kotlin.idea.vfilefinder.KlibMetaFileIndex(v = 4),RelaxSymbolIndex(v = 0),FrameworkDetectionIndex(v = 65536)
+2026-05-14 20:44:12,504 [  11963]   INFO - #c.i.u.i.FileBasedIndexImpl - Using nice flusher for indexes
+2026-05-14 20:44:12,511 [  11970]   INFO - #c.i.u.i.IndexDataInitializer - Index data initialization done: 2788 ms. Initialized indexes: [FilenameIndex, IdIndex, TodoIndex, FrameworkDetectionIndex, Trigram.Index, filetypes, fileIncludes, DomFileIndex, RelaxSymbolIndex, Stubs, html5.custom.attributes.index, XmlTagNames, SchemaTypeInheritance, XmlNamespaces, json.file.root.values, xmlProperties, editorconfig.index.name, java.auto.module.name, yaml.keys.name, java.source.module.name, HtmlTagIdIndex, java.null.method.argument, java.fun.expression, java.binary.plus.expression, bytecodeAnalysis, javafx.id.name, JavaFxControllerClassIndex, javafx.custom.component, org.jetbrains.kotlin.idea.versions.KotlinJsMetadataVersionIndex, org.jetbrains.kotlin.idea.versions.KotlinJvmMetadataVersionIndex, org.jetbrains.kotlin.idea.vfilefinder.KotlinPartialPackageNamesIndex, org.jetbrains.kotlin.idea.vfilefinder.KotlinClassFileIndex, org.jetbrains.kotlin.idea.vfilefinder.KotlinJavaScriptMetaFileIndex, org.jetbrains.kotlin.idea.vfilefinder.KotlinMetadataFileIndex, org.jetbrains.kotlin.idea.vfilefinder.KotlinMetadataFilePackageIndex, KotlinPackageSourcesMemberNamesIndex, org.jetbrains.kotlin.idea.vfilefinder.KotlinModuleMappingIndex, org.jetbrains.kotlin.idea.vfilefinder.KotlinBuiltInsMetadataIndex, org.jetbrains.kotlin.idea.vfilefinder.KotlinJvmModuleAnnotationsIndex, org.jetbrains.kotlin.idea.vfilefinder.KotlinShortClassNameFileIndex, org.jetbrains.kotlin.idea.vfilefinder.KotlinStdlibIndex, KotlinTopLevelCallableByPackageShortNameIndex, KotlinBinaryRootToPackageIndex, org.jetbrains.kotlin.idea.vfilefinder.KlibMetaFileIndex, KotlinTopLevelClassLikeDeclarationByPackageShortNameIndex, com.intellij.uiDesigner.FormClassIndex].
+2026-05-14 20:44:14,563 [  14022]   INFO - #c.i.p.s.StubIndexImpl - Following stub indices will be built:KotlinTopLevelExtensionsByReceiverTypeIndex(v = 3),java.module.name(v = 4),java.method.parameter.types(v = 3),java.annotations(v = 2),org.jetbrains.kotlin.idea.stubindex.KotlinTopLevelFunctionFqnNameIndex(v = 2),java.unnamed.class(v = 2),org.jetbrains.kotlin.idea.stubindex.KotlinFilePartClassIndex(v = 2),markdown.header(v = 2),KotlinTopLevelPropertyByPackageIndex(v = 2),org.jetbrains.kotlin.idea.stubindex.KotlinMultifileClassPartIndex(v = 2),jvm.static.member.type(v = 2),java.method.name(v = 2),org.jetbrains.kotlin.idea.stubindex.KotlinFileFacadeShortNameIndex(v = 2),java.class.shortname(v = 4),KotlinTopLevelTypeAliasByPackageIndex(v = 2),KotlinFileFacadeClassByPackageIndex(v = 2),gr.field.name(v = 5),KotlinTopLevelFunctionByPackageIndex(v = 2),gr.annot.members(v = 5),org.jetbrains.kotlin.idea.stubindex.KotlinJvmNameAnnotationIndex(v = 2),KotlinProbablyNothingFunctionShortNameIndex(v = 2),org.jetbrains.kotlin.idea.stubindex.KotlinFileFacadeFqNameIndex(v = 2),org.jetbrains.kotlin.idea.stubindex.KotlinFunctionShortNameIndex(v = 2),org.jetbrains.kotlin.idea.stubindex.KotlinFullClassNameIndex(v = 2),org.jetbrains.kotlin.idea.stubindex.KotlinTopLevelTypeAliasFqNameIndex(v = 2),KotlinProbablyContractedFunctionShortNameIndex(v = 2),KotlinTypeAliasByExpansionShortNameIndex(v = 2),KotlinOverridableInternalMembersShortNameIndex(v = 2),org.jetbrains.kotlin.idea.stubindex.KotlinInnerTypeAliasClassIdIndex(v = 2),java.anonymous.baseref(v = 2),dom.namespaceKey(v = 1),dom.elementClass(v = 0),gr.class.fqn.s(v = 5),org.jetbrains.kotlin.idea.stubindex.KotlinSuperClassIndex(v = 2),org.jetbrains.kotlin.idea.stubindex.KotlinTypeAliasShortNameIndex(v = 2),org.jetbrains.kotlin.idea.stubindex.KotlinTopLevelClassByPackageIndex(v = 2),gr.annot.method.name(v = 5),properties.index(v = 2),kotlin.primeIndexKey(v = 2),gr.script.fqn.s(v = 5),org.jetbrains.kotlin.idea.stubindex.KotlinPropertyShortNameIndex(v = 2),KotlinProbablyNothingPropertyShortNameIndex(v = 2),java.class.extlist(v = 3),gr.method.name(v = 5),markdown.header.anchor(v = 2),java.class.fqn(v = 1),gr.class.super(v = 5),gr.script.class(v = 5),org.jetbrains.kotlin.idea.stubindex.KotlinExactPackagesIndex(v = 2),jvm.static.member.name(v = 2),org.jetbrains.kotlin.idea.stubindex.KotlinScriptFqnIndex(v = 2),java.field.name(v = 2),org.jetbrains.kotlin.idea.stubindex.KotlinClassShortNameIndex(v = 2),gr.anonymous.class(v = 6),org.jetbrains.kotlin.idea.stubindex.KotlinSubclassObjectNameIndex(v = 2),org.jetbrains.kotlin.idea.stubindex.KotlinAnnotationsIndex(v = 3),KotlinExtensionsInObjectsByReceiverTypeIndex(v = 2),org.jetbrains.kotlin.idea.stubindex.KotlinTopLevelPropertyFqnNameIndex(v = 2)
+2026-05-14 20:44:14,564 [  14023]   INFO - #c.i.u.i.IndexDataInitializer - Index data initialization done: 2052 ms. Initialized stub indexes: {org.jetbrains.kotlin.idea.stubindex.KotlinInnerTypeAliasClassIdIndex, org.jetbrains.kotlin.idea.stubindex.KotlinTopLevelClassByPackageIndex, java.field.name, gr.annot.method.name, KotlinExtensionsInObjectsByReceiverTypeIndex, markdown.header.anchor, org.jetbrains.kotlin.idea.stubindex.KotlinExactPackagesIndex, KotlinTopLevelTypeAliasByPackageIndex, java.unnamed.class, KotlinProbablyNothingPropertyShortNameIndex, gr.script.class, KotlinTypeAliasByExpansionShortNameIndex, java.annotations, properties.index, java.class.extlist, java.class.shortname, org.jetbrains.kotlin.idea.stubindex.KotlinAnnotationsIndex, org.jetbrains.kotlin.idea.stubindex.KotlinTopLevelPropertyFqnNameIndex, KotlinTopLevelFunctionByPackageIndex, jvm.static.member.type, markdown.header, KotlinTopLevelExtensionsByReceiverTypeIndex, gr.method.name, org.jetbrains.kotlin.idea.stubindex.KotlinSuperClassIndex, gr.script.fqn.s, org.jetbrains.kotlin.idea.stubindex.KotlinTopLevelFunctionFqnNameIndex, gr.class.super, java.method.name, KotlinProbablyContractedFunctionShortNameIndex, org.jetbrains.kotlin.idea.stubindex.KotlinFilePartClassIndex, org.jetbrains.kotlin.idea.stubindex.KotlinFullClassNameIndex, org.jetbrains.kotlin.idea.stubindex.KotlinClassShortNameIndex, org.jetbrains.kotlin.idea.stubindex.KotlinFunctionShortNameIndex, org.jetbrains.kotlin.idea.stubindex.KotlinMultifileClassPartIndex, org.jetbrains.kotlin.idea.stubindex.KotlinSubclassObjectNameIndex, KotlinFileFacadeClassByPackageIndex, org.jetbrains.kotlin.idea.stubindex.KotlinFileFacadeShortNameIndex, jvm.static.member.name, org.jetbrains.kotlin.idea.stubindex.KotlinPropertyShortNameIndex, gr.class.fqn.s, dom.elementClass, java.anonymous.baseref, org.jetbrains.kotlin.idea.stubindex.KotlinFileFacadeFqNameIndex, java.class.fqn, java.module.name, org.jetbrains.kotlin.idea.stubindex.KotlinTopLevelTypeAliasFqNameIndex, gr.annot.members, dom.namespaceKey, KotlinProbablyNothingFunctionShortNameIndex, gr.field.name, gr.anonymous.class, java.method.parameter.types, org.jetbrains.kotlin.idea.stubindex.KotlinTypeAliasShortNameIndex, kotlin.primeIndexKey, KotlinTopLevelPropertyByPackageIndex, KotlinOverridableInternalMembersShortNameIndex, org.jetbrains.kotlin.idea.stubindex.KotlinJvmNameAnnotationIndex, org.jetbrains.kotlin.idea.stubindex.KotlinScriptFqnIndex}.
+2026-05-14 20:44:18,356 [  17815]   INFO - #c.i.u.s.JBUIScale - System scale factor: 1.0 (IDE-managed HiDPI)
+2026-05-14 20:44:24,168 [  23627]   INFO - #c.i.i.p.n.PluginsGroupComponentWithProgress - Marketplace tab: loading stopped
+2026-05-14 20:44:24,244 [  23703]   INFO - #c.i.i.p.PluginManagerConfigurable - Marketplace tab: 'Staff Picks' group load started
+2026-05-14 20:44:24,380 [  23839]   INFO - #c.i.i.p.PluginManagerConfigurable - Marketplace tab: 'Staff Picks' group load finished
+2026-05-14 20:44:24,380 [  23839]   INFO - #c.i.i.p.PluginManagerConfigurable - Marketplace tab: 'New and Updated' group load started
+2026-05-14 20:44:24,510 [  23969]   INFO - #c.i.i.p.PluginManagerConfigurable - Marketplace tab: 'New and Updated' group load finished
+2026-05-14 20:44:24,512 [  23971]   INFO - #c.i.i.p.PluginManagerConfigurable - Marketplace tab: 'Top Downloads' group load started
+2026-05-14 20:44:24,632 [  24091]   INFO - #c.i.i.p.PluginManagerConfigurable - Marketplace tab: 'Top Downloads' group load finished
+2026-05-14 20:44:24,633 [  24092]   INFO - #c.i.i.p.PluginManagerConfigurable - Marketplace tab: 'Top Rated' group load started
+2026-05-14 20:44:24,776 [  24235]   INFO - #c.i.i.p.PluginManagerConfigurable - Marketplace tab: 'Top Rated' group load finished
+2026-05-14 20:44:28,583 [  28042]   INFO - #c.i.w.i.i.j.s.JpsGlobalModelSynchronizerImpl - Loading global entities com.intellij.platform.workspace.jps.entities.SdkEntity from files
+2026-05-14 20:44:28,585 [  28044]   INFO - #c.i.w.i.i.j.s.JpsGlobalModelSynchronizerImpl - Loading global entities com.intellij.platform.workspace.jps.entities.LibraryEntity from files
+2026-05-14 20:44:31,057 [  30516]   INFO - #c.i.o.a.i.NonBlockingReadActionImpl - OTel monitoring for NonBlockingReadAction is enabled
+2026-05-14 20:44:35,596 [  35055] SEVERE - #c.i.o.o.ConfigurableEP - Cannot create configurable
+com.intellij.diagnostic.PluginException: Cannot load class com.example.nim.settings.NimSettingsConfigurable (
+  error: com/example/nim/settings/NimSettingsConfigurable has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0,
+  classLoader=PluginClassLoader(plugin=PluginDescriptor(name=Nim Language Support, id=com.example.nim, descriptorPath=plugin.xml, path=~/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/plugins/nim-intellij-plugin, version=0.1.0, package=null, isBundled=false), packagePrefix=null, state=active)
+)
+	at com.intellij.ide.plugins.cl.PluginClassLoader.loadClassInsideSelf(PluginClassLoader.kt:331)
+	at com.intellij.ide.plugins.cl.PluginClassLoader.tryLoadingClass(PluginClassLoader.kt:178)
+	at com.intellij.serviceContainer.ComponentManagerImplKt.doLoadClass(ComponentManagerImpl.kt:1466)
+	at com.intellij.serviceContainer.ComponentManagerImpl.instantiateClass(ComponentManagerImpl.kt:943)
+	at com.intellij.openapi.options.ConfigurableEP$ClassProducer.createElement(ConfigurableEP.java:429)
+	at com.intellij.openapi.options.ConfigurableEP.createConfigurable(ConfigurableEP.java:338)
+	at com.intellij.openapi.options.ex.ConfigurableWrapper.createConfigurable(ConfigurableWrapper.java:39)
+	at com.intellij.openapi.options.ex.ConfigurableWrapper.getConfigurable(ConfigurableWrapper.java:116)
+	at com.intellij.openapi.options.ex.ConfigurableWrapper.createComponent(ConfigurableWrapper.java:180)
+	at com.intellij.ide.ui.search.SearchUtil.processConfigurables(SearchUtil.java:72)
+	at com.intellij.ide.ui.search.TraverseUIStarter.lambda$startup$0(TraverseUIStarter.java:116)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:308)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:792)
+	at java.desktop/java.awt.EventQueue$3.run(EventQueue.java:739)
+	at java.desktop/java.awt.EventQueue$3.run(EventQueue.java:733)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:761)
+	at com.intellij.ide.IdeEventQueue.defaultDispatchEvent(IdeEventQueue.kt:698)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent$lambda$12(IdeEventQueue.kt:593)
+	at com.intellij.openapi.application.impl.RwLockHolder.runWithoutImplicitRead(RwLockHolder.kt:105)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent(IdeEventQueue.kt:593)
+	at com.intellij.ide.IdeEventQueue.access$_dispatchEvent(IdeEventQueue.kt:77)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1$1.compute(IdeEventQueue.kt:362)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1$1.compute(IdeEventQueue.kt:361)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.computePrioritized(CoreProgressManager.java:843)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1.invoke(IdeEventQueue.kt:361)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1.invoke(IdeEventQueue.kt:356)
+	at com.intellij.ide.IdeEventQueueKt.performActivity$lambda$1(IdeEventQueue.kt:1021)
+	at com.intellij.openapi.application.TransactionGuardImpl.performActivity(TransactionGuardImpl.java:106)
+	at com.intellij.ide.IdeEventQueueKt.performActivity(IdeEventQueue.kt:1021)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent$lambda$7(IdeEventQueue.kt:356)
+	at com.intellij.openapi.application.impl.RwLockHolder.runIntendedWriteActionOnCurrentThread(RwLockHolder.kt:209)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runIntendedWriteActionOnCurrentThread(ApplicationImpl.java:830)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.kt:398)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:207)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:128)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:117)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:105)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:92)
+Caused by: java.lang.UnsupportedClassVersionError: com/example/nim/settings/NimSettingsConfigurable has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0
+	at java.base/java.lang.ClassLoader.defineClass2(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1108)
+	at com.intellij.util.lang.UrlClassLoader.consumeClassData(UrlClassLoader.java:291)
+	at com.intellij.util.lang.ZipResourceFile.findClass(ZipResourceFile.java:116)
+	at com.intellij.util.lang.JarLoader.findClass(JarLoader.java:58)
+	at com.intellij.util.lang.ClassPath.findClassInLoader(ClassPath.java:240)
+	at com.intellij.util.lang.ClassPath.findClass(ClassPath.java:190)
+	at com.intellij.ide.plugins.cl.PluginClassLoader.loadClassInsideSelf(PluginClassLoader.kt:326)
+	... 40 more
+2026-05-14 20:44:35,630 [  35089] SEVERE - #c.i.o.o.ConfigurableEP - IntelliJ IDEA 2024.1  Build #IC-241.14494.240
+2026-05-14 20:44:35,631 [  35090] SEVERE - #c.i.o.o.ConfigurableEP - JDK: 17.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
+2026-05-14 20:44:35,631 [  35090] SEVERE - #c.i.o.o.ConfigurableEP - OS: Linux
+2026-05-14 20:44:35,631 [  35090] SEVERE - #c.i.o.o.ConfigurableEP - Plugin to blame: Nim Language Support version: 0.1.0
+2026-05-14 20:44:35,632 [  35091] SEVERE - #c.i.o.o.ConfigurableEP - Last Action: 
+2026-05-14 20:44:36,279 [  35738] SEVERE - #c.i.o.o.e.ConfigurableWrapper - Can't instantiate configurable for Nim [Plugin: com.example.nim]
+com.intellij.diagnostic.PluginException: Can't instantiate configurable for Nim [Plugin: com.example.nim]
+	at com.intellij.openapi.options.ex.ConfigurableWrapper.getConfigurable(ConfigurableWrapper.java:121)
+	at com.intellij.openapi.options.ex.ConfigurableWrapper.createComponent(ConfigurableWrapper.java:180)
+	at com.intellij.ide.ui.search.SearchUtil.processConfigurables(SearchUtil.java:72)
+	at com.intellij.ide.ui.search.TraverseUIStarter.lambda$startup$0(TraverseUIStarter.java:116)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:308)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:792)
+	at java.desktop/java.awt.EventQueue$3.run(EventQueue.java:739)
+	at java.desktop/java.awt.EventQueue$3.run(EventQueue.java:733)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:761)
+	at com.intellij.ide.IdeEventQueue.defaultDispatchEvent(IdeEventQueue.kt:698)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent$lambda$12(IdeEventQueue.kt:593)
+	at com.intellij.openapi.application.impl.RwLockHolder.runWithoutImplicitRead(RwLockHolder.kt:105)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent(IdeEventQueue.kt:593)
+	at com.intellij.ide.IdeEventQueue.access$_dispatchEvent(IdeEventQueue.kt:77)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1$1.compute(IdeEventQueue.kt:362)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1$1.compute(IdeEventQueue.kt:361)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.computePrioritized(CoreProgressManager.java:843)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1.invoke(IdeEventQueue.kt:361)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1.invoke(IdeEventQueue.kt:356)
+	at com.intellij.ide.IdeEventQueueKt.performActivity$lambda$1(IdeEventQueue.kt:1021)
+	at com.intellij.openapi.application.TransactionGuardImpl.performActivity(TransactionGuardImpl.java:106)
+	at com.intellij.ide.IdeEventQueueKt.performActivity(IdeEventQueue.kt:1021)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent$lambda$7(IdeEventQueue.kt:356)
+	at com.intellij.openapi.application.impl.RwLockHolder.runIntendedWriteActionOnCurrentThread(RwLockHolder.kt:209)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runIntendedWriteActionOnCurrentThread(ApplicationImpl.java:830)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.kt:398)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:207)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:128)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:117)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:105)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:92)
+2026-05-14 20:44:36,281 [  35740] SEVERE - #c.i.o.o.e.ConfigurableWrapper - IntelliJ IDEA 2024.1  Build #IC-241.14494.240
+2026-05-14 20:44:36,281 [  35740] SEVERE - #c.i.o.o.e.ConfigurableWrapper - JDK: 17.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
+2026-05-14 20:44:36,284 [  35743] SEVERE - #c.i.o.o.e.ConfigurableWrapper - OS: Linux
+2026-05-14 20:44:36,284 [  35743] SEVERE - #c.i.o.o.e.ConfigurableWrapper - Plugin to blame: Nim Language Support version: 0.1.0
+2026-05-14 20:44:36,284 [  35743] SEVERE - #c.i.o.o.e.ConfigurableWrapper - Last Action: 
+2026-05-14 20:44:36,285 [  35744] SEVERE - #c.i.o.o.ConfigurableEP - Cannot create configurable
+com.intellij.diagnostic.PluginException: Cannot load class com.example.nim.settings.NimSettingsConfigurable (
+  error: com/example/nim/settings/NimSettingsConfigurable has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0,
+  classLoader=PluginClassLoader(plugin=PluginDescriptor(name=Nim Language Support, id=com.example.nim, descriptorPath=plugin.xml, path=~/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/plugins/nim-intellij-plugin, version=0.1.0, package=null, isBundled=false), packagePrefix=null, state=active)
+)
+	at com.intellij.ide.plugins.cl.PluginClassLoader.loadClassInsideSelf(PluginClassLoader.kt:331)
+	at com.intellij.ide.plugins.cl.PluginClassLoader.tryLoadingClass(PluginClassLoader.kt:178)
+	at com.intellij.serviceContainer.ComponentManagerImplKt.doLoadClass(ComponentManagerImpl.kt:1466)
+	at com.intellij.serviceContainer.ComponentManagerImpl.instantiateClass(ComponentManagerImpl.kt:943)
+	at com.intellij.openapi.options.ConfigurableEP$ClassProducer.createElement(ConfigurableEP.java:429)
+	at com.intellij.openapi.options.ConfigurableEP.createConfigurable(ConfigurableEP.java:338)
+	at com.intellij.openapi.options.ex.ConfigurableWrapper.createConfigurable(ConfigurableWrapper.java:39)
+	at com.intellij.openapi.options.ex.ConfigurableWrapper.getConfigurable(ConfigurableWrapper.java:116)
+	at com.intellij.ide.ui.search.SearchUtil.unwrapConfigurable(SearchUtil.java:102)
+	at com.intellij.ide.ui.search.SearchUtil.processConfigurables(SearchUtil.java:73)
+	at com.intellij.ide.ui.search.TraverseUIStarter.lambda$startup$0(TraverseUIStarter.java:116)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:308)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:792)
+	at java.desktop/java.awt.EventQueue$3.run(EventQueue.java:739)
+	at java.desktop/java.awt.EventQueue$3.run(EventQueue.java:733)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:761)
+	at com.intellij.ide.IdeEventQueue.defaultDispatchEvent(IdeEventQueue.kt:698)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent$lambda$12(IdeEventQueue.kt:593)
+	at com.intellij.openapi.application.impl.RwLockHolder.runWithoutImplicitRead(RwLockHolder.kt:105)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent(IdeEventQueue.kt:593)
+	at com.intellij.ide.IdeEventQueue.access$_dispatchEvent(IdeEventQueue.kt:77)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1$1.compute(IdeEventQueue.kt:362)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1$1.compute(IdeEventQueue.kt:361)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.computePrioritized(CoreProgressManager.java:843)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1.invoke(IdeEventQueue.kt:361)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1.invoke(IdeEventQueue.kt:356)
+	at com.intellij.ide.IdeEventQueueKt.performActivity$lambda$1(IdeEventQueue.kt:1021)
+	at com.intellij.openapi.application.TransactionGuardImpl.performActivity(TransactionGuardImpl.java:106)
+	at com.intellij.ide.IdeEventQueueKt.performActivity(IdeEventQueue.kt:1021)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent$lambda$7(IdeEventQueue.kt:356)
+	at com.intellij.openapi.application.impl.RwLockHolder.runIntendedWriteActionOnCurrentThread(RwLockHolder.kt:209)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runIntendedWriteActionOnCurrentThread(ApplicationImpl.java:830)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.kt:398)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:207)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:128)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:117)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:105)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:92)
+Caused by: java.lang.UnsupportedClassVersionError: com/example/nim/settings/NimSettingsConfigurable has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0
+	at java.base/java.lang.ClassLoader.defineClass2(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1108)
+	at com.intellij.util.lang.UrlClassLoader.consumeClassData(UrlClassLoader.java:291)
+	at com.intellij.util.lang.ZipResourceFile.findClass(ZipResourceFile.java:116)
+	at com.intellij.util.lang.JarLoader.findClass(JarLoader.java:58)
+	at com.intellij.util.lang.ClassPath.findClassInLoader(ClassPath.java:240)
+	at com.intellij.util.lang.ClassPath.findClass(ClassPath.java:190)
+	at com.intellij.ide.plugins.cl.PluginClassLoader.loadClassInsideSelf(PluginClassLoader.kt:326)
+	... 40 more
+2026-05-14 20:44:36,288 [  35747] SEVERE - #c.i.o.o.ConfigurableEP - IntelliJ IDEA 2024.1  Build #IC-241.14494.240
+2026-05-14 20:44:36,288 [  35747] SEVERE - #c.i.o.o.ConfigurableEP - JDK: 17.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
+2026-05-14 20:44:36,289 [  35748] SEVERE - #c.i.o.o.ConfigurableEP - OS: Linux
+2026-05-14 20:44:36,289 [  35748] SEVERE - #c.i.o.o.ConfigurableEP - Plugin to blame: Nim Language Support version: 0.1.0
+2026-05-14 20:44:36,289 [  35748] SEVERE - #c.i.o.o.ConfigurableEP - Last Action: 
+2026-05-14 20:44:36,292 [  35751] SEVERE - #c.i.o.o.e.ConfigurableWrapper - Can't instantiate configurable for Nim [Plugin: com.example.nim]
+com.intellij.diagnostic.PluginException: Can't instantiate configurable for Nim [Plugin: com.example.nim]
+	at com.intellij.openapi.options.ex.ConfigurableWrapper.getConfigurable(ConfigurableWrapper.java:121)
+	at com.intellij.ide.ui.search.SearchUtil.unwrapConfigurable(SearchUtil.java:102)
+	at com.intellij.ide.ui.search.SearchUtil.processConfigurables(SearchUtil.java:73)
+	at com.intellij.ide.ui.search.TraverseUIStarter.lambda$startup$0(TraverseUIStarter.java:116)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:308)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:792)
+	at java.desktop/java.awt.EventQueue$3.run(EventQueue.java:739)
+	at java.desktop/java.awt.EventQueue$3.run(EventQueue.java:733)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:761)
+	at com.intellij.ide.IdeEventQueue.defaultDispatchEvent(IdeEventQueue.kt:698)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent$lambda$12(IdeEventQueue.kt:593)
+	at com.intellij.openapi.application.impl.RwLockHolder.runWithoutImplicitRead(RwLockHolder.kt:105)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent(IdeEventQueue.kt:593)
+	at com.intellij.ide.IdeEventQueue.access$_dispatchEvent(IdeEventQueue.kt:77)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1$1.compute(IdeEventQueue.kt:362)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1$1.compute(IdeEventQueue.kt:361)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.computePrioritized(CoreProgressManager.java:843)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1.invoke(IdeEventQueue.kt:361)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1.invoke(IdeEventQueue.kt:356)
+	at com.intellij.ide.IdeEventQueueKt.performActivity$lambda$1(IdeEventQueue.kt:1021)
+	at com.intellij.openapi.application.TransactionGuardImpl.performActivity(TransactionGuardImpl.java:106)
+	at com.intellij.ide.IdeEventQueueKt.performActivity(IdeEventQueue.kt:1021)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent$lambda$7(IdeEventQueue.kt:356)
+	at com.intellij.openapi.application.impl.RwLockHolder.runIntendedWriteActionOnCurrentThread(RwLockHolder.kt:209)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runIntendedWriteActionOnCurrentThread(ApplicationImpl.java:830)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.kt:398)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:207)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:128)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:117)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:105)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:92)
+2026-05-14 20:44:36,293 [  35752] SEVERE - #c.i.o.o.e.ConfigurableWrapper - IntelliJ IDEA 2024.1  Build #IC-241.14494.240
+2026-05-14 20:44:36,293 [  35752] SEVERE - #c.i.o.o.e.ConfigurableWrapper - JDK: 17.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
+2026-05-14 20:44:36,294 [  35753] SEVERE - #c.i.o.o.e.ConfigurableWrapper - OS: Linux
+2026-05-14 20:44:36,294 [  35753] SEVERE - #c.i.o.o.e.ConfigurableWrapper - Plugin to blame: Nim Language Support version: 0.1.0
+2026-05-14 20:44:36,294 [  35753] SEVERE - #c.i.o.o.e.ConfigurableWrapper - Last Action: 
+2026-05-14 20:44:48,360 [  47819]   INFO - #c.i.r.OsRegistryConfigProvider - Looking for 'lobbyServerUrl' value in [/etc/xdg/JetBrains/CodeWithMe/lobbyServerUrl, /etc/xdg/JetBrains/CodeWithMe/config.json, /home/danny/.config/JetBrains/CodeWithMe/lobbyServerUrl, /home/danny/.config/JetBrains/CodeWithMe/config.json, /etc/xdg/xdg-cinnamon/JetBrains/CodeWithMe/lobbyServerUrl, /etc/xdg/xdg-cinnamon/JetBrains/CodeWithMe/config.json, /etc/xdg/JetBrains/CodeWithMe/lobbyServerUrl, /etc/xdg/JetBrains/CodeWithMe/config.json]
+2026-05-14 20:44:48,362 [  47821]   INFO - #c.i.r.OsRegistryConfigProvider - OS provided value for 'lobbyServerUrl' is not found
+2026-05-14 20:44:48,363 [  47822]   INFO - #c.j.r.p.c.u.CodeWithMeSystemSettings - Setting default value='https://code-with-me.jetbrains.com'
+2026-05-14 20:44:48,390 [  47849]   INFO - #c.i.r.OsRegistryConfigProvider - Looking for 'lobbyServerUrl' value in [/etc/xdg/JetBrains/CodeWithMe/lobbyServerUrl, /etc/xdg/JetBrains/CodeWithMe/config.json, /home/danny/.config/JetBrains/CodeWithMe/lobbyServerUrl, /home/danny/.config/JetBrains/CodeWithMe/config.json, /etc/xdg/xdg-cinnamon/JetBrains/CodeWithMe/lobbyServerUrl, /etc/xdg/xdg-cinnamon/JetBrains/CodeWithMe/config.json, /etc/xdg/JetBrains/CodeWithMe/lobbyServerUrl, /etc/xdg/JetBrains/CodeWithMe/config.json]
+2026-05-14 20:44:48,391 [  47850]   INFO - #c.i.r.OsRegistryConfigProvider - OS provided value for 'lobbyServerUrl' is not found
+2026-05-14 20:44:48,391 [  47850]   INFO - #c.j.r.p.c.u.CodeWithMeSystemSettings - Setting default value='https://code-with-me.jetbrains.com'
+2026-05-14 20:44:48,689 [  48148] SEVERE - #c.i.o.f.i.FileTypeManagerImpl - Cannot load class com.example.nim.NimFileType (
+  error: com/example/nim/NimFileType has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0,
+  classLoader=PluginClassLoader(plugin=PluginDescriptor(name=Nim Language Support, id=com.example.nim, descriptorPath=plugin.xml, path=~/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/plugins/nim-intellij-plugin, version=0.1.0, package=null, isBundled=false), packagePrefix=null, state=active)
+)
+com.intellij.diagnostic.PluginException: Cannot load class com.example.nim.NimFileType (
+  error: com/example/nim/NimFileType has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0,
+  classLoader=PluginClassLoader(plugin=PluginDescriptor(name=Nim Language Support, id=com.example.nim, descriptorPath=plugin.xml, path=~/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/plugins/nim-intellij-plugin, version=0.1.0, package=null, isBundled=false), packagePrefix=null, state=active)
+)
+	at com.intellij.ide.plugins.cl.PluginClassLoader.loadClassInsideSelf(PluginClassLoader.kt:331)
+	at com.intellij.ide.plugins.cl.PluginClassLoader.tryLoadingClass(PluginClassLoader.kt:178)
+	at com.intellij.serviceContainer.ComponentManagerImplKt.doLoadClass(ComponentManagerImpl.kt:1466)
+	at com.intellij.serviceContainer.ComponentManagerImpl.loadClass(ComponentManagerImpl.kt:895)
+	at com.intellij.openapi.fileTypes.impl.FileTypeManagerImpl.instantiateFileTypeBean(FileTypeManagerImpl.java:517)
+	at com.intellij.openapi.fileTypes.impl.FileTypeManagerImpl.instantiatePendingFileTypeByName(FileTypeManagerImpl.java:638)
+	at com.intellij.openapi.fileTypes.impl.FileTypeManagerImpl.getStdFileType(FileTypeManagerImpl.java:624)
+	at com.intellij.openapi.fileTypes.impl.FileTypeManagerImpl.findFileTypeByName(FileTypeManagerImpl.java:887)
+	at com.redhat.devtools.lsp4ij.LanguageServersRegistry.loadServersAndMappingsFromExtensionPoint(LanguageServersRegistry.java:101)
+	at com.redhat.devtools.lsp4ij.LanguageServersRegistry.initialize(LanguageServersRegistry.java:77)
+	at com.redhat.devtools.lsp4ij.LanguageServersRegistry.<init>(LanguageServersRegistry.java:72)
+	at com.intellij.platform.instanceContainer.instantiation.InstantiateKt$instantiate$2.invoke(instantiate.kt:45)
+	at com.intellij.platform.instanceContainer.instantiation.InstantiateKt$instantiate$2.invoke(instantiate.kt:42)
+	at com.intellij.platform.instanceContainer.instantiation.InstantiateKt.instantiate(instantiate.kt:308)
+	at com.intellij.platform.instanceContainer.instantiation.InstantiateKt.instantiate(instantiate.kt:42)
+	at com.intellij.serviceContainer.ServiceInstanceInitializer.createInstance$suspendImpl(ServiceInstanceInitializer.kt:31)
+	at com.intellij.serviceContainer.ServiceInstanceInitializer.createInstance(ServiceInstanceInitializer.kt)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder$initialize$1$1.invokeSuspend(LazyInstanceHolder.kt:162)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder$initialize$1$1.invoke(LazyInstanceHolder.kt)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder$initialize$1$1.invoke(LazyInstanceHolder.kt)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:78)
+	at kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:167)
+	at kotlinx.coroutines.BuildersKt.withContext(Unknown Source)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder$initialize$1.invokeSuspend(LazyInstanceHolder.kt:160)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder$initialize$1.invoke(LazyInstanceHolder.kt)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder$initialize$1.invoke(LazyInstanceHolder.kt)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startCoroutineUndispatched(Undispatched.kt:44)
+	at kotlinx.coroutines.CoroutineStart.invoke(CoroutineStart.kt:112)
+	at kotlinx.coroutines.AbstractCoroutine.start(AbstractCoroutine.kt:126)
+	at kotlinx.coroutines.BuildersKt__Builders_commonKt.launch(Builders.common.kt:56)
+	at kotlinx.coroutines.BuildersKt.launch(Unknown Source)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder.initialize(LazyInstanceHolder.kt:145)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder.access$initialize(LazyInstanceHolder.kt:13)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder.tryInitialize(LazyInstanceHolder.kt:135)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder.getInstance(LazyInstanceHolder.kt:95)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder.getInstanceInCallerContext$suspendImpl(LazyInstanceHolder.kt:87)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder.getInstanceInCallerContext(LazyInstanceHolder.kt)
+	at com.intellij.serviceContainer.ComponentManagerImplKt$getOrCreateInstanceBlocking$3.invokeSuspend(ComponentManagerImpl.kt:1548)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:280)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:85)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:59)
+	at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source)
+	at com.intellij.serviceContainer.ComponentManagerImplKt$runBlockingInitialization$1.invoke(ComponentManagerImpl.kt:1636)
+	at com.intellij.serviceContainer.ComponentManagerImplKt$runBlockingInitialization$1.invoke(ComponentManagerImpl.kt:1627)
+	at com.intellij.openapi.progress.ContextKt.prepareThreadContext(context.kt:83)
+	at com.intellij.serviceContainer.ComponentManagerImplKt.runBlockingInitialization(ComponentManagerImpl.kt:1627)
+	at com.intellij.serviceContainer.ComponentManagerImplKt.getOrCreateInstanceBlocking(ComponentManagerImpl.kt:1547)
+	at com.intellij.serviceContainer.ComponentManagerImpl.doGetService(ComponentManagerImpl.kt:754)
+	at com.intellij.serviceContainer.ComponentManagerImpl.getService(ComponentManagerImpl.kt:698)
+	at com.redhat.devtools.lsp4ij.LanguageServersRegistry.getInstance(LanguageServersRegistry.java:55)
+	at com.redhat.devtools.lsp4ij.features.LSPInlayHintProvidersFactory.getProvidersInfo(LSPInlayHintProvidersFactory.java:31)
+	at com.intellij.codeInsight.hints.HintUtils.getLanguagesWithNewInlayHints(HintUtils.kt:14)
+	at com.intellij.codeInsight.hints.settings.providers.NewInlaySettingsProvider.getSupportedLanguages(NewInlaySettingsProvider.kt:24)
+	at com.intellij.codeInsight.hints.settings.InlaySettingsPanel.<init>(InlaySettingsPanel.kt:62)
+	at com.intellij.codeInsight.hints.settings.InlaySettingsConfigurable$panel$2.invoke(InlaySettingsConfigurable.kt:18)
+	at com.intellij.codeInsight.hints.settings.InlaySettingsConfigurable$panel$2.invoke(InlaySettingsConfigurable.kt:18)
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:74)
+	at com.intellij.codeInsight.hints.settings.InlaySettingsConfigurable.getPanel(InlaySettingsConfigurable.kt:18)
+	at com.intellij.codeInsight.hints.settings.InlaySettingsConfigurable.createComponent(InlaySettingsConfigurable.kt:21)
+	at com.intellij.openapi.options.ex.ConfigurableWrapper.createComponent(ConfigurableWrapper.java:181)
+	at com.intellij.ide.ui.search.SearchUtil.processConfigurables(SearchUtil.java:72)
+	at com.intellij.ide.ui.search.TraverseUIStarter.lambda$startup$0(TraverseUIStarter.java:116)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:308)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:792)
+	at java.desktop/java.awt.EventQueue$3.run(EventQueue.java:739)
+	at java.desktop/java.awt.EventQueue$3.run(EventQueue.java:733)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:761)
+	at com.intellij.ide.IdeEventQueue.defaultDispatchEvent(IdeEventQueue.kt:698)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent$lambda$12(IdeEventQueue.kt:593)
+	at com.intellij.openapi.application.impl.RwLockHolder.runWithoutImplicitRead(RwLockHolder.kt:105)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent(IdeEventQueue.kt:593)
+	at com.intellij.ide.IdeEventQueue.access$_dispatchEvent(IdeEventQueue.kt:77)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1$1.compute(IdeEventQueue.kt:362)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1$1.compute(IdeEventQueue.kt:361)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.computePrioritized(CoreProgressManager.java:843)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1.invoke(IdeEventQueue.kt:361)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1.invoke(IdeEventQueue.kt:356)
+	at com.intellij.ide.IdeEventQueueKt.performActivity$lambda$1(IdeEventQueue.kt:1021)
+	at com.intellij.openapi.application.TransactionGuardImpl.performActivity(TransactionGuardImpl.java:106)
+	at com.intellij.ide.IdeEventQueueKt.performActivity(IdeEventQueue.kt:1021)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent$lambda$7(IdeEventQueue.kt:356)
+	at com.intellij.openapi.application.impl.RwLockHolder.runIntendedWriteActionOnCurrentThread(RwLockHolder.kt:209)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runIntendedWriteActionOnCurrentThread(ApplicationImpl.java:830)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.kt:398)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:207)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:128)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:117)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:105)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:92)
+Caused by: java.lang.UnsupportedClassVersionError: com/example/nim/NimFileType has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0
+	at java.base/java.lang.ClassLoader.defineClass2(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1108)
+	at com.intellij.util.lang.UrlClassLoader.consumeClassData(UrlClassLoader.java:291)
+	at com.intellij.util.lang.ZipResourceFile.findClass(ZipResourceFile.java:116)
+	at com.intellij.util.lang.JarLoader.findClass(JarLoader.java:58)
+	at com.intellij.util.lang.ClassPath.findClassInLoader(ClassPath.java:240)
+	at com.intellij.util.lang.ClassPath.findClass(ClassPath.java:190)
+	at com.intellij.ide.plugins.cl.PluginClassLoader.loadClassInsideSelf(PluginClassLoader.kt:326)
+	... 93 more
+2026-05-14 20:44:48,692 [  48151] SEVERE - #c.i.o.f.i.FileTypeManagerImpl - IntelliJ IDEA 2024.1  Build #IC-241.14494.240
+2026-05-14 20:44:48,692 [  48151] SEVERE - #c.i.o.f.i.FileTypeManagerImpl - JDK: 17.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
+2026-05-14 20:44:48,692 [  48151] SEVERE - #c.i.o.f.i.FileTypeManagerImpl - OS: Linux
+2026-05-14 20:44:48,692 [  48151] SEVERE - #c.i.o.f.i.FileTypeManagerImpl - Plugin to blame: Nim Language Support version: 0.1.0
+2026-05-14 20:44:48,692 [  48151] SEVERE - #c.i.o.f.i.FileTypeManagerImpl - Last Action: 
+2026-05-14 20:44:48,703 [  48162] SEVERE - #c.i.u.u.EdtInvocationManager - null
+java.lang.reflect.InvocationTargetException
+	at java.desktop/java.awt.EventQueue.invokeAndWait(EventQueue.java:1393)
+	at java.desktop/java.awt.EventQueue.invokeAndWait(EventQueue.java:1368)
+	at com.intellij.util.ui.EdtInvocationManager$SwingEdtInvocationManager.invokeAndWait(EdtInvocationManager.java:102)
+	at com.intellij.util.ui.EdtInvocationManager.invokeAndWaitIfNeeded(EdtInvocationManager.java:83)
+	at com.intellij.ide.ui.search.TraverseUIStarter.startup(TraverseUIStarter.java:111)
+	at com.intellij.ide.ui.search.TraverseUIStarter.main(TraverseUIStarter.java:89)
+	at com.intellij.platform.ide.bootstrap.ApplicationLoader.executeApplicationStarter$lambda$0(ApplicationLoader.kt:400)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+Caused by: com.intellij.diagnostic.PluginException: Argument for @NotNull parameter 'mappings' of com/redhat/devtools/lsp4ij/LanguageServersRegistry.addServerDefinitionWithoutNotification must not be null [Plugin: com.redhat.devtools.lsp4ij]
+	at com.intellij.serviceContainer.ServiceInstanceInitializer.createInstance$suspendImpl(ServiceInstanceInitializer.kt:53)
+	at com.intellij.serviceContainer.ServiceInstanceInitializer.createInstance(ServiceInstanceInitializer.kt)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder$initialize$1$1.invokeSuspend(LazyInstanceHolder.kt:162)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder$initialize$1$1.invoke(LazyInstanceHolder.kt)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder$initialize$1$1.invoke(LazyInstanceHolder.kt)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:78)
+	at kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:167)
+	at kotlinx.coroutines.BuildersKt.withContext(Unknown Source)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder$initialize$1.invokeSuspend(LazyInstanceHolder.kt:160)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder$initialize$1.invoke(LazyInstanceHolder.kt)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder$initialize$1.invoke(LazyInstanceHolder.kt)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startCoroutineUndispatched(Undispatched.kt:44)
+	at kotlinx.coroutines.CoroutineStart.invoke(CoroutineStart.kt:112)
+	at kotlinx.coroutines.AbstractCoroutine.start(AbstractCoroutine.kt:126)
+	at kotlinx.coroutines.BuildersKt__Builders_commonKt.launch(Builders.common.kt:56)
+	at kotlinx.coroutines.BuildersKt.launch(Unknown Source)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder.initialize(LazyInstanceHolder.kt:145)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder.access$initialize(LazyInstanceHolder.kt:13)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder.tryInitialize(LazyInstanceHolder.kt:135)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder.getInstance(LazyInstanceHolder.kt:95)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder.getInstanceInCallerContext$suspendImpl(LazyInstanceHolder.kt:87)
+	at com.intellij.platform.instanceContainer.internal.LazyInstanceHolder.getInstanceInCallerContext(LazyInstanceHolder.kt)
+	at com.intellij.serviceContainer.ComponentManagerImplKt$getOrCreateInstanceBlocking$3.invokeSuspend(ComponentManagerImpl.kt:1548)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:280)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:85)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:59)
+	at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source)
+	at com.intellij.serviceContainer.ComponentManagerImplKt$runBlockingInitialization$1.invoke(ComponentManagerImpl.kt:1636)
+	at com.intellij.serviceContainer.ComponentManagerImplKt$runBlockingInitialization$1.invoke(ComponentManagerImpl.kt:1627)
+	at com.intellij.openapi.progress.ContextKt.prepareThreadContext(context.kt:83)
+	at com.intellij.serviceContainer.ComponentManagerImplKt.runBlockingInitialization(ComponentManagerImpl.kt:1627)
+	at com.intellij.serviceContainer.ComponentManagerImplKt.getOrCreateInstanceBlocking(ComponentManagerImpl.kt:1547)
+	at com.intellij.serviceContainer.ComponentManagerImpl.doGetService(ComponentManagerImpl.kt:754)
+	at com.intellij.serviceContainer.ComponentManagerImpl.getService(ComponentManagerImpl.kt:698)
+	at com.redhat.devtools.lsp4ij.LanguageServersRegistry.getInstance(LanguageServersRegistry.java:55)
+	at com.redhat.devtools.lsp4ij.features.LSPInlayHintProvidersFactory.getProvidersInfo(LSPInlayHintProvidersFactory.java:31)
+	at com.intellij.codeInsight.hints.HintUtils.getLanguagesWithNewInlayHints(HintUtils.kt:14)
+	at com.intellij.codeInsight.hints.settings.providers.NewInlaySettingsProvider.getSupportedLanguages(NewInlaySettingsProvider.kt:24)
+	at com.intellij.codeInsight.hints.settings.InlaySettingsPanel.<init>(InlaySettingsPanel.kt:62)
+	at com.intellij.codeInsight.hints.settings.InlaySettingsConfigurable$panel$2.invoke(InlaySettingsConfigurable.kt:18)
+	at com.intellij.codeInsight.hints.settings.InlaySettingsConfigurable$panel$2.invoke(InlaySettingsConfigurable.kt:18)
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:74)
+	at com.intellij.codeInsight.hints.settings.InlaySettingsConfigurable.getPanel(InlaySettingsConfigurable.kt:18)
+	at com.intellij.codeInsight.hints.settings.InlaySettingsConfigurable.createComponent(InlaySettingsConfigurable.kt:21)
+	at com.intellij.openapi.options.ex.ConfigurableWrapper.createComponent(ConfigurableWrapper.java:181)
+	at com.intellij.ide.ui.search.SearchUtil.processConfigurables(SearchUtil.java:72)
+	at com.intellij.ide.ui.search.TraverseUIStarter.lambda$startup$0(TraverseUIStarter.java:116)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:308)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:792)
+	at java.desktop/java.awt.EventQueue$3.run(EventQueue.java:739)
+	at java.desktop/java.awt.EventQueue$3.run(EventQueue.java:733)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:761)
+	at com.intellij.ide.IdeEventQueue.defaultDispatchEvent(IdeEventQueue.kt:698)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent$lambda$12(IdeEventQueue.kt:593)
+	at com.intellij.openapi.application.impl.RwLockHolder.runWithoutImplicitRead(RwLockHolder.kt:105)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent(IdeEventQueue.kt:593)
+	at com.intellij.ide.IdeEventQueue.access$_dispatchEvent(IdeEventQueue.kt:77)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1$1.compute(IdeEventQueue.kt:362)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1$1.compute(IdeEventQueue.kt:361)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.computePrioritized(CoreProgressManager.java:843)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1.invoke(IdeEventQueue.kt:361)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1.invoke(IdeEventQueue.kt:356)
+	at com.intellij.ide.IdeEventQueueKt.performActivity$lambda$1(IdeEventQueue.kt:1021)
+	at com.intellij.openapi.application.TransactionGuardImpl.performActivity(TransactionGuardImpl.java:106)
+	at com.intellij.ide.IdeEventQueueKt.performActivity(IdeEventQueue.kt:1021)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent$lambda$7(IdeEventQueue.kt:356)
+	at com.intellij.openapi.application.impl.RwLockHolder.runIntendedWriteActionOnCurrentThread(RwLockHolder.kt:209)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runIntendedWriteActionOnCurrentThread(ApplicationImpl.java:830)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.kt:398)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:207)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:128)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:117)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:105)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:92)
+Caused by: java.lang.IllegalArgumentException: Argument for @NotNull parameter 'mappings' of com/redhat/devtools/lsp4ij/LanguageServersRegistry.addServerDefinitionWithoutNotification must not be null
+	at com.redhat.devtools.lsp4ij.LanguageServersRegistry.$$$reportNull$$$0(LanguageServersRegistry.java)
+	at com.redhat.devtools.lsp4ij.LanguageServersRegistry.addServerDefinitionWithoutNotification(LanguageServersRegistry.java)
+	at com.redhat.devtools.lsp4ij.LanguageServersRegistry.loadServersAndMappingsFromExtensionPoint(LanguageServersRegistry.java:140)
+	at com.redhat.devtools.lsp4ij.LanguageServersRegistry.initialize(LanguageServersRegistry.java:77)
+	at com.redhat.devtools.lsp4ij.LanguageServersRegistry.<init>(LanguageServersRegistry.java:72)
+	at com.intellij.platform.instanceContainer.instantiation.InstantiateKt$instantiate$2.invoke(instantiate.kt:45)
+	at com.intellij.platform.instanceContainer.instantiation.InstantiateKt$instantiate$2.invoke(instantiate.kt:42)
+	at com.intellij.platform.instanceContainer.instantiation.InstantiateKt.instantiate(instantiate.kt:308)
+	at com.intellij.platform.instanceContainer.instantiation.InstantiateKt.instantiate(instantiate.kt:42)
+	at com.intellij.serviceContainer.ServiceInstanceInitializer.createInstance$suspendImpl(ServiceInstanceInitializer.kt:31)
+	... 78 more
+2026-05-14 20:44:48,708 [  48167] SEVERE - #c.i.u.u.EdtInvocationManager - IntelliJ IDEA 2024.1  Build #IC-241.14494.240
+2026-05-14 20:44:48,709 [  48168] SEVERE - #c.i.u.u.EdtInvocationManager - JDK: 17.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
+2026-05-14 20:44:48,709 [  48168] SEVERE - #c.i.u.u.EdtInvocationManager - OS: Linux
+2026-05-14 20:44:48,709 [  48168] SEVERE - #c.i.u.u.EdtInvocationManager - Plugin to blame: LSP4IJ version: 0.7.0
+2026-05-14 20:44:48,709 [  48168] SEVERE - #c.i.u.u.EdtInvocationManager - Last Action: 
+2026-05-14 20:44:48,713 [  48172]   INFO - STDOUT - Found 120 configurables
+2026-05-14 20:44:48,812 [  48271]   INFO - #c.i.i.p.n.PluginsGroupComponentWithProgress - Marketplace tab: loading stopped
+2026-05-14 20:44:50,890 [  50349]   WARN - #c.i.o.a.ActionStub - ActionGroup should be registered using <group> tag: id="GitBranchesTreePopupFilterSeparatorWithText" class="git4idea.ui.branch.popup.GitBranchesTreePopupFilterSeparatorWithText"
+2026-05-14 20:44:53,371 [  52830] SEVERE - #c.i.o.o.ConfigurableEP - Cannot create configurable
+com.intellij.diagnostic.PluginException: Cannot load class com.example.nim.settings.NimSettingsConfigurable (
+  error: com/example/nim/settings/NimSettingsConfigurable has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0,
+  classLoader=PluginClassLoader(plugin=PluginDescriptor(name=Nim Language Support, id=com.example.nim, descriptorPath=plugin.xml, path=~/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/plugins/nim-intellij-plugin, version=0.1.0, package=null, isBundled=false), packagePrefix=null, state=active)
+)
+	at com.intellij.ide.plugins.cl.PluginClassLoader.loadClassInsideSelf(PluginClassLoader.kt:331)
+	at com.intellij.ide.plugins.cl.PluginClassLoader.tryLoadingClass(PluginClassLoader.kt:178)
+	at com.intellij.serviceContainer.ComponentManagerImplKt.doLoadClass(ComponentManagerImpl.kt:1466)
+	at com.intellij.serviceContainer.ComponentManagerImpl.instantiateClass(ComponentManagerImpl.kt:943)
+	at com.intellij.openapi.options.ConfigurableEP$ClassProducer.createElement(ConfigurableEP.java:429)
+	at com.intellij.openapi.options.ConfigurableEP.createConfigurable(ConfigurableEP.java:338)
+	at com.intellij.openapi.options.ex.ConfigurableWrapper.createConfigurable(ConfigurableWrapper.java:39)
+	at com.intellij.openapi.options.ex.ConfigurableWrapper.getConfigurable(ConfigurableWrapper.java:116)
+	at com.intellij.ide.ui.search.TraverseUIStarter.addOptions(TraverseUIStarter.java:158)
+	at com.intellij.ide.ui.search.TraverseUIStarter.startup(TraverseUIStarter.java:127)
+	at com.intellij.ide.ui.search.TraverseUIStarter.main(TraverseUIStarter.java:89)
+	at com.intellij.platform.ide.bootstrap.ApplicationLoader.executeApplicationStarter$lambda$0(ApplicationLoader.kt:400)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+Caused by: java.lang.UnsupportedClassVersionError: com/example/nim/settings/NimSettingsConfigurable has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0
+	at java.base/java.lang.ClassLoader.defineClass2(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1108)
+	at com.intellij.util.lang.UrlClassLoader.consumeClassData(UrlClassLoader.java:291)
+	at com.intellij.util.lang.ZipResourceFile.findClass(ZipResourceFile.java:116)
+	at com.intellij.util.lang.JarLoader.findClass(JarLoader.java:58)
+	at com.intellij.util.lang.ClassPath.findClassInLoader(ClassPath.java:240)
+	at com.intellij.util.lang.ClassPath.findClass(ClassPath.java:190)
+	at com.intellij.ide.plugins.cl.PluginClassLoader.loadClassInsideSelf(PluginClassLoader.kt:326)
+	... 18 more
+2026-05-14 20:44:53,376 [  52835] SEVERE - #c.i.o.o.ConfigurableEP - IntelliJ IDEA 2024.1  Build #IC-241.14494.240
+2026-05-14 20:44:53,376 [  52835] SEVERE - #c.i.o.o.ConfigurableEP - JDK: 17.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
+2026-05-14 20:44:53,380 [  52839] SEVERE - #c.i.o.o.ConfigurableEP - OS: Linux
+2026-05-14 20:44:53,380 [  52839] SEVERE - #c.i.o.o.ConfigurableEP - Plugin to blame: Nim Language Support version: 0.1.0
+2026-05-14 20:44:53,381 [  52840] SEVERE - #c.i.o.o.ConfigurableEP - Last Action: 
+2026-05-14 20:44:53,386 [  52845] SEVERE - #c.i.o.o.e.ConfigurableWrapper - Can't instantiate configurable for Nim [Plugin: com.example.nim]
+com.intellij.diagnostic.PluginException: Can't instantiate configurable for Nim [Plugin: com.example.nim]
+	at com.intellij.openapi.options.ex.ConfigurableWrapper.getConfigurable(ConfigurableWrapper.java:121)
+	at com.intellij.ide.ui.search.TraverseUIStarter.addOptions(TraverseUIStarter.java:158)
+	at com.intellij.ide.ui.search.TraverseUIStarter.startup(TraverseUIStarter.java:127)
+	at com.intellij.ide.ui.search.TraverseUIStarter.main(TraverseUIStarter.java:89)
+	at com.intellij.platform.ide.bootstrap.ApplicationLoader.executeApplicationStarter$lambda$0(ApplicationLoader.kt:400)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+2026-05-14 20:44:53,388 [  52847] SEVERE - #c.i.o.o.e.ConfigurableWrapper - IntelliJ IDEA 2024.1  Build #IC-241.14494.240
+2026-05-14 20:44:53,389 [  52848] SEVERE - #c.i.o.o.e.ConfigurableWrapper - JDK: 17.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
+2026-05-14 20:44:53,390 [  52849] SEVERE - #c.i.o.o.e.ConfigurableWrapper - OS: Linux
+2026-05-14 20:44:53,390 [  52849] SEVERE - #c.i.o.o.e.ConfigurableWrapper - Plugin to blame: Nim Language Support version: 0.1.0
+2026-05-14 20:44:53,391 [  52850] SEVERE - #c.i.o.o.e.ConfigurableWrapper - Last Action: 
+2026-05-14 20:44:53,398 [  52857] SEVERE - #c.i.o.o.ConfigurableEP - Cannot create configurable
+com.intellij.diagnostic.PluginException: Cannot load class com.example.nim.settings.NimSettingsConfigurable (
+  error: com/example/nim/settings/NimSettingsConfigurable has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0,
+  classLoader=PluginClassLoader(plugin=PluginDescriptor(name=Nim Language Support, id=com.example.nim, descriptorPath=plugin.xml, path=~/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/plugins/nim-intellij-plugin, version=0.1.0, package=null, isBundled=false), packagePrefix=null, state=active)
+)
+	at com.intellij.ide.plugins.cl.PluginClassLoader.loadClassInsideSelf(PluginClassLoader.kt:331)
+	at com.intellij.ide.plugins.cl.PluginClassLoader.tryLoadingClass(PluginClassLoader.kt:178)
+	at com.intellij.serviceContainer.ComponentManagerImplKt.doLoadClass(ComponentManagerImpl.kt:1466)
+	at com.intellij.serviceContainer.ComponentManagerImpl.instantiateClass(ComponentManagerImpl.kt:943)
+	at com.intellij.openapi.options.ConfigurableEP$ClassProducer.createElement(ConfigurableEP.java:429)
+	at com.intellij.openapi.options.ConfigurableEP.createConfigurable(ConfigurableEP.java:338)
+	at com.intellij.openapi.options.ex.ConfigurableWrapper.createConfigurable(ConfigurableWrapper.java:39)
+	at com.intellij.openapi.options.ex.ConfigurableWrapper.getConfigurable(ConfigurableWrapper.java:116)
+	at com.intellij.openapi.options.ex.ConfigurableWrapper.getOriginalClass(ConfigurableWrapper.java:265)
+	at com.intellij.ide.ui.search.TraverseUIStarter.addOptions(TraverseUIStarter.java:189)
+	at com.intellij.ide.ui.search.TraverseUIStarter.startup(TraverseUIStarter.java:127)
+	at com.intellij.ide.ui.search.TraverseUIStarter.main(TraverseUIStarter.java:89)
+	at com.intellij.platform.ide.bootstrap.ApplicationLoader.executeApplicationStarter$lambda$0(ApplicationLoader.kt:400)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+Caused by: java.lang.UnsupportedClassVersionError: com/example/nim/settings/NimSettingsConfigurable has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0
+	at java.base/java.lang.ClassLoader.defineClass2(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1108)
+	at com.intellij.util.lang.UrlClassLoader.consumeClassData(UrlClassLoader.java:291)
+	at com.intellij.util.lang.ZipResourceFile.findClass(ZipResourceFile.java:116)
+	at com.intellij.util.lang.JarLoader.findClass(JarLoader.java:58)
+	at com.intellij.util.lang.ClassPath.findClassInLoader(ClassPath.java:240)
+	at com.intellij.util.lang.ClassPath.findClass(ClassPath.java:190)
+	at com.intellij.ide.plugins.cl.PluginClassLoader.loadClassInsideSelf(PluginClassLoader.kt:326)
+	... 19 more
+2026-05-14 20:44:53,403 [  52862] SEVERE - #c.i.o.o.ConfigurableEP - IntelliJ IDEA 2024.1  Build #IC-241.14494.240
+2026-05-14 20:44:53,404 [  52863] SEVERE - #c.i.o.o.ConfigurableEP - JDK: 17.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
+2026-05-14 20:44:53,405 [  52864] SEVERE - #c.i.o.o.ConfigurableEP - OS: Linux
+2026-05-14 20:44:53,405 [  52864] SEVERE - #c.i.o.o.ConfigurableEP - Plugin to blame: Nim Language Support version: 0.1.0
+2026-05-14 20:44:53,405 [  52864] SEVERE - #c.i.o.o.ConfigurableEP - Last Action: 
+2026-05-14 20:44:53,411 [  52870] SEVERE - #c.i.o.o.e.ConfigurableWrapper - Can't instantiate configurable for Nim [Plugin: com.example.nim]
+com.intellij.diagnostic.PluginException: Can't instantiate configurable for Nim [Plugin: com.example.nim]
+	at com.intellij.openapi.options.ex.ConfigurableWrapper.getConfigurable(ConfigurableWrapper.java:121)
+	at com.intellij.openapi.options.ex.ConfigurableWrapper.getOriginalClass(ConfigurableWrapper.java:265)
+	at com.intellij.ide.ui.search.TraverseUIStarter.addOptions(TraverseUIStarter.java:189)
+	at com.intellij.ide.ui.search.TraverseUIStarter.startup(TraverseUIStarter.java:127)
+	at com.intellij.ide.ui.search.TraverseUIStarter.main(TraverseUIStarter.java:89)
+	at com.intellij.platform.ide.bootstrap.ApplicationLoader.executeApplicationStarter$lambda$0(ApplicationLoader.kt:400)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+2026-05-14 20:44:53,589 [  53048] SEVERE - #c.i.o.o.e.ConfigurableWrapper - IntelliJ IDEA 2024.1  Build #IC-241.14494.240
+2026-05-14 20:44:53,589 [  53048] SEVERE - #c.i.o.o.e.ConfigurableWrapper - JDK: 17.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
+2026-05-14 20:44:53,589 [  53048] SEVERE - #c.i.o.o.e.ConfigurableWrapper - OS: Linux
+2026-05-14 20:44:53,589 [  53048] SEVERE - #c.i.o.o.e.ConfigurableWrapper - Plugin to blame: Nim Language Support version: 0.1.0
+2026-05-14 20:44:53,590 [  53049] SEVERE - #c.i.o.o.e.ConfigurableWrapper - Last Action: 
+2026-05-14 20:44:55,208 [  54667]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/textmate.jar/search/textmate.jar.searchableOptions.xml
+2026-05-14 20:44:55,214 [  54673]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/markdown.jar/search/markdown.jar.searchableOptions.xml
+2026-05-14 20:44:55,215 [  54674]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/eclipse.jar/search/eclipse.jar.searchableOptions.xml
+2026-05-14 20:44:55,216 [  54675]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/sh.jar/search/sh.jar.searchableOptions.xml
+2026-05-14 20:44:55,217 [  54676]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/tasks-core.jar/search/tasks-core.jar.searchableOptions.xml
+2026-05-14 20:44:55,218 [  54677]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/java-coverage.jar/search/java-coverage.jar.searchableOptions.xml
+2026-05-14 20:44:55,221 [  54680]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/kotlin-plugin-shared.jar/search/kotlin-plugin-shared.jar.searchableOptions.xml
+2026-05-14 20:44:55,223 [  54682]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/uiDesigner.jar/search/uiDesigner.jar.searchableOptions.xml
+2026-05-14 20:44:55,224 [  54683]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/javaFX.jar/search/javaFX.jar.searchableOptions.xml
+2026-05-14 20:44:55,224 [  54683]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/dev.jar/search/dev.jar.searchableOptions.xml
+2026-05-14 20:44:55,225 [  54684]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/cwm-plugin-terminal.jar/search/cwm-plugin-terminal.jar.searchableOptions.xml
+2026-05-14 20:44:55,227 [  54686]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/vcs-svn.jar/search/vcs-svn.jar.searchableOptions.xml
+2026-05-14 20:44:55,227 [  54686]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/byteCodeViewer.jar/search/byteCodeViewer.jar.searchableOptions.xml
+2026-05-14 20:44:55,228 [  54687]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/marketplace.jar/search/marketplace.jar.searchableOptions.xml
+2026-05-14 20:44:55,228 [  54687]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/copyright.jar/search/copyright.jar.searchableOptions.xml
+2026-05-14 20:44:55,235 [  54694]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/maven.jar/search/maven.jar.searchableOptions.xml
+2026-05-14 20:44:55,238 [  54697]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/Groovy.jar/search/Groovy.jar.searchableOptions.xml
+2026-05-14 20:44:55,239 [  54698]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/gradle-java.jar/search/gradle-java.jar.searchableOptions.xml
+2026-05-14 20:44:55,240 [  54699]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/terminal.jar/search/terminal.jar.searchableOptions.xml
+2026-05-14 20:44:55,241 [  54700]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/properties.jar/search/properties.jar.searchableOptions.xml
+2026-05-14 20:44:55,242 [  54701]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/performanceTesting-async.jar/search/performanceTesting-async.jar.searchableOptions.xml
+2026-05-14 20:44:55,251 [  54710]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/java-impl.jar/search/java-impl.jar.searchableOptions.xml
+2026-05-14 20:44:55,253 [  54712]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/instrumented-lsp4ij-0.7.0.jar/search/instrumented-lsp4ij-0.7.0.jar.searchableOptions.xml
+2026-05-14 20:44:55,319 [  54778]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/app-client.jar/search/app-client.jar.searchableOptions.xml
+2026-05-14 20:44:55,321 [  54780]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/html-tools.jar/search/html-tools.jar.searchableOptions.xml
+2026-05-14 20:44:55,322 [  54781]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/java-debugger-streams.jar/search/java-debugger-streams.jar.searchableOptions.xml
+2026-05-14 20:44:55,323 [  54782]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/vcs-perforce.jar/search/vcs-perforce.jar.searchableOptions.xml
+2026-05-14 20:44:55,324 [  54783]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/gradle.jar/search/gradle.jar.searchableOptions.xml
+2026-05-14 20:44:55,324 [  54783]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/testng-plugin.jar/search/testng-plugin.jar.searchableOptions.xml
+2026-05-14 20:44:55,325 [  54784]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/grazie.jar/search/grazie.jar.searchableOptions.xml
+2026-05-14 20:44:55,326 [  54785]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/qodana.jar/search/qodana.jar.searchableOptions.xml
+2026-05-14 20:44:55,333 [  54792]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/app.jar/search/app.jar.searchableOptions.xml
+2026-05-14 20:44:55,334 [  54793]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/completionMlRanking.jar/search/completionMlRanking.jar.searchableOptions.xml
+2026-05-14 20:44:55,335 [  54794]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/java-decompiler.jar/search/java-decompiler.jar.searchableOptions.xml
+2026-05-14 20:44:55,336 [  54795]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/vcs-hg.jar/search/vcs-hg.jar.searchableOptions.xml
+2026-05-14 20:44:55,337 [  54796]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/performanceTesting.jar/search/performanceTesting.jar.searchableOptions.xml
+2026-05-14 20:44:55,338 [  54797]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/vcs-gitlab.jar/search/vcs-gitlab.jar.searchableOptions.xml
+2026-05-14 20:44:55,339 [  54798]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/cwm-common.jar/search/cwm-common.jar.searchableOptions.xml
+2026-05-14 20:44:55,339 [  54798]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/java-i18n.jar/search/java-i18n.jar.searchableOptions.xml
+2026-05-14 20:44:55,340 [  54799]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/emojipicker.jar/search/emojipicker.jar.searchableOptions.xml
+2026-05-14 20:44:55,340 [  54799]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/toml.jar/search/toml.jar.searchableOptions.xml
+2026-05-14 20:44:55,341 [  54800]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/idea-junit.jar/search/idea-junit.jar.searchableOptions.xml
+2026-05-14 20:44:55,342 [  54801]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/yaml.jar/search/yaml.jar.searchableOptions.xml
+2026-05-14 20:44:55,342 [  54801]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/packageChecker.jar/search/packageChecker.jar.searchableOptions.xml
+2026-05-14 20:44:55,343 [  54802]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/editorconfig.jar/search/editorconfig.jar.searchableOptions.xml
+2026-05-14 20:44:55,344 [  54803]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/vcs-github.jar/search/vcs-github.jar.searchableOptions.xml
+2026-05-14 20:44:55,345 [  54804]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/platform-images.jar/search/platform-images.jar.searchableOptions.xml
+2026-05-14 20:44:55,346 [  54805]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/kotlin-plugin.jar/search/kotlin-plugin.jar.searchableOptions.xml
+2026-05-14 20:44:55,350 [  54809]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/vcs-git.jar/search/vcs-git.jar.searchableOptions.xml
+2026-05-14 20:44:55,351 [  54810]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/modules.jar/search/modules.jar.searchableOptions.xml
+2026-05-14 20:44:55,351 [  54810]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/featuresTrainer.jar/search/featuresTrainer.jar.searchableOptions.xml
+2026-05-14 20:44:55,352 [  54811]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/cwm-host.jar/search/cwm-host.jar.searchableOptions.xml
+2026-05-14 20:44:55,353 [  54812]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/gradle-java-maven.jar/search/gradle-java-maven.jar.searchableOptions.xml
+2026-05-14 20:44:55,354 [  54813]   INFO - STDOUT - Output written to /home/danny/IdeaProjects/nim-intellij-plugin/build/tmp/buildSearchableOptions/settingsSync.jar/search/settingsSync.jar.searchableOptions.xml
+2026-05-14 20:44:55,354 [  54813]   INFO - STDOUT - Searchable options index builder completed
+2026-05-14 20:44:55,356 [  54815]   INFO - #c.i.u.i.FileBasedIndexImpl - Index dispose started
+2026-05-14 20:44:55,427 [  54886]   INFO - #c.i.p.s.StubIndexImpl - StubIndexExtension-s were unloaded
+2026-05-14 20:44:55,428 [  54887]   INFO - #c.i.p.s.SerializationManagerImpl - Start shutting down /home/danny/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/system/index/rep.names
+2026-05-14 20:44:55,431 [  54890]   INFO - #c.i.p.s.SerializationManagerImpl - Finished shutting down /home/danny/IdeaProjects/nim-intellij-plugin/.intellijPlatform/sandbox/nim-intellij-plugin/IC-2024.1/system/index/rep.names
+2026-05-14 20:44:55,447 [  54906]   INFO - #c.i.u.i.FileBasedIndexImpl - Index dispose completed in 92ms.
+2026-05-14 20:44:55,449 [  54908]   INFO - #c.i.o.v.n.p.PersistentFSImpl - VFS dispose started
+2026-05-14 20:44:55,450 [  54909]   INFO - #c.i.o.v.n.p.FSRecordsImpl - VFS closing
+2026-05-14 20:44:55,451 [  54910]   INFO - #c.i.o.v.n.p.PersistentFSImpl - VFS dispose completed in 2 ms.
+2026-05-14 20:44:55,483 [  54942]   INFO - #c.i.p.i.b.AppStarter - ------------------------------------------------------ IDE SHUTDOWN ------------------------------------------------------
