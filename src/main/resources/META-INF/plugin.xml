@@ -1,0 +1,45 @@
+<idea-plugin>
+    <id>com.example.nim</id>
+    <name>Nim Language Support</name>
+    <vendor>Example</vendor>
+    <description><![CDATA[
+        Nim language support via <a href="https://github.com/nim-lang/langserver">nimlangserver</a>.<br/>
+        Provides completion, hover, go-to-definition, find usages, diagnostics, inlay hints, and more.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.redhat.devtools.lsp4ij</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="Nim"
+                  language="Nim"
+                  implementationClass="com.example.nim.NimFileType"
+                  extensions="nim;nims;nimble;nimscript"
+                  fieldName="INSTANCE"/>
+
+        <applicationService serviceImplementation="com.example.nim.settings.NimSettings"/>
+
+        <applicationConfigurable parentId="language"
+                                 instance="com.example.nim.settings.NimSettingsConfigurable"
+                                 id="com.example.nim.settings.NimSettingsConfigurable"
+                                 displayName="Nim"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
+        <server id="nim"
+                name="Nim Language Server"
+                factoryClass="com.example.nim.lsp.NimLanguageServerFactory">
+            <description><![CDATA[
+                nimlangserver — official Nim LSP wrapping nimsuggest.
+                Install: <code>nimble install nimlangserver</code>
+            ]]></description>
+        </server>
+
+        <languageMapping language="Nim"
+                         serverId="nim"
+                         languageId="nim"/>
+
+        <fileTypeMapping fileType="Nim"
+                         serverId="nim"/>
+    </extensions>
+</idea-plugin>
