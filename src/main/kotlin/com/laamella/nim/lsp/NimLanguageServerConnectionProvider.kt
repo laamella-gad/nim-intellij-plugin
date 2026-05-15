@@ -8,6 +8,6 @@ class NimLanguageServerConnectionProvider(project: Project) : ProcessStreamConne
     init {
         val path = NimSettings.getInstance().serverPath.ifBlank { "nimlangserver" }
         commands = listOf(path)
-        workingDirectory = project.basePath
+        workingDirectory = project.basePath ?: System.getProperty("user.home")
     }
 }
