@@ -30,6 +30,8 @@
 
         <configurationType implementation="com.laamella.nim.run.NimRunConfigurationType"/>
         <runConfigurationProducer implementation="com.laamella.nim.run.NimRunConfigurationProducer"/>
+        <configurationType implementation="com.laamella.nim.run.NimTestRunConfigurationType"/>
+        <runConfigurationProducer implementation="com.laamella.nim.run.NimTestRunConfigurationProducer"/>
 
         <postStartupActivity implementation="com.laamella.nim.NimProjectConfigurator"/>
 
