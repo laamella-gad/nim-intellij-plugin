@@ -7,6 +7,12 @@ It is just a slopped together plugin that works well enough.
 
 ## Features
 
+Provided by the plugin:
+
+- Syntax highlighting
+- File type recognition (`.nim`, `.nims`, `.nimble`)
+- Project setup for binDir and srcDir.
+
 Provided by nimlangserver over LSP:
 
 - Code completion
