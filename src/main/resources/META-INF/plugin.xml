@@ -1,9 +1,3 @@
-<!--
-TODO support for a Nim project
-TODO support for running the project
-TODO support for debugging the project
--->
-
 <idea-plugin>
     <id>com.laamella.nim</id>
     <name>Nim</name>
@@ -34,7 +28,6 @@ TODO support for debugging the project
         <lang.psiStructureViewFactory language="Nim" implementationClass="com.redhat.devtools.lsp4ij.features.documentSymbol.LSPDocumentSymbolStructureViewFactory"/>
         <codeInsight.parameterInfo language="Nim" implementationClass="com.redhat.devtools.lsp4ij.features.signatureHelp.LSPParameterInfoHandler"/>
 
-        <!-- TODO find a way to say that project root is all writable instead of this: -->
         <nonProjectFileWritingAccessExtension implementation="com.laamella.nim.NimWritingAccessExtension"/>
 
         <directoryProjectConfigurator implementation="com.laamella.nim.NimProjectConfigurator"/>

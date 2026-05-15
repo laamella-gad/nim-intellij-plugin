@@ -27,6 +27,12 @@ Provided by nimlangserver over LSP:
 - Structure view
 - Signature help
 
+Features to do:
+- support for a Nim project
+- support for running the project 
+- support for debugging the project
+- avoid NimWritingAccessExtension
+
 ## Requirements
 
 - IntelliJ IDEA 2025.1 (Community or Ultimate)
