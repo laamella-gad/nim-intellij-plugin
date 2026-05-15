@@ -32,7 +32,6 @@ Provided by nimlangserver over LSP:
 Features to do:
 - support for debugging the project (difficult?)
 - use a JFlex lexer
-- migrate to codeberg
 
 ## Requirements
 
