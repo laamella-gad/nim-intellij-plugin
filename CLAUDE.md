@@ -21,7 +21,11 @@ This is an IntelliJ Platform plugin that adds Nim language support by wiring **L
 
 ```
 com.intellij.fileType                        → NimFileType   (.nim, .nims, .nimble)
+com.intellij.lang.parserDefinition           → NimParserDefinition
 com.intellij.lang.syntaxHighlighterFactory   → NimSyntaxHighlighterFactory
+com.intellij.lang.commenter                  → NimCommenter
+com.intellij.lang.quoteHandler               → NimQuoteHandler
+com.intellij.lang.braceMatcher               → NimBraceMatcher
 com.intellij.directoryProjectConfigurator    → NimProjectConfigurator
 com.intellij.nonProjectFileWritingAccessExtension → NimWritingAccessExtension
 com.redhat.devtools.lsp4ij:
@@ -36,10 +40,15 @@ com.redhat.devtools.lsp4ij:
 |---|---|
 | `NimLanguage` | Singleton `Language("Nim")` — identity used by LSP4IJ `languageMapping` |
 | `NimFileType` | Maps `.nim/.nims/.nimble` to `NimLanguage`; provides icon |
-| `NimTokenTypes` | `IElementType` constants for all lexer token kinds |
-| `NimLexer` | Hand-written `LexerBase` — keywords, strings, chars, numbers, nested block comments, doc comments |
+| `NimFile` | `PsiFileBase` subclass — required so PSI files carry `NimLanguage` (enables commenter lookup) |
+| `NimParserDefinition` | Minimal `ParserDefinition` — flat token tree, no real parser; provides lexer, comment/string token sets, and `NimFile` factory |
+| `NimTokenTypes` | `IElementType` constants for all lexer token kinds including bracket tokens |
+| `NimLexer` | Hand-written `LexerBase` — keywords, strings, chars, numbers, nested block comments, doc comments, bracket tokens |
 | `NimSyntaxHighlighter` | Maps token types to `DefaultLanguageHighlighterColors` keys |
 | `NimSyntaxHighlighterFactory` | Creates `NimSyntaxHighlighter`; registered for `language="Nim"` |
+| `NimCommenter` | Line comment `#`, block comment `#[`/`]#` — enables Ctrl+/ |
+| `NimQuoteHandler` | Auto-closes `"` and `'` |
+| `NimBraceMatcher` | Highlights matching `()`, `[]`, `{}` pairs |
 | `NimProjectConfigurator` | `DirectoryProjectConfigurator` — finds `.nimble` on project open, marks `srcDir` as source root and `binDir` as excluded |
 | `NimWritingAccessExtension` | Allows editing Nim files outside content roots (fallback for projects without `.nimble`) |
 | `NimLanguageServerFactory` | LSP4IJ entry point; creates connection provider and client features (`isUseIntAsJsonRpcId=true`) |

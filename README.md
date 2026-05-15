@@ -12,6 +12,8 @@ Provided by the plugin:
 - Syntax highlighting
 - File type recognition (`.nim`, `.nims`, `.nimble`)
 - Project setup for binDir and srcDir.
+- Comment/uncomment (Ctrl+/)
+- Auto-close quotes and brackets
 
 Provided by nimlangserver over LSP:
 
