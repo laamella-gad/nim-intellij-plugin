@@ -59,3 +59,9 @@ Pinned in `build.gradle.kts`. Check current version at: https://plugins.jetbrain
 ### Platform target
 
 Controlled entirely by `gradle.properties` (`platformType`, `platformVersion`, `pluginSinceBuild`, `pluginUntilBuild`). No code changes needed to retarget.
+
+## License
+
+EPL-2.0 (Eclipse Public License 2.0) — see `LICENSE`.
+
+Third-party assets are documented in `NOTICE`. The plugin icon (`META-INF/pluginIcon.svg`) is the official Nim logo from https://commons.wikimedia.org/wiki/File:Nim_logo.svg, MIT-licensed by the Nim project; the embedded PNG reference layer has been stripped leaving only vector paths.
