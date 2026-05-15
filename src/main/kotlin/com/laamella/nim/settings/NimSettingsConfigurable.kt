@@ -1,6 +1,6 @@
 package com.laamella.nim.settings
 
-import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory
+import com.intellij.openapi.fileChooser.FileChooserDescriptor
 import com.intellij.openapi.options.Configurable
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
 import com.intellij.ui.dsl.builder.AlignX
@@ -15,10 +15,9 @@ class NimSettingsConfigurable : Configurable {
     override fun createComponent(): JComponent {
         val field = TextFieldWithBrowseButton()
         field.addBrowseFolderListener(
-            "Select nimlangserver Executable",
             null,
-            null,
-            FileChooserDescriptorFactory.createSingleFileDescriptor()
+            FileChooserDescriptor(true, false, false, false, false, false)
+                .withTitle("Select Nim Language Server Executable")
         )
         serverPathField = field
 
