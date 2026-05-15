@@ -34,10 +34,9 @@ class NimProjectConfigurator : ProjectActivity {
             if (binRoot != null && contentEntry.excludeFolderUrls.none { it == binRoot.url })
                 contentEntry.addExcludeFolder(binRoot)
         }
-        val content = nimbleMap.entries.joinToString("<br>") { (k, v) -> "$k = $v" }
         NotificationGroupManager.getInstance()
             .getNotificationGroup("Nim")
-            .createNotification("Nim project configured from ${nimbleFile.name}", content, NotificationType.INFORMATION)
+            .createNotification("Nimble project refreshed", NotificationType.INFORMATION)
             .notify(project)
     }
 }
