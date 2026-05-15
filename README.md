@@ -29,10 +29,6 @@ Provided by nimlangserver over LSP:
 - Structure view
 - Signature help
 
-Features to do:
-- support for debugging the project (difficult?)
-- use a JFlex lexer
-
 ## Requirements
 
 - IntelliJ IDEA 2025.1 (Community or Ultimate)
