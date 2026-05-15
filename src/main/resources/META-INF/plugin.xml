@@ -30,7 +30,7 @@
 
         <nonProjectFileWritingAccessExtension implementation="com.laamella.nim.NimWritingAccessExtension"/>
 
-        <directoryProjectConfigurator implementation="com.laamella.nim.NimProjectConfigurator"/>
+        <postStartupActivity implementation="com.laamella.nim.NimProjectConfigurator"/>
 
         <applicationConfigurable parentId="language"
                                  instance="com.laamella.nim.settings.NimSettingsConfigurable"

@@ -32,6 +32,8 @@ Features to do:
 - support for running the project 
 - support for debugging the project
 - avoid NimWritingAccessExtension
+- use a JFlex lexer
+- migrate to codeberg
 
 ## Requirements
 
