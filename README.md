@@ -14,6 +14,8 @@ Provided by the plugin:
 - Project setup for binDir and srcDir.
 - Comment/uncomment (Ctrl+/)
 - Auto-close quotes and brackets
+- Runner/test runner. Right-click the nimble file.
+- New Project wizard (File → New Project → Nim) (buggy)
 
 Provided by nimlangserver over LSP:
 
@@ -28,8 +30,7 @@ Provided by nimlangserver over LSP:
 - Signature help
 
 Features to do:
-- support for creating a new Nim project
-- support for debugging the project
+- support for debugging the project (difficult?)
 - use a JFlex lexer
 - migrate to codeberg
 

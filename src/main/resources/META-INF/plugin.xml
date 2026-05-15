@@ -35,6 +35,8 @@
 
         <postStartupActivity implementation="com.laamella.nim.NimProjectConfigurator"/>
 
+        <newProjectWizard.languageGenerator implementation="com.laamella.nim.newproject.NimNewProjectWizard"/>
+
         <notificationGroup id="Nim" displayType="BALLOON" isLogByDefault="true"/>
 
         <applicationConfigurable parentId="language"
