@@ -1,11 +1,40 @@
 <idea-plugin>
     <id>com.laamella.nim</id>
     <name>Nim</name>
-    <vendor>Laamella Gad</vendor>
+    <vendor email="hexagonaal@gmail.com" url="https://codeberg.org/laamella/nim-intellij-plugin">Laamella Gad</vendor>
     <description><![CDATA[
-        Nim language support via <a href="https://github.com/nim-lang/langserver">nimlangserver</a>.<br/>
-        Provides completion, hover, go-to-definition, find usages, diagnostics, inlay hints, and more.
+        Full Nim language support powered by the official <a href="https://github.com/nim-lang/langserver">nimlangserver</a>
+        via <a href="https://github.com/redhat-developer/lsp4ij">LSP4IJ</a>.
+
+        <ul>
+            <li>Code completion, parameter info, and hover documentation</li>
+            <li>Go to definition, find usages, and rename refactoring</li>
+            <li>Inline diagnostics and inlay hints</li>
+            <li>Syntax highlighting with bracket matching and auto-close</li>
+            <li>Run and test configurations for <code>.nim</code> files</li>
+            <li>New project wizard for Nim projects</li>
+        </ul>
+
+        <em>This is a community plugin, not officially supported by JetBrains or the Nim project.</em>
+
+        <b>Getting Started</b>
+        <ol>
+            <li>Install nimlangserver: <code>nimble install nimlangserver</code></li>
+            <li>Open <b>Settings → Languages &amp; Frameworks → Nim</b> and verify the server path.</li>
+            <li>Open any <code>.nim</code>, <code>.nims</code>, or <code>.nimble</code> file — LSP features activate automatically.</li>
+        </ol>
     ]]></description>
+    <change-notes><![CDATA[
+        <b>0.1.0</b>
+        <ul>
+            <li>Initial release</li>
+            <li>Nim language support via nimlangserver and LSP4IJ</li>
+            <li>Syntax highlighting, bracket matching, and auto-close quotes</li>
+            <li>Run and test configurations</li>
+            <li>New project wizard (still buggy)</li>
+            <li>Source root detection from <code>.nimble</code> files</li>
+        </ul>
+    ]]></change-notes>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>com.redhat.devtools.lsp4ij</depends>
