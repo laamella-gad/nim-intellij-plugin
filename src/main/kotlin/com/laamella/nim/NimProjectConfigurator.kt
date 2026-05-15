@@ -1,6 +1,7 @@
 package com.laamella.nim
 
-import com.intellij.openapi.diagnostic.Logger
+import com.intellij.notification.NotificationGroupManager
+import com.intellij.notification.NotificationType
 import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.ModuleRootModificationUtil
@@ -8,17 +9,10 @@ import com.intellij.openapi.startup.StartupActivity
 import com.intellij.openapi.vfs.LocalFileSystem
 
 class NimProjectConfigurator : StartupActivity.DumbAware {
-    private val log = Logger.getInstance(NimProjectConfigurator::class.java)
-
     override fun runActivity(project: Project) {
-        log.info("NimProjectConfigurator fired for ${project.name}")
         val basePath = project.basePath ?: return
         val baseDir = LocalFileSystem.getInstance().findFileByPath(basePath) ?: return
-        val nimbleFile = baseDir.children.find { it.extension == "nimble" }
-        if (nimbleFile == null) {
-            log.info("No .nimble file found in $basePath")
-            return
-        }
+        val nimbleFile = baseDir.children.find { it.extension == "nimble" } ?: return
         val nimble = String(nimbleFile.contentsToByteArray())
         val nimbleMap = buildMap {
             for (line in nimble.lines()) {
@@ -30,7 +24,6 @@ class NimProjectConfigurator : StartupActivity.DumbAware {
                 if (key.isNotEmpty()) put(key, value)
             }
         }
-        log.info("Nim project config (${nimbleFile.name}): $nimbleMap")
         val srcRoot = baseDir.findChild(nimbleMap["srcDir"] ?: "src") ?: baseDir
         val binRoot = nimbleMap["binDir"]?.let { baseDir.findChild(it) }
         val module = ModuleManager.getInstance(project).modules.firstOrNull() ?: return
@@ -42,5 +35,10 @@ class NimProjectConfigurator : StartupActivity.DumbAware {
             if (binRoot != null && contentEntry.excludeFolderUrls.none { it == binRoot.url })
                 contentEntry.addExcludeFolder(binRoot)
         }
+        val content = nimbleMap.entries.joinToString("<br>") { (k, v) -> "$k = $v" }
+        NotificationGroupManager.getInstance()
+            .getNotificationGroup("Nim")
+            .createNotification("Nim project configured from ${nimbleFile.name}", content, NotificationType.INFORMATION)
+            .notify(project)
     }
 }

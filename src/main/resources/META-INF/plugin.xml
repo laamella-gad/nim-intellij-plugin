@@ -32,6 +32,8 @@
 
         <postStartupActivity implementation="com.laamella.nim.NimProjectConfigurator"/>
 
+        <notificationGroup id="Nim" displayType="BALLOON" isLogByDefault="true"/>
+
         <applicationConfigurable parentId="language"
                                  instance="com.laamella.nim.settings.NimSettingsConfigurable"
                                  id="com.laamella.nim.settings.NimSettingsConfigurable"
