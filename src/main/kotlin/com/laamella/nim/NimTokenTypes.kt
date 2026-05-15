@@ -12,4 +12,10 @@ object NimTokenTypes {
     val NUMBER        = IElementType("NIM_NUMBER",        NimLanguage)
     val IDENTIFIER    = IElementType("NIM_IDENTIFIER",    NimLanguage)
     val OPERATOR      = IElementType("NIM_OPERATOR",      NimLanguage)
+    val LPAREN        = IElementType("NIM_LPAREN",        NimLanguage)
+    val RPAREN        = IElementType("NIM_RPAREN",        NimLanguage)
+    val LBRACKET      = IElementType("NIM_LBRACKET",      NimLanguage)
+    val RBRACKET      = IElementType("NIM_RBRACKET",      NimLanguage)
+    val LBRACE        = IElementType("NIM_LBRACE",        NimLanguage)
+    val RBRACE        = IElementType("NIM_RBRACE",        NimLanguage)
 }

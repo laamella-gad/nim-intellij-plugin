@@ -1,5 +1,4 @@
 <!--
-TODO https://plugins.jetbrains.com/docs/intellij/additional-minor-features.html#splitting-and-joining-list-constructs
 TODO support for a Nim project
 TODO support for running the project
 TODO support for debugging the project
@@ -26,7 +25,11 @@ TODO support for debugging the project
 
         <applicationService serviceImplementation="com.laamella.nim.settings.NimSettings"/>
 
+        <lang.parserDefinition language="Nim" implementationClass="com.laamella.nim.NimParserDefinition"/>
         <lang.syntaxHighlighterFactory language="Nim" implementationClass="com.laamella.nim.NimSyntaxHighlighterFactory"/>
+        <lang.commenter language="Nim" implementationClass="com.laamella.nim.NimCommenter"/>
+        <lang.quoteHandler language="Nim" implementationClass="com.laamella.nim.NimQuoteHandler"/>
+        <lang.braceMatcher language="Nim" implementationClass="com.laamella.nim.NimBraceMatcher"/>
         <lang.foldingBuilder language="Nim" implementationClass="com.redhat.devtools.lsp4ij.features.foldingRange.LSPFoldingRangeBuilder" order="first"/>
         <lang.psiStructureViewFactory language="Nim" implementationClass="com.redhat.devtools.lsp4ij.features.documentSymbol.LSPDocumentSymbolStructureViewFactory"/>
         <codeInsight.parameterInfo language="Nim" implementationClass="com.redhat.devtools.lsp4ij.features.signatureHelp.LSPParameterInfoHandler"/>
