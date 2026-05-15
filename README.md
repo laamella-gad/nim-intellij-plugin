@@ -28,10 +28,9 @@ Provided by nimlangserver over LSP:
 - Signature help
 
 Features to do:
-- support for a Nim project
+- support for creating a new Nim project
 - support for running the project 
 - support for debugging the project
-- avoid NimWritingAccessExtension
 - use a JFlex lexer
 - migrate to codeberg
 
