@@ -30,7 +30,6 @@ Provided by nimlangserver over LSP:
 Features to do:
 - support for creating a new Nim project
 - support for debugging the project
-- support for running tests on the project
 - use a JFlex lexer
 - migrate to codeberg
 
