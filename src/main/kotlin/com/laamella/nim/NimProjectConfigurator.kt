@@ -4,14 +4,13 @@ import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.project.guessProjectDir
 import com.intellij.openapi.roots.ModuleRootModificationUtil
 import com.intellij.openapi.startup.StartupActivity
-import com.intellij.openapi.vfs.LocalFileSystem
 
 class NimProjectConfigurator : StartupActivity.DumbAware {
     override fun runActivity(project: Project) {
-        val basePath = project.basePath ?: return
-        val baseDir = LocalFileSystem.getInstance().findFileByPath(basePath) ?: return
+        val baseDir = project.guessProjectDir() ?: return
         val nimbleFile = baseDir.children.find { it.extension == "nimble" } ?: return
         val nimble = String(nimbleFile.contentsToByteArray())
         val nimbleMap = buildMap {
