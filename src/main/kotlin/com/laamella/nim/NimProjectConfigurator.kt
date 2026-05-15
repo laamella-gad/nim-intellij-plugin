@@ -6,10 +6,10 @@ import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.guessProjectDir
 import com.intellij.openapi.roots.ModuleRootModificationUtil
-import com.intellij.openapi.startup.StartupActivity
+import com.intellij.openapi.startup.ProjectActivity
 
-class NimProjectConfigurator : StartupActivity.DumbAware {
-    override fun runActivity(project: Project) {
+class NimProjectConfigurator : ProjectActivity {
+    override suspend fun execute(project: Project) {
         val baseDir = project.guessProjectDir() ?: return
         val nimbleFile = baseDir.children.find { it.extension == "nimble" } ?: return
         val nimble = String(nimbleFile.contentsToByteArray())

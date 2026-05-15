@@ -49,7 +49,7 @@ com.redhat.devtools.lsp4ij:
 | `NimCommenter` | Line comment `#`, block comment `#[`/`]#` — enables Ctrl+/ |
 | `NimQuoteHandler` | Auto-closes `"` and `'` |
 | `NimBraceMatcher` | Highlights matching `()`, `[]`, `{}` pairs |
-| `NimProjectConfigurator` | `StartupActivity.DumbAware` — finds `.nimble` on every project open, marks `srcDir` as source root and `binDir` as excluded |
+| `NimProjectConfigurator` | `ProjectActivity` — finds `.nimble` on every project open, marks `srcDir` as source root and `binDir` as excluded |
 | `NimWritingAccessExtension` | Allows editing Nim files outside content roots (fallback for projects without `.nimble`) |
 | `NimLanguageServerFactory` | LSP4IJ entry point; creates connection provider and client features (`isUseIntAsJsonRpcId=true`) |
 | `NimLanguageServerConnectionProvider` | Extends `ProcessStreamConnectionProvider`; launches `nimlangserver` |
