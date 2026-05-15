@@ -1,3 +1,9 @@
+<!--
+TODO https://plugins.jetbrains.com/docs/intellij/additional-minor-features.html#splitting-and-joining-list-constructs
+TODO https://plugins.jetbrains.com/docs/intellij/plugin-icon-file.html?from=PluginXmlPluginLogoInspection
+TODO support for a Nim project
+-->
+
 <idea-plugin>
     <id>com.laamella.nim</id>
     <name>Nim</name>
@@ -21,7 +27,9 @@
 
         <lang.syntaxHighlighterFactory language="Nim" implementationClass="com.laamella.nim.NimSyntaxHighlighterFactory"/>
 
+        <!-- TODO find a way to say that project root is all writable instead of this: -->
         <nonProjectFileWritingAccessExtension implementation="com.laamella.nim.NimWritingAccessExtension"/>
+
         <directoryProjectConfigurator implementation="com.laamella.nim.NimProjectConfigurator"/>
 
         <applicationConfigurable parentId="language"
