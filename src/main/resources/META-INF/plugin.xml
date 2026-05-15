@@ -28,8 +28,6 @@
         <lang.psiStructureViewFactory language="Nim" implementationClass="com.redhat.devtools.lsp4ij.features.documentSymbol.LSPDocumentSymbolStructureViewFactory"/>
         <codeInsight.parameterInfo language="Nim" implementationClass="com.redhat.devtools.lsp4ij.features.signatureHelp.LSPParameterInfoHandler"/>
 
-        <nonProjectFileWritingAccessExtension implementation="com.laamella.nim.NimWritingAccessExtension"/>
-
         <postStartupActivity implementation="com.laamella.nim.NimProjectConfigurator"/>
 
         <notificationGroup id="Nim" displayType="BALLOON" isLogByDefault="true"/>
