@@ -1,3 +1,5 @@
+import org.jetbrains.intellij.platform.gradle.TestFrameworkType
+
 plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm")
@@ -12,12 +14,15 @@ kotlin {
 }
 
 dependencies {
+    testImplementation(kotlin("test-junit"))
+
     intellijPlatform {
         create(
             providers.gradleProperty("platformType"),
             providers.gradleProperty("platformVersion")
         )
         plugin("com.redhat.devtools.lsp4ij:0.19.3")
+        testFramework(TestFrameworkType.Platform)
     }
 }
 
