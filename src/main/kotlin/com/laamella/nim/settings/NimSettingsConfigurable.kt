@@ -10,6 +10,7 @@ import javax.swing.JComponent
 class NimSettingsConfigurable : Configurable {
     private var nimlangserverPath: TextFieldWithBrowseButton? = null
     private var nimblePath: TextFieldWithBrowseButton? = null
+    private var nimprettyPath: TextFieldWithBrowseButton? = null
 
     override fun getDisplayName(): String = "Nim"
 
@@ -30,6 +31,14 @@ class NimSettingsConfigurable : Configurable {
         )
         nimblePath = nimbleField
 
+        val nimprettyField = TextFieldWithBrowseButton()
+        nimprettyField.addBrowseFolderListener(
+            null,
+            FileChooserDescriptor(true, false, false, false, false, false)
+                .withTitle("Select Nimpretty Executable")
+        )
+        nimprettyPath = nimprettyField
+
         return panel {
             row("nimlangserver path:") {
                 cell(nimlangserverField)
@@ -41,6 +50,11 @@ class NimSettingsConfigurable : Configurable {
                     .align(AlignX.FILL)
                     .comment("Path to <code>nimble</code> executable")
             }
+            row("nimpretty path:") {
+                cell(nimprettyField)
+                    .align(AlignX.FILL)
+                    .comment("Path to <code>nimpretty</code> executable")
+            }
         }
     }
 
@@ -48,22 +62,26 @@ class NimSettingsConfigurable : Configurable {
         val settings = NimSettings.getInstance()
         return nimlangserverPath?.text != settings.nimlangserverPath
             || nimblePath?.text != settings.nimblePath
+            || nimprettyPath?.text != settings.nimprettyPath
     }
 
     override fun apply() {
         val settings = NimSettings.getInstance()
         settings.nimlangserverPath = nimlangserverPath?.text.orEmpty()
         settings.nimblePath = nimblePath?.text.orEmpty()
+        settings.nimprettyPath = nimprettyPath?.text.orEmpty()
     }
 
     override fun reset() {
         val settings = NimSettings.getInstance()
         nimlangserverPath?.text = settings.nimlangserverPath
         nimblePath?.text = settings.nimblePath
+        nimprettyPath?.text = settings.nimprettyPath
     }
 
     override fun disposeUIResources() {
         nimlangserverPath = null
         nimblePath = null
+        nimprettyPath = null
     }
 }

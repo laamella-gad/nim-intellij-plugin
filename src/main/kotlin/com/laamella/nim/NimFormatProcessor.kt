@@ -6,6 +6,7 @@ import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiDocumentManager
 import com.intellij.psi.PsiFile
 import com.intellij.psi.codeStyle.ExternalFormatProcessor
+import com.laamella.nim.settings.NimSettings
 import java.io.IOException
 import java.nio.file.Files
 
@@ -27,7 +28,7 @@ class NimFormatProcessor : ExternalFormatProcessor {
         try {
             tempFile.writeText(original)
             val process = try {
-                ProcessBuilder("nimpretty", tempFile.absolutePath).redirectErrorStream(true).start()
+                ProcessBuilder(NimSettings.getInstance().nimprettyPath, tempFile.absolutePath).redirectErrorStream(true).start()
             } catch (_: IOException) {
                 NotificationGroupManager.getInstance()
                     .getNotificationGroup("Nim")
