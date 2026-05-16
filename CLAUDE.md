@@ -28,6 +28,7 @@ com.intellij.lang.quoteHandler               → NimQuoteHandler
 com.intellij.lang.braceMatcher               → NimBraceMatcher
 com.intellij.postStartupActivity             → NimProjectConfigurator
 com.intellij.externalFormatProcessor         → NimFormatProcessor
+com.intellij.lineIndentProvider              → NimLineIndentProvider
 com.intellij.langCodeStyleSettingsProvider   → NimLanguageCodeStyleSettingsProvider
 projectListeners (BulkFileListener)          → NimNimbleFileListener
 com.redhat.devtools.lsp4ij:
@@ -55,6 +56,7 @@ com.redhat.devtools.lsp4ij:
 | `NimNimbleFileListener` | `BulkFileListener` registered via `projectListeners` — re-runs `configureNimProject` when the `.nimble` file changes or is created |
 | `configureNimProject` | Top-level function shared by `NimProjectConfigurator` and `NimNimbleFileListener`; performs all `.nimble`-driven project configuration |
 | `NimFormatProcessor` | `ExternalFormatProcessor` — runs `nimpretty` on Reformat Code; shows warning balloon if not on PATH |
+| `NimLineIndentProvider` | `LineIndentProvider` — computes Enter-key indentation by inspecting the previous line's last non-comment character; delegates shared helpers `nimOpensBlock`/`stripTrailingComment` |
 | `NimLanguageCodeStyleSettingsProvider` | Sets default indent/tab size to 2 spaces for Nim files |
 | `NimLanguageServerFactory` | LSP4IJ entry point; creates connection provider and client features (`isUseIntAsJsonRpcId=true`) |
 | `NimLanguageServerConnectionProvider` | Extends `ProcessStreamConnectionProvider`; launches `nimlangserver` |
@@ -62,6 +64,8 @@ com.redhat.devtools.lsp4ij:
 | `NimSettingsConfigurable` | Settings UI at **Settings → Languages & Frameworks → Nim** |
 
 ### Known workarounds
+
+**Enter-key indentation uses `LineIndentProvider`, not `ExternalFormatProcessor.indent()`** — `ExternalFormatProcessor.indent()` is called during explicit reformat operations only, not on Enter. Enter-key auto-indent routes through `LineIndentProvider` (`com.intellij.lineIndentProvider` EP). `NimLineIndentProvider` owns this; `NimFormatProcessor.indent()` is a no-op stub required by the interface.
 
 **Integer JSON-RPC IDs** — nimlangserver only includes `id` in responses when the request id is a JSON number (lsp4j defaults to strings). Fixed by overriding `isUseIntAsJsonRpcId()` in `NimLanguageServerFactory.createClientFeatures()`. LSP4IJ 0.19.3 uses `DefaultLauncherBuilder.RemoteEndpointWithIdAsInt` when this returns `true`. A bug has been filed upstream against nimlangserver.
 

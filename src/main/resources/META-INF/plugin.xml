@@ -11,7 +11,7 @@
             <li>Go to definition, find usages, and rename refactoring</li>
             <li>Inline diagnostics and inlay hints</li>
             <li>Code formatting via <code>nimpretty</code> (Reformat Code / Ctrl+Alt+L)</li>
-            <li>Default 2-space indentation per Nim style conventions</li>
+            <li>Smart Enter indentation with 2-space default</li>
             <li>Syntax highlighting with bracket matching and auto-close</li>
             <li>Run and test configurations for <code>.nim</code> files</li>
             <li>New project wizard for Nim projects</li>
@@ -70,6 +70,8 @@
         <externalFormatProcessor implementation="com.laamella.nim.NimFormatProcessor"/>
 
         <langCodeStyleSettingsProvider implementation="com.laamella.nim.NimLanguageCodeStyleSettingsProvider"/>
+
+        <lineIndentProvider implementation="com.laamella.nim.NimLineIndentProvider"/>
 
         <newProjectWizard.languageGenerator implementation="com.laamella.nim.newproject.NimNewProjectWizard"/>
 
