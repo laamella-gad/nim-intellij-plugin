@@ -15,7 +15,7 @@ Provided by the plugin:
 - Comment/uncomment (Ctrl+/)
 - Auto-close quotes and brackets
 - Runner/test runner. Right-click the nimble file.
-- New Project wizard (File → New Project → Nim) (buggy)
+- New Project wizard (File → New Project → Nim)
 
 Provided by nimlangserver over LSP:
 
