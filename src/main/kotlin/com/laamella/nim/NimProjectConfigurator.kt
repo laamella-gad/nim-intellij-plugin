@@ -4,10 +4,12 @@ import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.module.ModuleManager
+import com.intellij.openapi.module.ModuleTypeManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.guessProjectDir
 import com.intellij.openapi.roots.ModuleRootModificationUtil
 import com.intellij.openapi.startup.ProjectActivity
+import com.intellij.openapi.util.Computable
 import com.intellij.openapi.vfs.newvfs.BulkFileListener
 import com.intellij.openapi.vfs.newvfs.events.VFileEvent
 
@@ -17,7 +19,7 @@ import com.intellij.openapi.vfs.newvfs.events.VFileEvent
  */
 class NimProjectConfigurator : ProjectActivity {
     override suspend fun execute(project: Project) {
-        configureNimProject(project)
+        ApplicationManager.getApplication().invokeLater { configureNimProject(project) }
     }
 }
 
@@ -32,7 +34,6 @@ class NimNimbleFileListener(private val project: Project) : BulkFileListener {
 
 fun configureNimProject(project: Project) {
     val projectDir = project.guessProjectDir() ?: return
-    // TODO show notification if this fails
     val nimbleFile = projectDir.children.find { it.extension == "nimble" } ?: return
     val nimble = String(nimbleFile.contentsToByteArray())
     // Nimble files are Nim source, not a standard config format — hand-parse the simple key = "value" assignments
@@ -46,12 +47,18 @@ fun configureNimProject(project: Project) {
             if (key.isNotEmpty()) put(key, value)
         }
     }
+    // TODO create the src and bin directories if they don't exist yet
     // Fall back to projectDir when srcDir is absent or the directory doesn't exist yet
     val srcRoot = projectDir.findChild(nimbleMap["srcDir"] ?: "src") ?: projectDir
     val binRoot = nimbleMap["binDir"]?.let { projectDir.findChild(it) }
-    // TODO show notification if this fails
-    // Nim projects are single-module by convention
-    val module = ModuleManager.getInstance(project).modules.firstOrNull() ?: return
+    // Nim projects are single-module by convention; create one if the project has none (e.g. new project wizard)
+    val module = ModuleManager.getInstance(project).modules.firstOrNull()
+        ?: ApplicationManager.getApplication().runWriteAction(Computable {
+            ModuleManager.getInstance(project).newModule(
+                "${project.basePath}/${project.name}.iml",
+                ModuleTypeManager.getInstance().defaultModuleType.id
+            )
+        })
     ModuleRootModificationUtil.updateModel(module) { model ->
         // Guard against duplicates on repeated project opens
         val contentEntry = model.contentEntries.find { it.url == projectDir.url }
