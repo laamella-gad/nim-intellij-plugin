@@ -74,6 +74,11 @@
                                  displayName="Nim"/>
     </extensions>
 
+    <projectListeners>
+        <listener class="com.laamella.nim.NimNimbleFileListener"
+                  topic="com.intellij.openapi.vfs.newvfs.BulkFileListener"/>
+    </projectListeners>
+
     <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
         <server id="nim"
                 name="Nim Language Server"

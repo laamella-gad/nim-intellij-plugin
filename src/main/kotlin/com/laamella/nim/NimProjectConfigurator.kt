@@ -2,51 +2,67 @@ package com.laamella.nim
 
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
+import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.guessProjectDir
 import com.intellij.openapi.roots.ModuleRootModificationUtil
 import com.intellij.openapi.startup.ProjectActivity
+import com.intellij.openapi.vfs.newvfs.BulkFileListener
+import com.intellij.openapi.vfs.newvfs.events.VFileEvent
 
 /**
- * Evaluates the Nim project's .nimble project file on project startup.
- * TODO also run when the nimble file changes or is created (or deleted)
+ * Evaluates the Nim project's .nimble project file on project startup
+ * and whenever the .nimble file is created or modified.
  */
 class NimProjectConfigurator : ProjectActivity {
     override suspend fun execute(project: Project) {
-        val projectDir = project.guessProjectDir() ?: return
-        // TODO show notification if this fails
-        val nimbleFile = projectDir.children.find { it.extension == "nimble" } ?: return
-        val nimble = String(nimbleFile.contentsToByteArray())
-        // Nimble files are Nim source, not a standard config format — hand-parse the simple key = "value" assignments
-        val nimbleMap = buildMap {
-            for (line in nimble.lines()) {
-                val eqIdx = line.indexOf('=')
-                if (eqIdx < 0) continue
-                val key = line.substring(0, eqIdx).trim()
-                val rawValue = line.substring(eqIdx + 1).trim()
-                val value = Regex("""["']([^"']+)["']""").find(rawValue)?.groupValues?.get(1) ?: rawValue
-                if (key.isNotEmpty()) put(key, value)
-            }
-        }
-        // Fall back to projectDir when srcDir is absent or the directory doesn't exist yet
-        val srcRoot = projectDir.findChild(nimbleMap["srcDir"] ?: "src") ?: projectDir
-        val binRoot = nimbleMap["binDir"]?.let { projectDir.findChild(it) }
-        // TODO show notification if this fails
-        // Nim projects are single-module by convention
-        val module = ModuleManager.getInstance(project).modules.firstOrNull() ?: return
-        ModuleRootModificationUtil.updateModel(module) { model ->
-            // Guard against duplicates on repeated project opens
-            val contentEntry = model.contentEntries.find { it.url == projectDir.url }
-                ?: model.addContentEntry(projectDir)
-            if (contentEntry.sourceFolders.none { it.url == srcRoot.url })
-                contentEntry.addSourceFolder(srcRoot, false)
-            if (binRoot != null && contentEntry.excludeFolderUrls.none { it == binRoot.url })
-                contentEntry.addExcludeFolder(binRoot)
-        }
-        NotificationGroupManager.getInstance()
-            .getNotificationGroup("Nim")
-            .createNotification("Nimble project refreshed", NotificationType.INFORMATION)
-            .notify(project)
+        configureNimProject(project)
     }
+}
+
+/** Reacts to .nimble file changes and re-runs project configuration. Registered via plugin.xml projectListeners. */
+class NimNimbleFileListener(private val project: Project) : BulkFileListener {
+    override fun after(events: List<VFileEvent>) {
+        val projectDir = project.guessProjectDir() ?: return
+        val affected = events.any { e -> e.file?.parent?.url == projectDir.url && e.file?.extension == "nimble" }
+        if (affected) ApplicationManager.getApplication().invokeLater { configureNimProject(project) }
+    }
+}
+
+fun configureNimProject(project: Project) {
+    val projectDir = project.guessProjectDir() ?: return
+    // TODO show notification if this fails
+    val nimbleFile = projectDir.children.find { it.extension == "nimble" } ?: return
+    val nimble = String(nimbleFile.contentsToByteArray())
+    // Nimble files are Nim source, not a standard config format — hand-parse the simple key = "value" assignments
+    val nimbleMap = buildMap {
+        for (line in nimble.lines()) {
+            val eqIdx = line.indexOf('=')
+            if (eqIdx < 0) continue
+            val key = line.substring(0, eqIdx).trim()
+            val rawValue = line.substring(eqIdx + 1).trim()
+            val value = Regex("""["']([^"']+)["']""").find(rawValue)?.groupValues?.get(1) ?: rawValue
+            if (key.isNotEmpty()) put(key, value)
+        }
+    }
+    // Fall back to projectDir when srcDir is absent or the directory doesn't exist yet
+    val srcRoot = projectDir.findChild(nimbleMap["srcDir"] ?: "src") ?: projectDir
+    val binRoot = nimbleMap["binDir"]?.let { projectDir.findChild(it) }
+    // TODO show notification if this fails
+    // Nim projects are single-module by convention
+    val module = ModuleManager.getInstance(project).modules.firstOrNull() ?: return
+    ModuleRootModificationUtil.updateModel(module) { model ->
+        // Guard against duplicates on repeated project opens
+        val contentEntry = model.contentEntries.find { it.url == projectDir.url }
+            ?: model.addContentEntry(projectDir)
+        if (contentEntry.sourceFolders.none { it.url == srcRoot.url })
+            contentEntry.addSourceFolder(srcRoot, false)
+        if (binRoot != null && contentEntry.excludeFolderUrls.none { it == binRoot.url })
+            contentEntry.addExcludeFolder(binRoot)
+    }
+    NotificationGroupManager.getInstance()
+        .getNotificationGroup("Nim")
+        .createNotification("Nimble project refreshed", NotificationType.INFORMATION)
+        .notify(project)
 }
