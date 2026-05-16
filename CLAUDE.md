@@ -13,6 +13,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 > First run: `./gradlew wrapper` to generate the wrapper JAR if it is missing.
 
+## Debugging
+
+Start `runIde` in **Run** mode (not Debug) — it opens port 5005. Then attach the **Debug Plugin** Remote JVM Debug run config. Breakpoints in plugin code will trigger in the sandbox IntelliJ instance.
+
+## Tests
+
+Tests live in `src/test/kotlin/com/laamella/nim/`. They extend `BasePlatformTestCase` (JUnit 3-style method names, no `@Test`) and use `myFixture` to set up a headless IntelliJ editor. The `<caret>` marker in `configureByText` sets the initial caret position. Nimsuggest error output during test runs is harmless — LSP4IJ attempts to start the server and fails gracefully in the sandbox.
+
 ## Architecture
 
 This is an IntelliJ Platform plugin that adds Nim language support by wiring **LSP4IJ** (plugin dep `com.redhat.devtools.lsp4ij`) to **nimlangserver** (`nimble install nimlangserver`). LSP4IJ owns all protocol handling; this plugin configures the server and provides native IDE integration.
