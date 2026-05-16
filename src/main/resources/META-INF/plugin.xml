@@ -64,6 +64,8 @@
 
         <postStartupActivity implementation="com.laamella.nim.NimProjectConfigurator"/>
 
+        <externalFormatProcessor implementation="com.laamella.nim.NimFormatProcessor"/>
+
         <newProjectWizard.languageGenerator implementation="com.laamella.nim.newproject.NimNewProjectWizard"/>
 
         <notificationGroup id="Nim" displayType="BALLOON" isLogByDefault="true"/>
