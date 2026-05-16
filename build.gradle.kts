@@ -6,8 +6,8 @@ plugins {
     id("org.jetbrains.intellij.platform")
 }
 
-group = providers.gradleProperty("pluginGroup").get()
-version = providers.gradleProperty("pluginVersion").get()
+group = "com.laamella.nim"
+version = "0.1.0"
 
 kotlin {
     jvmToolchain(21)
@@ -17,10 +17,8 @@ dependencies {
     testImplementation(kotlin("test-junit"))
 
     intellijPlatform {
-        create(
-            providers.gradleProperty("platformType"),
-            providers.gradleProperty("platformVersion")
-        )
+        intellijIdea("2026.1.1")
+        bundledPlugin("com.intellij.java")
         plugin("com.redhat.devtools.lsp4ij:0.19.3")
         testFramework(TestFrameworkType.Platform)
     }
@@ -29,16 +27,5 @@ dependencies {
 tasks {
     runIde {
         jvmArgs("-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005")
-    }
-}
-
-intellijPlatform {
-    pluginConfiguration {
-        name = "Nim using nimlangserver"
-        version = providers.gradleProperty("pluginVersion")
-        ideaVersion {
-            sinceBuild = providers.gradleProperty("pluginSinceBuild")
-            untilBuild = providers.gradleProperty("pluginUntilBuild")
-        }
     }
 }
