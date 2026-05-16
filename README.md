@@ -33,6 +33,7 @@ Provided by nimlangserver over LSP:
 ## Requirements
 
 - IntelliJ IDEA 2025.1 (Community or Ultimate)
+- [Nim and Nimble](https://nim-lang.org/install.html) installed
 - [nimlangserver](https://github.com/nim-lang/langserver) on your PATH: `nimble install nimlangserver`
 - [nimpretty](https://nim-lang.org/docs/nimpretty.html) on your PATH for formatting: `nimble install nimpretty` (optional)
 

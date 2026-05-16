@@ -19,7 +19,12 @@ Start `runIde` in **Run** mode (not Debug) — it opens port 5005. Then attach t
 
 ## Tests
 
-Tests live in `src/test/kotlin/com/laamella/nim/`. They extend `BasePlatformTestCase` (JUnit 3-style method names, no `@Test`) and use `myFixture` to set up a headless IntelliJ editor. The `<caret>` marker in `configureByText` sets the initial caret position. Nimsuggest error output during test runs is harmless — LSP4IJ attempts to start the server and fails gracefully in the sandbox.
+Tests live in `src/test/kotlin/com/laamella/nim/`. Two styles in use:
+
+- **`BasePlatformTestCase`** — JUnit 3-style (method names start with `test`, no `@Test`). Provides a headless IntelliJ project with `myFixture`. The `<caret>` marker in `configureByText` sets the caret. Used for tests that need a real `Project`, `Editor`, or module roots (`NimLineIndentProviderTest`, `NimProjectConfiguratorTest`).
+- **Plain JUnit** — `@Test` annotations, no platform. Used for tests that need none of the platform (e.g. `NimNewProjectWizardTest` tests `createNimProjectStructure` with a temp dir).
+
+Nimsuggest error output during test runs is harmless — LSP4IJ tries to start the server and fails gracefully in the sandbox.
 
 ## Architecture
 
@@ -66,6 +71,8 @@ com.redhat.devtools.lsp4ij:
 | `NimFormatProcessor` | `ExternalFormatProcessor` — runs `nimpretty` on Reformat Code; shows warning balloon if not on PATH |
 | `NimLineIndentProvider` | `LineIndentProvider` — computes Enter-key indentation by inspecting the previous line's last non-comment character; delegates shared helpers `nimOpensBlock`/`stripTrailingComment` |
 | `NimLanguageCodeStyleSettingsProvider` | Sets default indent/tab size to 2 spaces for Nim files |
+| `NimNewProjectWizard` | `LanguageGeneratorNewProjectWizard` — File → New Project → Nim; delegates file creation to `createNimProjectStructure` |
+| `createNimProjectStructure` | Package-level function in `newproject/`; creates `src/`, `bin/`, `*.nimble`, and `src/*.nim` for a new project |
 | `NimLanguageServerFactory` | LSP4IJ entry point; creates connection provider and client features (`isUseIntAsJsonRpcId=true`) |
 | `NimLanguageServerConnectionProvider` | Extends `ProcessStreamConnectionProvider`; launches `nimlangserver` |
 | `NimSettings` | Application-level `PersistentStateComponent` storing `serverPath` |
