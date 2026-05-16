@@ -8,80 +8,40 @@ import com.intellij.ui.dsl.builder.panel
 import javax.swing.JComponent
 
 class NimSettingsConfigurable : Configurable {
-    private var nimlangserverPath: TextFieldWithBrowseButton? = null
-    private var nimblePath: TextFieldWithBrowseButton? = null
-    private var nimprettyPath: TextFieldWithBrowseButton? = null
+    private var nimbleBinPath: TextFieldWithBrowseButton? = null
 
     override fun getDisplayName(): String = "Nim"
 
     override fun createComponent(): JComponent {
-        val nimlangserverField = TextFieldWithBrowseButton()
-        nimlangserverField.addBrowseFolderListener(
+        val nimbleBinField = TextFieldWithBrowseButton()
+        nimbleBinField.addBrowseFolderListener(
             null,
-            FileChooserDescriptor(true, false, false, false, false, false)
-                .withTitle("Select Nim Language Server Executable")
+            FileChooserDescriptor(false, true, false, false, false, false)
+                .withTitle("Select Nimble Bin Directory")
         )
-        nimlangserverPath = nimlangserverField
-
-        val nimbleField = TextFieldWithBrowseButton()
-        nimbleField.addBrowseFolderListener(
-            null,
-            FileChooserDescriptor(true, false, false, false, false, false)
-                .withTitle("Select Nimble Executable")
-        )
-        nimblePath = nimbleField
-
-        val nimprettyField = TextFieldWithBrowseButton()
-        nimprettyField.addBrowseFolderListener(
-            null,
-            FileChooserDescriptor(true, false, false, false, false, false)
-                .withTitle("Select Nimpretty Executable")
-        )
-        nimprettyPath = nimprettyField
+        nimbleBinPath = nimbleBinField
 
         return panel {
-            row("nimlangserver path:") {
-                cell(nimlangserverField)
+            row("Nimble bin path:") {
+                cell(nimbleBinField)
                     .align(AlignX.FILL)
-                    .comment("Path to <code>nimlangserver</code> executable")
-            }
-            row("nimble path:") {
-                cell(nimbleField)
-                    .align(AlignX.FILL)
-                    .comment("Path to <code>nimble</code> executable")
-            }
-            row("nimpretty path:") {
-                cell(nimprettyField)
-                    .align(AlignX.FILL)
-                    .comment("Path to <code>nimpretty</code> executable")
+                    .comment("Directory containing <code>nimlangserver</code>, <code>nimble</code>, and <code>nimpretty</code> (e.g. <code>~/.nimble/bin</code>). Leave blank to use PATH.")
             }
         }
     }
 
-    override fun isModified(): Boolean {
-        val settings = NimSettings.getInstance()
-        return nimlangserverPath?.text != settings.nimlangserverPath
-            || nimblePath?.text != settings.nimblePath
-            || nimprettyPath?.text != settings.nimprettyPath
-    }
+    override fun isModified(): Boolean =
+        nimbleBinPath?.text != NimSettings.getInstance().nimbleBinPath
 
     override fun apply() {
-        val settings = NimSettings.getInstance()
-        settings.nimlangserverPath = nimlangserverPath?.text.orEmpty()
-        settings.nimblePath = nimblePath?.text.orEmpty()
-        settings.nimprettyPath = nimprettyPath?.text.orEmpty()
+        NimSettings.getInstance().nimbleBinPath = nimbleBinPath?.text.orEmpty()
     }
 
     override fun reset() {
-        val settings = NimSettings.getInstance()
-        nimlangserverPath?.text = settings.nimlangserverPath
-        nimblePath?.text = settings.nimblePath
-        nimprettyPath?.text = settings.nimprettyPath
+        nimbleBinPath?.text = NimSettings.getInstance().nimbleBinPath
     }
 
     override fun disposeUIResources() {
-        nimlangserverPath = null
-        nimblePath = null
-        nimprettyPath = null
+        nimbleBinPath = null
     }
 }

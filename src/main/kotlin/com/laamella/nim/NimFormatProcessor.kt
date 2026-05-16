@@ -28,7 +28,7 @@ class NimFormatProcessor : ExternalFormatProcessor {
         try {
             tempFile.writeText(original)
             val process = try {
-                ProcessBuilder(NimSettings.getInstance().nimprettyPath, tempFile.absolutePath).redirectErrorStream(true).start()
+                ProcessBuilder(NimSettings.getInstance().exePath("nimpretty"), tempFile.absolutePath).redirectErrorStream(true).start()
             } catch (_: IOException) {
                 NotificationGroupManager.getInstance()
                     .getNotificationGroup("Nim")

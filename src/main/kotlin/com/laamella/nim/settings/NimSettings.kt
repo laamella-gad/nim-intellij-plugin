@@ -5,12 +5,15 @@ import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
 import com.intellij.util.xmlb.XmlSerializerUtil
+import java.nio.file.Path
 
 @State(name = "NimSettings", storages = [Storage("nim-plugin.xml")])
 class NimSettings : PersistentStateComponent<NimSettings> {
-    var nimlangserverPath: String = "nimlangserver"
-    var nimblePath: String = "nimble"
-    var nimprettyPath: String = "nimpretty"
+    var nimbleBinPath: String = ""
+
+    fun exePath(tool: String): String =
+        if (nimbleBinPath.isBlank()) tool
+        else Path.of(nimbleBinPath, tool).toString()
 
     override fun getState(): NimSettings = this
 

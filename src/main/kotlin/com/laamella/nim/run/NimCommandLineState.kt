@@ -17,7 +17,7 @@ class NimCommandLineState(
         .also { ProcessTerminatedListener.attach(it) }
 
     private fun buildCommandLine(): GeneralCommandLine {
-        val cmd = GeneralCommandLine(NimSettings.getInstance().nimblePath, "run")
+        val cmd = GeneralCommandLine(NimSettings.getInstance().exePath("nimble"), "run")
             .withWorkDirectory(config.workingDirectory)
             .withCharset(Charsets.UTF_8)
         if (config.binName.isNotBlank()) cmd.addParameter(config.binName)
