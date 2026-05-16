@@ -9,39 +9,61 @@ import javax.swing.JComponent
 
 class NimSettingsConfigurable : Configurable {
     private var nimlangserverPath: TextFieldWithBrowseButton? = null
+    private var nimblePath: TextFieldWithBrowseButton? = null
 
     override fun getDisplayName(): String = "Nim"
 
     override fun createComponent(): JComponent {
-        val field = TextFieldWithBrowseButton()
-        field.addBrowseFolderListener(
+        val nimlangserverField = TextFieldWithBrowseButton()
+        nimlangserverField.addBrowseFolderListener(
             null,
             FileChooserDescriptor(true, false, false, false, false, false)
                 .withTitle("Select Nim Language Server Executable")
         )
-        nimlangserverPath = field
+        nimlangserverPath = nimlangserverField
+
+        val nimbleField = TextFieldWithBrowseButton()
+        nimbleField.addBrowseFolderListener(
+            null,
+            FileChooserDescriptor(true, false, false, false, false, false)
+                .withTitle("Select Nimble Executable")
+        )
+        nimblePath = nimbleField
 
         return panel {
             row("nimlangserver path:") {
-                cell(field)
+                cell(nimlangserverField)
                     .align(AlignX.FILL)
-                    .comment("Leave blank to use <code>nimlangserver</code> from PATH")
+                    .comment("Path to <code>nimlangserver</code> executable")
+            }
+            row("nimble path:") {
+                cell(nimbleField)
+                    .align(AlignX.FILL)
+                    .comment("Path to <code>nimble</code> executable")
             }
         }
     }
 
-    override fun isModified(): Boolean =
-        nimlangserverPath?.text != NimSettings.getInstance().nimlangserverPath
+    override fun isModified(): Boolean {
+        val settings = NimSettings.getInstance()
+        return nimlangserverPath?.text != settings.nimlangserverPath
+            || nimblePath?.text != settings.nimblePath
+    }
 
     override fun apply() {
-        NimSettings.getInstance().nimlangserverPath = nimlangserverPath?.text.orEmpty()
+        val settings = NimSettings.getInstance()
+        settings.nimlangserverPath = nimlangserverPath?.text.orEmpty()
+        settings.nimblePath = nimblePath?.text.orEmpty()
     }
 
     override fun reset() {
-        nimlangserverPath?.text = NimSettings.getInstance().nimlangserverPath
+        val settings = NimSettings.getInstance()
+        nimlangserverPath?.text = settings.nimlangserverPath
+        nimblePath?.text = settings.nimblePath
     }
 
     override fun disposeUIResources() {
         nimlangserverPath = null
+        nimblePath = null
     }
 }

@@ -6,7 +6,7 @@ import com.redhat.devtools.lsp4ij.server.ProcessStreamConnectionProvider
 
 class NimLanguageServerConnectionProvider(project: Project) : ProcessStreamConnectionProvider() {
     init {
-        val path = NimSettings.getInstance().nimlangserverPath.ifBlank { "nimlangserver" }
+        val path = NimSettings.getInstance().nimlangserverPath
         commands = listOf(path)
         workingDirectory = project.basePath ?: System.getProperty("user.home")
     }
