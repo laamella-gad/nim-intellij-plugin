@@ -11,7 +11,7 @@ Provided by the plugin:
 
 - Syntax highlighting
 - File type recognition (`.nim`, `.nims`, `.nimble`)
-- Project setup for binDir and srcDir.
+- Project setup from `.nimble` file (srcDir, binDir)
 - Comment/uncomment (Ctrl+/)
 - Auto-close quotes and brackets
 - Runner/test runner. Right-click the nimble file.

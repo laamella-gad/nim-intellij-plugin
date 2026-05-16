@@ -27,7 +27,7 @@ com.intellij.lang.commenter                  → NimCommenter
 com.intellij.lang.quoteHandler               → NimQuoteHandler
 com.intellij.lang.braceMatcher               → NimBraceMatcher
 com.intellij.postStartupActivity             → NimProjectConfigurator
-com.intellij.nonProjectFileWritingAccessExtension → NimWritingAccessExtension
+projectListeners (BulkFileListener)          → NimNimbleFileListener
 com.redhat.devtools.lsp4ij:
   server                                     → NimLanguageServerFactory (id="nim")
   languageMapping language=Nim               → server id="nim"
@@ -49,8 +49,9 @@ com.redhat.devtools.lsp4ij:
 | `NimCommenter` | Line comment `#`, block comment `#[`/`]#` — enables Ctrl+/ |
 | `NimQuoteHandler` | Auto-closes `"` and `'` |
 | `NimBraceMatcher` | Highlights matching `()`, `[]`, `{}` pairs |
-| `NimProjectConfigurator` | `ProjectActivity` — finds `.nimble` on every project open, marks `srcDir` as source root and `binDir` as excluded |
-| `NimWritingAccessExtension` | Allows editing Nim files outside content roots (fallback for projects without `.nimble`) |
+| `NimProjectConfigurator` | `ProjectActivity` — reads `.nimble` on project open; creates module if absent, creates `srcDir`/`binDir` if missing, marks them as source root / excluded |
+| `NimNimbleFileListener` | `BulkFileListener` registered via `projectListeners` — re-runs `configureNimProject` when the `.nimble` file changes or is created |
+| `configureNimProject` | Top-level function shared by `NimProjectConfigurator` and `NimNimbleFileListener`; performs all `.nimble`-driven project configuration |
 | `NimLanguageServerFactory` | LSP4IJ entry point; creates connection provider and client features (`isUseIntAsJsonRpcId=true`) |
 | `NimLanguageServerConnectionProvider` | Extends `ProcessStreamConnectionProvider`; launches `nimlangserver` |
 | `NimSettings` | Application-level `PersistentStateComponent` storing `serverPath` |
