@@ -12,6 +12,7 @@ Provided by the plugin:
 - Syntax highlighting
 - File type recognition (`.nim`, `.nims`, `.nimble`)
 - Project setup from `.nimble` file (srcDir, binDir)
+- Code formatting via `nimpretty` (Reformat Code / Ctrl+Alt+L)
 - Comment/uncomment (Ctrl+/)
 - Auto-close quotes and brackets
 - Runner/test runner. Right-click the nimble file.
@@ -33,6 +34,7 @@ Provided by nimlangserver over LSP:
 
 - IntelliJ IDEA 2025.1 (Community or Ultimate)
 - [nimlangserver](https://github.com/nim-lang/langserver) on your PATH: `nimble install nimlangserver`
+- [nimpretty](https://nim-lang.org/docs/nimpretty.html) on your PATH for formatting: `nimble install nimpretty` (optional)
 
 ## Installation
 

@@ -27,6 +27,7 @@ com.intellij.lang.commenter                  → NimCommenter
 com.intellij.lang.quoteHandler               → NimQuoteHandler
 com.intellij.lang.braceMatcher               → NimBraceMatcher
 com.intellij.postStartupActivity             → NimProjectConfigurator
+com.intellij.externalFormatProcessor         → NimFormatProcessor
 projectListeners (BulkFileListener)          → NimNimbleFileListener
 com.redhat.devtools.lsp4ij:
   server                                     → NimLanguageServerFactory (id="nim")
@@ -52,6 +53,7 @@ com.redhat.devtools.lsp4ij:
 | `NimProjectConfigurator` | `ProjectActivity` — reads `.nimble` on project open; creates module if absent, creates `srcDir`/`binDir` if missing, marks them as source root / excluded |
 | `NimNimbleFileListener` | `BulkFileListener` registered via `projectListeners` — re-runs `configureNimProject` when the `.nimble` file changes or is created |
 | `configureNimProject` | Top-level function shared by `NimProjectConfigurator` and `NimNimbleFileListener`; performs all `.nimble`-driven project configuration |
+| `NimFormatProcessor` | `ExternalFormatProcessor` — runs `nimpretty` on Reformat Code; shows warning balloon if not on PATH |
 | `NimLanguageServerFactory` | LSP4IJ entry point; creates connection provider and client features (`isUseIntAsJsonRpcId=true`) |
 | `NimLanguageServerConnectionProvider` | Extends `ProcessStreamConnectionProvider`; launches `nimlangserver` |
 | `NimSettings` | Application-level `PersistentStateComponent` storing `serverPath` |
