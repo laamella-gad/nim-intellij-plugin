@@ -78,11 +78,3 @@ Controlled entirely by `gradle.properties` (`platformType`, `platformVersion`, `
 EPL-2.0 (Eclipse Public License 2.0) — see `LICENSE`.
 
 Third-party assets are documented in `NOTICE`. The plugin icon (`META-INF/pluginIcon.svg`) is the official Nim logo from https://commons.wikimedia.org/wiki/File:Nim_logo.svg, MIT-licensed by the Nim project; the embedded PNG reference layer has been stripped leaving only vector paths.
-
-## Documentation files
-
-- CLAUDE.md
-- README.md
-- LICENSE
-- NOTICE
-- src/main/resources/META-INF/plugin.xml
