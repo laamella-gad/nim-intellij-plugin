@@ -68,6 +68,8 @@
 
         <externalFormatProcessor implementation="com.laamella.nim.NimFormatProcessor"/>
 
+        <langCodeStyleSettingsProvider implementation="com.laamella.nim.NimLanguageCodeStyleSettingsProvider"/>
+
         <newProjectWizard.languageGenerator implementation="com.laamella.nim.newproject.NimNewProjectWizard"/>
 
         <notificationGroup id="Nim" displayType="BALLOON" isLogByDefault="true"/>
