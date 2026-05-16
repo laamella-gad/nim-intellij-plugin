@@ -7,11 +7,14 @@ import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.module.ModuleTypeManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.guessProjectDir
+import com.intellij.openapi.roots.ContentEntry
 import com.intellij.openapi.roots.ModuleRootModificationUtil
 import com.intellij.openapi.startup.ProjectActivity
 import com.intellij.openapi.util.Computable
 import com.intellij.openapi.vfs.newvfs.BulkFileListener
 import com.intellij.openapi.vfs.newvfs.events.VFileEvent
+
+enum class NimDirKind { SRC, EXCLUDE }
 
 /**
  * Evaluates the Nim project's .nimble project file on project startup
@@ -47,10 +50,6 @@ fun configureNimProject(project: Project) {
             if (key.isNotEmpty()) put(key, value)
         }
     }
-    // TODO create the src and bin directories if they don't exist yet
-    // Fall back to projectDir when srcDir is absent or the directory doesn't exist yet
-    val srcRoot = projectDir.findChild(nimbleMap["srcDir"] ?: "src") ?: projectDir
-    val binRoot = nimbleMap["binDir"]?.let { projectDir.findChild(it) }
     // Nim projects are single-module by convention; create one if the project has none (e.g. new project wizard)
     val module = ModuleManager.getInstance(project).modules.firstOrNull()
         ?: ApplicationManager.getApplication().runWriteAction(Computable {
@@ -59,15 +58,32 @@ fun configureNimProject(project: Project) {
                 ModuleTypeManager.getInstance().defaultModuleType.id
             )
         })
+
+    fun configureDir(
+        contentEntry: ContentEntry, key: String, kind: NimDirKind, nimbleConfig: Map<String, String>
+    ) {
+        val dirName = nimbleConfig[key] ?: return
+        val dir = ApplicationManager.getApplication().runWriteAction(Computable {
+            projectDir.findChild(dirName) ?: projectDir.createChildDirectory(null, dirName)
+        })
+        when (kind) {
+            NimDirKind.SRC ->
+                if (contentEntry.sourceFolders.none { it.url == dir.url })
+                    contentEntry.addSourceFolder(dir, false)
+
+            NimDirKind.EXCLUDE ->
+                if (contentEntry.excludeFolderUrls.none { it == dir.url })
+                    contentEntry.addExcludeFolder(dir)
+        }
+    }
+
     ModuleRootModificationUtil.updateModel(module) { model ->
-        // Guard against duplicates on repeated project opens
         val contentEntry = model.contentEntries.find { it.url == projectDir.url }
             ?: model.addContentEntry(projectDir)
-        if (contentEntry.sourceFolders.none { it.url == srcRoot.url })
-            contentEntry.addSourceFolder(srcRoot, false)
-        if (binRoot != null && contentEntry.excludeFolderUrls.none { it == binRoot.url })
-            contentEntry.addExcludeFolder(binRoot)
+        configureDir(contentEntry, "srcDir", NimDirKind.SRC, nimbleMap)
+        configureDir(contentEntry, "binDir", NimDirKind.EXCLUDE, nimbleMap)
     }
+
     NotificationGroupManager.getInstance()
         .getNotificationGroup("Nim")
         .createNotification("Nimble project refreshed", NotificationType.INFORMATION)

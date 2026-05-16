@@ -31,7 +31,7 @@
             <li>Nim language support via nimlangserver and LSP4IJ</li>
             <li>Syntax highlighting, bracket matching, and auto-close quotes</li>
             <li>Run and test configurations</li>
-            <li>New project wizard (still buggy)</li>
+            <li>New project wizard</li>
             <li>Source root detection from <code>.nimble</code> files</li>
         </ul>
     ]]></change-notes>
