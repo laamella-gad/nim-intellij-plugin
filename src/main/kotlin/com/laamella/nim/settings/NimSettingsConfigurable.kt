@@ -8,7 +8,7 @@ import com.intellij.ui.dsl.builder.panel
 import javax.swing.JComponent
 
 class NimSettingsConfigurable : Configurable {
-    private var serverPathField: TextFieldWithBrowseButton? = null
+    private var nimlangserverPath: TextFieldWithBrowseButton? = null
 
     override fun getDisplayName(): String = "Nim"
 
@@ -19,7 +19,7 @@ class NimSettingsConfigurable : Configurable {
             FileChooserDescriptor(true, false, false, false, false, false)
                 .withTitle("Select Nim Language Server Executable")
         )
-        serverPathField = field
+        nimlangserverPath = field
 
         return panel {
             row("nimlangserver path:") {
@@ -31,17 +31,17 @@ class NimSettingsConfigurable : Configurable {
     }
 
     override fun isModified(): Boolean =
-        serverPathField?.text != NimSettings.getInstance().serverPath
+        nimlangserverPath?.text != NimSettings.getInstance().nimlangserverPath
 
     override fun apply() {
-        NimSettings.getInstance().serverPath = serverPathField?.text.orEmpty()
+        NimSettings.getInstance().nimlangserverPath = nimlangserverPath?.text.orEmpty()
     }
 
     override fun reset() {
-        serverPathField?.text = NimSettings.getInstance().serverPath
+        nimlangserverPath?.text = NimSettings.getInstance().nimlangserverPath
     }
 
     override fun disposeUIResources() {
-        serverPathField = null
+        nimlangserverPath = null
     }
 }

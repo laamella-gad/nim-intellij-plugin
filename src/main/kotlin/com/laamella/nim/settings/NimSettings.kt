@@ -8,7 +8,7 @@ import com.intellij.util.xmlb.XmlSerializerUtil
 
 @State(name = "NimSettings", storages = [Storage("nim-plugin.xml")])
 class NimSettings : PersistentStateComponent<NimSettings> {
-    var serverPath: String = ""
+    var nimlangserverPath: String = ""
 
     override fun getState(): NimSettings = this
 
