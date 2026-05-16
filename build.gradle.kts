@@ -34,7 +34,7 @@ tasks {
 
 intellijPlatform {
     pluginConfiguration {
-        name = "Nim"
+        name = "Nim using nimlangserver"
         version = providers.gradleProperty("pluginVersion")
         ideaVersion {
             sinceBuild = providers.gradleProperty("pluginSinceBuild")

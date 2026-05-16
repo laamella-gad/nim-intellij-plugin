@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>com.laamella.nim</id>
-    <name>Nim</name>
+    <name>Nim using nimlangserver</name>
     <vendor email="hexagonaal@gmail.com" url="https://codeberg.org/laamella/nim-intellij-plugin">Laamella Gad</vendor>
     <description><![CDATA[
         Full Nim language support powered by the official <a href="https://github.com/nim-lang/langserver">nimlangserver</a>
@@ -21,6 +21,7 @@
 
         <b>Getting Started</b>
         <ol>
+            <li>Install Nim and Nimble: <a href="https://nim-lang.org/install.html">nim-lang.org/install.html</a></li>
             <li>Install nimlangserver: <code>nimble install nimlangserver</code></li>
             <li>(Optional) Install nimpretty for formatting: <code>nimble install nimpretty</code></li>
             <li>Open <b>Settings → Languages &amp; Frameworks → Nim</b> and verify the server path.</li>
@@ -33,6 +34,8 @@
             <li>Initial release</li>
             <li>Nim language support via nimlangserver and LSP4IJ</li>
             <li>Syntax highlighting, bracket matching, and auto-close quotes</li>
+            <li>Smart Enter indentation</li>
+            <li>Code formatting via nimpretty (Reformat Code / Ctrl+Alt+L)</li>
             <li>Run and test configurations</li>
             <li>New project wizard</li>
             <li>Source root detection from <code>.nimble</code> files</li>
