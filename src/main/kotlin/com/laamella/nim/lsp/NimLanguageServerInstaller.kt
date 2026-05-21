@@ -2,10 +2,14 @@ package com.laamella.nim.lsp
 
 import com.intellij.openapi.progress.ProgressIndicator
 import com.laamella.nim.settings.NimSettings
+import com.redhat.devtools.lsp4ij.LanguageServersRegistry
 import com.redhat.devtools.lsp4ij.installation.LanguageServerInstallerBase
+import com.redhat.devtools.lsp4ij.server.definition.LanguageServerDefinition
 import java.io.IOException
 
-class NimLanguageServerInstaller : LanguageServerInstallerBase() {
+class NimLanguageServerInstaller(
+    serverDefinition: LanguageServerDefinition? = LanguageServersRegistry.getInstance().getServerDefinition("nim")
+) : LanguageServerInstallerBase(serverDefinition) {
 
     override fun checkServerInstalled(indicator: ProgressIndicator): Boolean {
         progressCheckingServerInstalled(indicator)
