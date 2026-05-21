@@ -35,6 +35,16 @@ class NimNewProjectWizardTest {
         )
     }
 
+    @Test fun `custom version author description and license appear in nimble file`() {
+        createNimProjectStructure(dir, "myapp", NimPackageType.BINARY,
+            version = "1.2.3", author = "Alice", description = "My cool app", license = "Apache-2.0")
+        val nimble = dir.resolve("myapp.nimble").toFile().readText()
+        assertTrue(nimble.contains("version = \"1.2.3\""))
+        assertTrue(nimble.contains("author = \"Alice\""))
+        assertTrue(nimble.contains("description = \"My cool app\""))
+        assertTrue(nimble.contains("license = \"Apache-2.0\""))
+    }
+
     @Test fun `binary creates executable entry point`() {
         createNimProjectStructure(dir, "myapp", NimPackageType.BINARY)
         val content = dir.resolve("src/myapp.nim").toFile().readText()

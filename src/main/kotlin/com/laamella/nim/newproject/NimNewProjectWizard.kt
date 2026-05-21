@@ -6,6 +6,7 @@ import com.intellij.ide.wizard.language.LanguageGeneratorNewProjectWizard
 import com.intellij.openapi.project.Project
 import com.intellij.ui.dsl.builder.Panel
 import com.intellij.ui.dsl.builder.bindItem
+import com.intellij.ui.dsl.builder.bindText
 import com.laamella.nim.NimIcons
 import java.nio.file.Path
 import java.nio.file.Paths
@@ -21,6 +22,17 @@ enum class NimPackageType(val displayName: String) {
     override fun toString() = displayName
 }
 
+val NIM_LICENSES = listOf(
+    "MIT", "GPL-2.0", "Apache-2.0", "ISC", "GPL-3.0", "BSD-3-Clause",
+    "LGPL-2.1", "LGPL-3.0", "LGPL-3.0-linking-exception",
+    "EPL-2.0", "AGPL-3.0", "Proprietary", "Other"
+)
+
+private fun gitConfigUser(): String = try {
+    ProcessBuilder("git", "config", "user.name").start()
+        .inputStream.bufferedReader().readLine() ?: ""
+} catch (_: Exception) { "" }
+
 class NimNewProjectWizard : LanguageGeneratorNewProjectWizard {
     override val name = "Nim"
     override val icon: Icon = NimIcons.FILE
@@ -31,21 +43,56 @@ class NimNewProjectWizard : LanguageGeneratorNewProjectWizard {
         private val packageTypeProperty = propertyGraph.property(NimPackageType.BINARY)
         private var packageType by packageTypeProperty
 
+        private val versionProperty = propertyGraph.property("0.1.0")
+        private var version by versionProperty
+
+        private val authorProperty = propertyGraph.property(gitConfigUser())
+        private var author by authorProperty
+
+        private val descriptionProperty = propertyGraph.property("")
+        private var description by descriptionProperty
+
+        private val licenseProperty = propertyGraph.property<String?>(NIM_LICENSES.first())
+        private var license by licenseProperty
+
         override fun setupUI(builder: Panel) {
             with(builder) {
                 row("Package type:") {
                     comboBox(NimPackageType.entries).bindItem(packageTypeProperty)
                 }
+                row("Version:") {
+                    textField().bindText(versionProperty)
+                }
+                row("Author:") {
+                    textField().bindText(authorProperty)
+                }
+                row("Description:") {
+                    textField().bindText(descriptionProperty)
+                }
+                row("License:") {
+                    comboBox(NIM_LICENSES).bindItem(::license)
+                }
             }
         }
 
         override fun setupProject(project: Project) {
-            createNimProjectStructure(Paths.get(project.basePath ?: return), project.name, packageType)
+            createNimProjectStructure(
+                Paths.get(project.basePath ?: return),
+                project.name, packageType, version, author, description, license ?: NIM_LICENSES.first()
+            )
         }
     }
 }
 
-fun createNimProjectStructure(dir: Path, name: String, packageType: NimPackageType = NimPackageType.BINARY) {
+fun createNimProjectStructure(
+    dir: Path,
+    name: String,
+    packageType: NimPackageType = NimPackageType.BINARY,
+    version: String = "0.1.0",
+    author: String = "",
+    description: String = name,
+    license: String = "MIT"
+) {
     val src = dir.resolve("src").also { it.createDirectories() }
     val hasBin = packageType != NimPackageType.LIBRARY
     val hasSubmodule = packageType != NimPackageType.BINARY
@@ -53,10 +100,10 @@ fun createNimProjectStructure(dir: Path, name: String, packageType: NimPackageTy
 
     dir.resolve("$name.nimble").writeText(buildString {
         appendLine("# Package")
-        appendLine("version = \"0.1.0\"")
-        appendLine("author = \"\"")
-        appendLine("description = \"$name\"")
-        appendLine("license = \"MIT\"")
+        appendLine("version = \"$version\"")
+        appendLine("author = \"$author\"")
+        appendLine("description = \"$description\"")
+        appendLine("license = \"$license\"")
         appendLine("srcDir = \"src\"")
         if (packageType == NimPackageType.HYBRID) appendLine("installExt = @[\"nim\"]")
         if (hasBin) {
