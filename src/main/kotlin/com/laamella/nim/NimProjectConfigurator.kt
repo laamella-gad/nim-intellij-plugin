@@ -11,10 +11,11 @@ import com.intellij.openapi.roots.ContentEntry
 import com.intellij.openapi.roots.ModuleRootModificationUtil
 import com.intellij.openapi.startup.ProjectActivity
 import com.intellij.openapi.util.Computable
+import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.vfs.newvfs.BulkFileListener
 import com.intellij.openapi.vfs.newvfs.events.VFileEvent
 
-enum class NimDirKind { SRC, EXCLUDE }
+enum class NimDirKind { SRC, TEST, EXCLUDE }
 
 /**
  * Evaluates the Nim project's .nimble project file on project startup
@@ -59,29 +60,29 @@ fun configureNimProject(project: Project) {
             )
         })
 
-    fun configureDir(
-        contentEntry: ContentEntry, key: String, kind: NimDirKind, nimbleConfig: Map<String, String>
-    ) {
-        val dirName = nimbleConfig[key] ?: return
-        val dir = ApplicationManager.getApplication().runWriteAction(Computable {
+    fun findOrCreateDir(key: String, nimbleConfig: Map<String, String>) =
+        ApplicationManager.getApplication().runWriteAction(Computable {
+            val dirName = nimbleConfig[key] ?: return@Computable null
             projectDir.findChild(dirName) ?: projectDir.createChildDirectory(null, dirName)
         })
+
+    fun ContentEntry.markAs(dir: VirtualFile, kind: NimDirKind) {
         when (kind) {
             NimDirKind.SRC ->
-                if (contentEntry.sourceFolders.none { it.url == dir.url })
-                    contentEntry.addSourceFolder(dir, false)
-
+                if (sourceFolders.none { it.url == dir.url }) addSourceFolder(dir, false)
+            NimDirKind.TEST ->
+                if (sourceFolders.none { it.url == dir.url }) addSourceFolder(dir, true)
             NimDirKind.EXCLUDE ->
-                if (contentEntry.excludeFolderUrls.none { it == dir.url })
-                    contentEntry.addExcludeFolder(dir)
+                if (excludeFolderUrls.none { it == dir.url }) addExcludeFolder(dir)
         }
     }
 
     ModuleRootModificationUtil.updateModel(module) { model ->
         val contentEntry = model.contentEntries.find { it.url == projectDir.url }
             ?: model.addContentEntry(projectDir)
-        configureDir(contentEntry, "srcDir", NimDirKind.SRC, nimbleMap)
-        configureDir(contentEntry, "binDir", NimDirKind.EXCLUDE, nimbleMap)
+        findOrCreateDir("srcDir", nimbleMap)?.let { contentEntry.markAs(it, NimDirKind.SRC) }
+        findOrCreateDir("binDir", nimbleMap)?.let { contentEntry.markAs(it, NimDirKind.EXCLUDE) }
+        projectDir.findChild("tests")?.let { contentEntry.markAs(it, NimDirKind.TEST) }
     }
 
     NotificationGroupManager.getInstance()
