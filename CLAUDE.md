@@ -33,7 +33,7 @@ This is an IntelliJ Platform plugin that adds Nim language support by wiring **L
 ### Extension point flow (plugin.xml)
 
 ```
-com.intellij.fileType                        → NimFileType   (.nim, .nims, .nimble)
+com.intellij.fileType                        → NimFileType   (.nim, .nims, .nimble, .nimscript)
 com.intellij.lang.parserDefinition           → NimParserDefinition
 com.intellij.lang.syntaxHighlighterFactory   → NimSyntaxHighlighterFactory
 com.intellij.lang.commenter                  → NimCommenter
@@ -65,7 +65,7 @@ com.redhat.devtools.lsp4ij:
 | `NimCommenter` | Line comment `#`, block comment `#[`/`]#` — enables Ctrl+/ |
 | `NimQuoteHandler` | Auto-closes `"` and `'` |
 | `NimBraceMatcher` | Highlights matching `()`, `[]`, `{}` pairs |
-| `NimProjectConfigurator` | `ProjectActivity` — reads `.nimble` on project open; creates module if absent, creates `srcDir`/`binDir` if missing, marks them as source root / excluded |
+| `NimProjectConfigurator` | `ProjectActivity` — reads `.nimble` on project open; creates module if absent, creates `srcDir`/`binDir` if missing, marks them as source root / excluded; marks `tests/` as test source root if it exists |
 | `NimNimbleFileListener` | `BulkFileListener` registered via `projectListeners` — re-runs `configureNimProject` when the `.nimble` file changes or is created |
 | `configureNimProject` | Top-level function shared by `NimProjectConfigurator` and `NimNimbleFileListener`; performs all `.nimble`-driven project configuration |
 | `NimFormatProcessor` | `ExternalFormatProcessor` — runs `nimpretty` on Reformat Code; shows warning balloon if not on PATH |
@@ -73,9 +73,8 @@ com.redhat.devtools.lsp4ij:
 | `NimLanguageCodeStyleSettingsProvider` | Sets default indent/tab size to 2 spaces for Nim files |
 | `NimNewProjectWizard` | `LanguageGeneratorNewProjectWizard` — File → New Project → Nim; delegates file creation to `createNimProjectStructure` |
 | `createNimProjectStructure` | Package-level function in `newproject/`; creates `src/`, `bin/`, `*.nimble`, and `src/*.nim` for a new project |
-| `NimLanguageServerFactory` | LSP4IJ entry point; creates connection provider and client features (`isUseIntAsJsonRpcId=true`) |
-| `NimLanguageServerConnectionProvider` | Extends `ProcessStreamConnectionProvider`; launches `nimlangserver` |
-| `NimSettings` | Application-level `PersistentStateComponent` storing `serverPath` |
+| `NimLanguageServerFactory` | LSP4IJ entry point; creates `OSProcessStreamConnectionProvider` launching `nimlangserver` and client features (`isUseIntAsJsonRpcId=true`) |
+| `NimSettings` | Application-level `PersistentStateComponent` storing `nimbleBinPath` (default: `~/.nimble/bin`); `exePath(tool)` resolves tool paths within it |
 | `NimSettingsConfigurable` | Settings UI at **Settings → Languages & Frameworks → Nim** |
 
 ### Known workarounds

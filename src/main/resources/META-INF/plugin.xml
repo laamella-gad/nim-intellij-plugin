@@ -29,9 +29,12 @@
         </ol>
     ]]></description>
     <change-notes><![CDATA[
-        <b>0.1.0</b>
+        <b>0.2.0</b>
         <ul>
-            <li>Initial release</li>
+            <li><code>tests/</code> directory automatically marked as test source root</li>
+        </ul>
+        <b>0.1.0 (initial release)</b>
+        <ul>
             <li>Nim language support via nimlangserver and LSP4IJ</li>
             <li>Syntax highlighting, bracket matching, and auto-close quotes</li>
             <li>Smart Enter indentation</li>
@@ -39,6 +42,7 @@
             <li>Run and test configurations</li>
             <li>New project wizard</li>
             <li>Source root detection from <code>.nimble</code> files</li>
+            <li>Project structure re-configured automatically when <code>.nimble</code> file changes</li>
         </ul>
     ]]></change-notes>
 

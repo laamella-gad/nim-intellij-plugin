@@ -11,7 +11,7 @@ Provided by the plugin:
 
 - Syntax highlighting
 - File type recognition (`.nim`, `.nims`, `.nimble`)
-- Project setup from `.nimble` file (srcDir, binDir)
+- Project setup from `.nimble` file (srcDir, binDir, tests/)
 - Code formatting via `nimpretty` (Reformat Code / Ctrl+Alt+L)
 - Comment/uncomment (Ctrl+/)
 - Auto-close quotes and brackets
@@ -32,10 +32,10 @@ Provided by nimlangserver over LSP:
 
 ## Requirements
 
-- IntelliJ IDEA 2025.1 (Community or Ultimate)
+- IntelliJ IDEA 2026.1 (Community or Ultimate)
 - [Nim and Nimble](https://nim-lang.org/install.html) installed
-- [nimlangserver](https://github.com/nim-lang/langserver) on your PATH: `nimble install nimlangserver`
-- [nimpretty](https://nim-lang.org/docs/nimpretty.html) on your PATH for formatting: `nimble install nimpretty` (optional)
+- [nimlangserver](https://github.com/nim-lang/langserver): `nimble install nimlangserver`
+- [nimpretty](https://nim-lang.org/docs/nimpretty.html) for formatting: `nimble install nimpretty` (optional)
 
 ## Installation
 
@@ -49,7 +49,7 @@ Then install the ZIP from `build/distributions/` via **Settings → Plugins → 
 
 ## Configuration
 
-**Settings → Languages & Frameworks → Nim** — set the path to `nimlangserver` if it is not on your PATH.
+**Settings → Languages & Frameworks → Nim** — set `nimbleBinPath` (default: `~/.nimble/bin`) if your Nimble binaries are elsewhere.
 
 ## Contributing
 
