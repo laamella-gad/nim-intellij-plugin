@@ -17,7 +17,7 @@
             <li>New project wizard for Nim projects</li>
         </ul>
 
-        <em>This is a community plugin, not officially supported by JetBrains or the Nim project.</em>
+        <p><em>This is a community plugin, not officially supported by JetBrains or the Nim project.</em></p>
 
         <b>Getting Started</b>
         <ol>
