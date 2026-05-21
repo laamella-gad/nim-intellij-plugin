@@ -9,6 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ./gradlew buildPlugin     # produce distributable ZIP in build/distributions/
 ./gradlew verifyPlugin    # check compatibility against target platform
 ./gradlew check           # run tests and inspections
+./gradlew generateLexer   # regenerate _NimLexer.java from src/main/flex/_NimLexer.flex (auto-runs before compile)
 ```
 
 > First run: `./gradlew wrapper` to generate the wrapper JAR if it is missing.
@@ -58,8 +59,9 @@ com.redhat.devtools.lsp4ij:
 | `NimFileType` | Maps `.nim/.nims/.nimble` to `NimLanguage`; provides icon |
 | `NimFile` | `PsiFileBase` subclass — required so PSI files carry `NimLanguage` (enables commenter lookup) |
 | `NimParserDefinition` | Minimal `ParserDefinition` — flat token tree, no real parser; provides lexer, comment/string token sets, and `NimFile` factory |
-| `NimTokenTypes` | `IElementType` constants for all lexer token kinds including bracket tokens |
-| `NimLexer` | Hand-written `LexerBase` — keywords, strings, chars, numbers, nested block comments, doc comments, bracket tokens |
+| `NimTokenTypes` | `IElementType` constants for all lexer token kinds including bracket tokens; all fields annotated `@JvmField` for Java access from generated lexer |
+| `_NimLexer.flex` | JFlex grammar in `src/main/flex/`; generated to `build/generated/sources/grammarkit-lexer/` by `./gradlew generateLexer` (wired into `compileKotlin`); handles keywords, strings (normal/raw/triple/generalized), chars, numbers (all bases + suffixes), nested block/doc-block comments, backtick identifiers |
+| `NimLexer` | Thin `FlexAdapter(_NimLexer(null))` wrapper; incremental re-lex state managed by JFlex |
 | `NimSyntaxHighlighter` | Maps token types to `DefaultLanguageHighlighterColors` keys |
 | `NimSyntaxHighlighterFactory` | Creates `NimSyntaxHighlighter`; registered for `language="Nim"` |
 | `NimCommenter` | Line comment `#`, block comment `#[`/`]#` — enables Ctrl+/ |
