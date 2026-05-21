@@ -17,15 +17,15 @@ class NimSettingsConfigurable : Configurable {
         nimbleBinField.addBrowseFolderListener(
             null,
             FileChooserDescriptor(false, true, false, false, false, false)
-                .withTitle("Select Nimble Bin Directory")
+                .withTitle("Select Nim Toolchain Directory")
         )
         nimbleBinPath = nimbleBinField
 
         return panel {
-            row("Nimble bin path:") {
+            row("Nim toolchain path:") {
                 cell(nimbleBinField)
                     .align(AlignX.FILL)
-                    .comment("Directory containing <code>nimlangserver</code>, <code>nimble</code>, and <code>nimpretty</code> (e.g. <code>~/.nimble/bin</code>). Leave blank to use PATH.")
+                    .comment("Directory containing the Nim toolchain: <code>nim</code>, <code>nimble</code>, <code>nimlangserver</code>, <code>nimpretty</code> (e.g. <code>/home/willem/.nimble/bin</code>).")
             }
         }
     }

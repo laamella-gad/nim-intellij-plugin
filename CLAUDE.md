@@ -74,7 +74,7 @@ com.redhat.devtools.lsp4ij:
 | `NimNewProjectWizard` | `LanguageGeneratorNewProjectWizard` — File → New Project → Nim; delegates file creation to `createNimProjectStructure` |
 | `createNimProjectStructure` | Package-level function in `newproject/`; creates `src/`, `bin/`, `*.nimble`, and `src/*.nim` for a new project |
 | `NimLanguageServerFactory` | LSP4IJ entry point; creates `OSProcessStreamConnectionProvider` launching `nimlangserver` and client features (`isUseIntAsJsonRpcId=true`) |
-| `NimSettings` | Application-level `PersistentStateComponent` storing `nimbleBinPath` (default: `~/.nimble/bin`); `exePath(tool)` resolves tool paths within it |
+| `NimSettings` | Application-level `PersistentStateComponent` storing `nimbleBinPath` (default: `~/.nimble/bin`) — the directory containing the Nim toolchain (`nim`, `nimble`, `nimlangserver`, `nimpretty`); `exePath(tool)` resolves tool paths within it |
 | `NimSettingsConfigurable` | Settings UI at **Settings → Languages & Frameworks → Nim** |
 
 ### Known workarounds

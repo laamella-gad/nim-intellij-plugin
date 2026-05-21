@@ -24,7 +24,7 @@
             <li>Install Nim and Nimble: <a href="https://nim-lang.org/install.html">nim-lang.org/install.html</a></li>
             <li>Install nimlangserver: <code>nimble install nimlangserver</code></li>
             <li>(Optional) Install nimpretty for formatting: <code>nimble install nimpretty</code></li>
-            <li>Open <b>Settings → Languages &amp; Frameworks → Nim</b> and verify the server path.</li>
+            <li>Open <b>Settings → Languages &amp; Frameworks → Nim</b> and verify your toolchain path (where nim, nimble, etc. can be found.)</li>
             <li>Open any <code>.nim</code>, <code>.nims</code>, or <code>.nimble</code> file — LSP features activate automatically.</li>
         </ol>
     ]]></description>
