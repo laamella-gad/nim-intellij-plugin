@@ -3,7 +3,8 @@
     <name>Nim using nimlangserver</name>
     <vendor email="hexagonaal@gmail.com" url="https://codeberg.org/laamella/nim-intellij-plugin">Laamella Gad</vendor>
     <description><![CDATA[
-        Full Nim language support powered by the official <a href="https://github.com/nim-lang/langserver">nimlangserver</a>
+        Full Nim language support powered by <a href="https://github.com/nim-lang/langserver">nimlangserver</a>
+        or <a href="https://github.com/PMunch/nimlsp">nimlsp</a>
         via <a href="https://github.com/redhat-developer/lsp4ij">LSP4IJ</a>.
 
         <ul>
@@ -32,6 +33,7 @@
         <b>0.2.0</b>
         <ul>
             <li><code>tests/</code> directory automatically marked as test source root</li>
+            <li>all executable names are now configurable, enabling nimlsp</li>
         </ul>
         <b>0.1.0 (initial release)</b>
         <ul>
