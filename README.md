@@ -49,7 +49,9 @@ Then install the ZIP from `build/distributions/` via **Settings → Plugins → 
 
 ## Configuration
 
-**Settings → Languages & Frameworks → Nim** — set `nimbleBinPath` (default: `/home/<username>/.nimble/bin`) if your Nim toolchain is installed elsewhere.
+**Settings → Languages & Frameworks → Nim**:
+- **Nim toolchain path** — directory containing the toolchain binaries (default: `/home/<username>/.nimble/bin`)
+- **nimlangserver / nimble / nimpretty executable name** — filename of each tool within that directory (defaults: `nimlangserver`, `nimble`, `nimpretty`)
 
 ## Contributing
 
