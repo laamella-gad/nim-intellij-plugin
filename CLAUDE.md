@@ -73,8 +73,9 @@ com.redhat.devtools.lsp4ij:
 | `NimFormatProcessor` | `ExternalFormatProcessor` — runs `nimpretty` on Reformat Code; shows warning balloon if not on PATH |
 | `NimLineIndentProvider` | `LineIndentProvider` — computes Enter-key indentation by inspecting the previous line's last non-comment character; delegates shared helpers `nimOpensBlock`/`stripTrailingComment` |
 | `NimLanguageCodeStyleSettingsProvider` | Sets default indent/tab size to 2 spaces for Nim files |
-| `NimNewProjectWizard` | `LanguageGeneratorNewProjectWizard` — File → New Project → Nim; delegates file creation to `createNimProjectStructure` |
-| `createNimProjectStructure` | Package-level function in `newproject/`; creates `src/`, `bin/`, `*.nimble`, and `src/*.nim` for a new project |
+| `NimPackageType` | Enum: `BINARY`, `LIBRARY`, `HYBRID` — controls .nimble fields and generated source files to match `nimble init` output |
+| `NimNewProjectWizard` | `LanguageGeneratorNewProjectWizard` — File → New Project → Nim; exposes `NimPackageType` combo box; delegates file creation to `createNimProjectStructure` |
+| `createNimProjectStructure` | Package-level function in `newproject/`; generates `*.nimble`, `src/name.nim`, and (for Library/Hybrid) `src/name/submodule.nim`; `bin/` only for Binary and Hybrid |
 | `NimLanguageServerFactory` | LSP4IJ entry point; creates `OSProcessStreamConnectionProvider` launching `nimlangserver`; client features (`isUseIntAsJsonRpcId=true`); returns `NimLanguageServerInstaller` from `createServerInstaller()` |
 | `NimLanguageServerInstaller` | `LanguageServerInstallerBase` — `checkServerInstalled()` tests exe via `File.canExecute()` (or PATH search for bare names); `install()` runs `nimble install --accept --useSystemNim nimlangserver`, prepending `nimbleBinPath` to PATH so `nim` is findable when IntelliJ was launched without the toolchain on PATH |
 | `NimSettings` | Application-level `PersistentStateComponent`; stores `nimbleBinPath` (toolchain directory) and `nimlangserverExe`/`nimbleExe`/`nimprettyExe` (filenames, default to tool name); `exePath(exe)` combines them; helpers `nimlangserver()`/`nimble()`/`nimpretty()` for callers |

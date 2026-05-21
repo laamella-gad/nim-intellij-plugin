@@ -36,6 +36,7 @@
             <li><code>tests/</code> directory automatically marked as test source root</li>
             <li>all executable names are now configurable, enabling nimlsp</li>
             <li>Lexer now uses JFlex</li>
+            <li>New project wizard supports Binary, Library, and Hybrid package types</li>
         </ul>
         <b>0.1.0 (initial release)</b>
         <ul>
