@@ -6,6 +6,7 @@ import com.intellij.openapi.project.guessProjectDir
 import com.laamella.nim.settings.NimSettings
 import com.redhat.devtools.lsp4ij.LanguageServerFactory
 import com.redhat.devtools.lsp4ij.client.features.LSPClientFeatures
+import com.redhat.devtools.lsp4ij.installation.ServerInstaller
 import com.redhat.devtools.lsp4ij.server.OSProcessStreamConnectionProvider
 import com.redhat.devtools.lsp4ij.server.StreamConnectionProvider
 import java.nio.file.Path
@@ -23,4 +24,6 @@ class NimLanguageServerFactory : LanguageServerFactory {
         object : LSPClientFeatures() {
             override fun isUseIntAsJsonRpcId(): Boolean = true
         }
+
+    override fun createServerInstaller(): ServerInstaller = NimLanguageServerInstaller()
 }
