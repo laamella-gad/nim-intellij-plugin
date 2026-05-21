@@ -75,7 +75,8 @@ com.redhat.devtools.lsp4ij:
 | `NimLanguageCodeStyleSettingsProvider` | Sets default indent/tab size to 2 spaces for Nim files |
 | `NimNewProjectWizard` | `LanguageGeneratorNewProjectWizard` — File → New Project → Nim; delegates file creation to `createNimProjectStructure` |
 | `createNimProjectStructure` | Package-level function in `newproject/`; creates `src/`, `bin/`, `*.nimble`, and `src/*.nim` for a new project |
-| `NimLanguageServerFactory` | LSP4IJ entry point; creates `OSProcessStreamConnectionProvider` launching `nimlangserver` and client features (`isUseIntAsJsonRpcId=true`) |
+| `NimLanguageServerFactory` | LSP4IJ entry point; creates `OSProcessStreamConnectionProvider` launching `nimlangserver`; client features (`isUseIntAsJsonRpcId=true`); returns `NimLanguageServerInstaller` from `createServerInstaller()` |
+| `NimLanguageServerInstaller` | `LanguageServerInstallerBase` — `checkServerInstalled()` tests exe via `File.canExecute()` (or PATH search for bare names); `install()` runs `nimble install --accept --useSystemNim nimlangserver`, prepending `nimbleBinPath` to PATH so `nim` is findable when IntelliJ was launched without the toolchain on PATH |
 | `NimSettings` | Application-level `PersistentStateComponent`; stores `nimbleBinPath` (toolchain directory) and `nimlangserverExe`/`nimbleExe`/`nimprettyExe` (filenames, default to tool name); `exePath(exe)` combines them; helpers `nimlangserver()`/`nimble()`/`nimpretty()` for callers |
 | `NimSettingsConfigurable` | Settings UI at **Settings → Languages & Frameworks → Nim** |
 

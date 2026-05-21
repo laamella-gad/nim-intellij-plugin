@@ -23,7 +23,7 @@
         <b>Getting Started</b>
         <ol>
             <li>Install Nim and Nimble: <a href="https://nim-lang.org/install.html">nim-lang.org/install.html</a></li>
-            <li>Install nimlangserver: <code>nimble install nimlangserver</code></li>
+            <li>nimlangserver is auto-installed by the plugin if missing; or install manually: <code>nimble install -g --useSystemNim nimlangserver</code></li>
             <li>(Optional) Install nimpretty for formatting: <code>nimble install nimpretty</code></li>
             <li>Open <b>Settings → Languages &amp; Frameworks → Nim</b> and verify your toolchain path (where nim, nimble, etc. can be found.)</li>
             <li>Open any <code>.nim</code>, <code>.nims</code>, or <code>.nimble</code> file — LSP features activate automatically.</li>
@@ -32,6 +32,7 @@
     <change-notes><![CDATA[
         <b>0.2.0</b>
         <ul>
+            <li>nimlangserver is auto-installed via nimble if missing</li>
             <li><code>tests/</code> directory automatically marked as test source root</li>
             <li>all executable names are now configurable, enabling nimlsp</li>
             <li>Lexer now uses JFlex</li>

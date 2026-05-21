@@ -34,7 +34,7 @@ Provided by nimlangserver over LSP:
 
 - IntelliJ IDEA 2026.1 (Community or Ultimate)
 - [Nim and Nimble](https://nim-lang.org/install.html) installed
-- [nimlangserver](https://github.com/nim-lang/langserver): `nimble install nimlangserver`
+- [nimlangserver](https://github.com/nim-lang/langserver) — auto-installed by the plugin if missing; or install manually: `nimble install nimlangserver`
 - [nimpretty](https://nim-lang.org/docs/nimpretty.html) for formatting: `nimble install nimpretty` (optional)
 
 ## Installation
