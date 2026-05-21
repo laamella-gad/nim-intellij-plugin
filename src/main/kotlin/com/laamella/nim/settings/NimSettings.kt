@@ -10,10 +10,17 @@ import java.nio.file.Path
 @State(name = "NimSettings", storages = [Storage("nim-plugin.xml")])
 class NimSettings : PersistentStateComponent<NimSettings> {
     var nimbleBinPath: String = Path.of(System.getProperty("user.home"), ".nimble", "bin").toString()
+    var nimlangserverExe: String = "nimlangserver"
+    var nimbleExe: String = "nimble"
+    var nimprettyExe: String = "nimpretty"
 
-    fun exePath(tool: String): String =
-        if (nimbleBinPath.isBlank()) tool
-        else Path.of(nimbleBinPath, tool).toString()
+    fun exePath(exe: String): String =
+        if (nimbleBinPath.isBlank()) exe
+        else Path.of(nimbleBinPath, exe).toString()
+
+    fun nimlangserver() = exePath(nimlangserverExe)
+    fun nimble() = exePath(nimbleExe)
+    fun nimpretty() = exePath(nimprettyExe)
 
     override fun getState(): NimSettings = this
 

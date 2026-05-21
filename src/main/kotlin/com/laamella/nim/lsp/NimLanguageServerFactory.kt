@@ -13,7 +13,7 @@ import java.nio.file.Path
 class NimLanguageServerFactory : LanguageServerFactory {
     override fun createConnectionProvider(project: Project): StreamConnectionProvider {
         val settings = NimSettings.getInstance()
-        val generalCommandLine = GeneralCommandLine(settings.exePath("nimlangserver"))
+        val generalCommandLine = GeneralCommandLine(settings.nimlangserver())
             .withWorkingDirectory(Path.of(project.guessProjectDir()?.path ?: "."))
             .withEnvironment("PATH", settings.nimbleBinPath)
         return OSProcessStreamConnectionProvider(generalCommandLine)
