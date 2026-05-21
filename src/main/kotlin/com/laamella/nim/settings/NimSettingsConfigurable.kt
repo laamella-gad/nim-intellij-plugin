@@ -30,9 +30,9 @@ class NimSettingsConfigurable : Configurable {
 
         return panel {
             row("Nim toolchain path:") { cell(nimbleBinPath!!).align(AlignX.FILL) }
-            row("nimlangserver:") { cell(nimlangserverExe!!).align(AlignX.FILL) }
-            row("nimble:") { cell(nimbleExe!!).align(AlignX.FILL) }
-            row("nimpretty:") { cell(nimprettyExe!!).align(AlignX.FILL) }
+            row("nimlangserver or nimlsp executable name:") { cell(nimlangserverExe!!).align(AlignX.FILL) }
+            row("nimble executable name:") { cell(nimbleExe!!).align(AlignX.FILL) }
+            row("nimpretty executable name:") { cell(nimprettyExe!!).align(AlignX.FILL) }
         }
     }
 
