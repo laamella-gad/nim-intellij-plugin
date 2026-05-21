@@ -33,10 +33,9 @@
         <b>0.2.0</b>
         <ul>
             <li>nimlangserver is auto-installed via nimble if missing</li>
+            <li>New project wizard now has all features of nimble init</li>
             <li><code>tests/</code> directory automatically marked as test source root</li>
             <li>all executable names are now configurable, enabling nimlsp</li>
-            <li>Lexer now uses JFlex</li>
-            <li>New project wizard supports Binary, Library, and Hybrid package types</li>
         </ul>
         <b>0.1.0 (initial release)</b>
         <ul>
