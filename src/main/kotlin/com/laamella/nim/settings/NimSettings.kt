@@ -13,6 +13,7 @@ class NimSettings : PersistentStateComponent<NimSettings> {
     var nimlangserverExe: String = "nimlangserver"
     var nimbleExe: String = "nimble"
     var nimprettyExe: String = "nimpretty"
+    var nimExe: String = "nim"
 
     fun exePath(exe: String): String =
         if (nimbleBinPath.isBlank()) exe
@@ -21,6 +22,7 @@ class NimSettings : PersistentStateComponent<NimSettings> {
     fun nimlangserver() = exePath(nimlangserverExe)
     fun nimble() = exePath(nimbleExe)
     fun nimpretty() = exePath(nimprettyExe)
+    fun nim() = exePath(nimExe)
 
     override fun getState(): NimSettings = this
 

@@ -8,6 +8,7 @@ import com.intellij.ui.dsl.builder.Panel
 import com.intellij.ui.dsl.builder.bindItem
 import com.intellij.ui.dsl.builder.bindText
 import com.laamella.nim.NimIcons
+import com.laamella.nim.settings.NimSettings
 import java.nio.file.Path
 import java.nio.file.Paths
 import javax.swing.Icon
@@ -27,6 +28,17 @@ val NIM_LICENSES = listOf(
     "LGPL-2.1", "LGPL-3.0", "LGPL-3.0-linking-exception",
     "EPL-2.0", "AGPL-3.0", "Proprietary", "Other"
 )
+
+const val DEFAULT_NIM_VERSION = "2.0.0"
+
+private fun detectedNimVersion(): String {
+    val nim = NimSettings.getInstance().nim()
+    return try {
+        val line = ProcessBuilder(nim, "--version").start()
+            .inputStream.bufferedReader().readLine() ?: return DEFAULT_NIM_VERSION
+        Regex("""Version (\d+\.\d+\.\d+)""").find(line)?.groupValues?.get(1) ?: DEFAULT_NIM_VERSION
+    } catch (_: Exception) { DEFAULT_NIM_VERSION }
+}
 
 private fun gitConfigUser(): String = try {
     ProcessBuilder("git", "config", "user.name").start()
@@ -55,6 +67,9 @@ class NimNewProjectWizard : LanguageGeneratorNewProjectWizard {
         private val licenseProperty = propertyGraph.property<String?>(NIM_LICENSES.first())
         private var license by licenseProperty
 
+        private val nimVersionProperty = propertyGraph.property(detectedNimVersion())
+        private var nimVersion by nimVersionProperty
+
         override fun setupUI(builder: Panel) {
             with(builder) {
                 row("Package type:") {
@@ -78,7 +93,7 @@ class NimNewProjectWizard : LanguageGeneratorNewProjectWizard {
         override fun setupProject(project: Project) {
             createNimProjectStructure(
                 Paths.get(project.basePath ?: return),
-                project.name, packageType, version, author, description, license ?: NIM_LICENSES.first()
+                project.name, packageType, version, author, description, license ?: NIM_LICENSES.first(), nimVersion
             )
         }
     }
@@ -91,7 +106,8 @@ fun createNimProjectStructure(
     version: String = "0.1.0",
     author: String = "",
     description: String = name,
-    license: String = "MIT"
+    license: String = "MIT",
+    nimVersion: String = DEFAULT_NIM_VERSION
 ) {
     val src = dir.resolve("src").also { it.createDirectories() }
     val hasBin = packageType != NimPackageType.LIBRARY
@@ -112,7 +128,7 @@ fun createNimProjectStructure(
         }
         appendLine()
         appendLine("# Dependencies")
-        appendLine("requires \"nim >= 2.0.0\"")
+        appendLine("requires \"nim >= $nimVersion\"")
     })
 
     val mainSource = when (packageType) {

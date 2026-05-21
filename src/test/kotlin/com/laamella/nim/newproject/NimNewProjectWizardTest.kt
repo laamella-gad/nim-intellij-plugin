@@ -29,7 +29,7 @@ class NimNewProjectWizardTest {
             bin = @["myapp"]
 
             # Dependencies
-            requires "nim >= 2.0.0"
+            requires "nim >= $DEFAULT_NIM_VERSION"
             """.trimIndent() + "\n",
             dir.resolve("myapp.nimble").toFile().readText()
         )
@@ -71,7 +71,7 @@ class NimNewProjectWizardTest {
             srcDir = "src"
 
             # Dependencies
-            requires "nim >= 2.0.0"
+            requires "nim >= $DEFAULT_NIM_VERSION"
             """.trimIndent() + "\n",
             nimble
         )
@@ -109,7 +109,7 @@ class NimNewProjectWizardTest {
             bin = @["myapp"]
 
             # Dependencies
-            requires "nim >= 2.0.0"
+            requires "nim >= $DEFAULT_NIM_VERSION"
             """.trimIndent() + "\n",
             nimble
         )
