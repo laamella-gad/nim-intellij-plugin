@@ -25,6 +25,7 @@ Provided by nimlangserver over LSP:
 - Go to definition
 - Find usages
 - Highlight all occurrences of symbol under cursor
+- Go to symbol
 - Diagnostics
 - Inlay hints
 - Folding
