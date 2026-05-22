@@ -63,8 +63,9 @@ KEYWORD = "addr"|"and"|"as"|"asm"|"bind"|"block"|"break"|"case"|"cast"|"concept"
 // --- Doc comment ## ... ---
 <YYINITIAL> "##" [^\n]*                    { return NimTokenTypes.DOC_COMMENT; }
 
-// --- Line comment # ... ---
-<YYINITIAL> "#" [^\n]*                     { return NimTokenTypes.LINE_COMMENT; }
+// --- Line comment # ... (must not match #[ block comment or ## doc comment openers) ---
+<YYINITIAL> "#" [^\[\n#] [^\n]*            { return NimTokenTypes.LINE_COMMENT; }
+<YYINITIAL> "#"                             { return NimTokenTypes.LINE_COMMENT; }
 
 // --- Triple raw string r""" ... """ or R""" ... """ ---
 <YYINITIAL> [rR] \"\"\"                    { yybegin(IN_TRIPLE_RAW_STRING); }
