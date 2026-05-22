@@ -9,7 +9,7 @@
 
         <ul>
             <li>Code completion, parameter info, and hover documentation</li>
-            <li>Go to definition, find usages, and rename refactoring</li>
+            <li>Go to definition, find usages, document highlight, and rename refactoring</li>
             <li>Inline diagnostics and inlay hints</li>
             <li>Code formatting via <code>nimpretty</code> (Reformat Code / Ctrl+Alt+L)</li>
             <li>Smart Enter indentation with 2-space default</li>
