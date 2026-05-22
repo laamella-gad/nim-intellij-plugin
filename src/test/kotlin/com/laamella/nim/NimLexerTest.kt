@@ -80,16 +80,16 @@ class NimLexerTest {
     // --- Numbers ---
 
     @Test fun `decimal integer`() = assertEquals(NimTokenTypes.NUMBER, only("42"))
-    @Test fun `zero`() = assertEquals(NimTokenTypes.NUMBER, only("0"))
-    @Test fun `float`() = assertEquals(NimTokenTypes.NUMBER, only("3.14"))
+    @Test fun zero() = assertEquals(NimTokenTypes.NUMBER, only("0"))
+    @Test fun float() = assertEquals(NimTokenTypes.NUMBER, only("3.14"))
     @Test fun `float exponent`() = assertEquals(NimTokenTypes.NUMBER, only("1e10"))
     @Test fun `float negative exponent`() = assertEquals(NimTokenTypes.NUMBER, only("1e-10"))
     @Test fun `float positive exponent`() = assertEquals(NimTokenTypes.NUMBER, only("1e+10"))
     @Test fun `hex lowercase x`() = assertEquals(NimTokenTypes.NUMBER, only("0xff"))
     @Test fun `hex uppercase X`() = assertEquals(NimTokenTypes.NUMBER, only("0XFF"))
     @Test fun `hex mixed case digits`() = assertEquals(NimTokenTypes.NUMBER, only("0xDeAdBeEf"))
-    @Test fun `octal`() = assertEquals(NimTokenTypes.NUMBER, only("0o77"))
-    @Test fun `binary`() = assertEquals(NimTokenTypes.NUMBER, only("0b1010"))
+    @Test fun octal() = assertEquals(NimTokenTypes.NUMBER, only("0o77"))
+    @Test fun binary() = assertEquals(NimTokenTypes.NUMBER, only("0b1010"))
     @Test fun `underscore separator`() = assertEquals(NimTokenTypes.NUMBER, only("1_000_000"))
     @Test fun `int suffix i8`() = assertEquals(NimTokenTypes.NUMBER, only("42'i8"))
     @Test fun `int suffix i16`() = assertEquals(NimTokenTypes.NUMBER, only("42'i16"))
@@ -116,27 +116,27 @@ class NimLexerTest {
 
     // --- Brackets ---
 
-    @Test fun `lparen`() = assertEquals(NimTokenTypes.LPAREN, only("("))
-    @Test fun `rparen`() = assertEquals(NimTokenTypes.RPAREN, only(")"))
-    @Test fun `lbracket`() = assertEquals(NimTokenTypes.LBRACKET, only("["))
-    @Test fun `rbracket`() = assertEquals(NimTokenTypes.RBRACKET, only("]"))
-    @Test fun `lbrace`() = assertEquals(NimTokenTypes.LBRACE, only("{"))
-    @Test fun `rbrace`() = assertEquals(NimTokenTypes.RBRACE, only("}"))
+    @Test fun lparen() = assertEquals(NimTokenTypes.LPAREN, only("("))
+    @Test fun rparen() = assertEquals(NimTokenTypes.RPAREN, only(")"))
+    @Test fun lbracket() = assertEquals(NimTokenTypes.LBRACKET, only("["))
+    @Test fun rbracket() = assertEquals(NimTokenTypes.RBRACKET, only("]"))
+    @Test fun lbrace() = assertEquals(NimTokenTypes.LBRACE, only("{"))
+    @Test fun rbrace() = assertEquals(NimTokenTypes.RBRACE, only("}"))
 
     // --- Operators (catch-all) ---
 
-    @Test fun `plus`() = assertEquals(NimTokenTypes.OPERATOR, only("+"))
-    @Test fun `colon`() = assertEquals(NimTokenTypes.OPERATOR, only(":"))
-    @Test fun `dot`() = assertEquals(NimTokenTypes.OPERATOR, only("."))
-    @Test fun `equals`() = assertEquals(NimTokenTypes.OPERATOR, only("="))
-    @Test fun `comma`() = assertEquals(NimTokenTypes.OPERATOR, only(","))
-    @Test fun `semicolon`() = assertEquals(NimTokenTypes.OPERATOR, only(";"))
+    @Test fun plus() = assertEquals(NimTokenTypes.OPERATOR, only("+"))
+    @Test fun colon() = assertEquals(NimTokenTypes.OPERATOR, only(":"))
+    @Test fun dot() = assertEquals(NimTokenTypes.OPERATOR, only("."))
+    @Test fun equals() = assertEquals(NimTokenTypes.OPERATOR, only("="))
+    @Test fun comma() = assertEquals(NimTokenTypes.OPERATOR, only(","))
+    @Test fun semicolon() = assertEquals(NimTokenTypes.OPERATOR, only(";"))
 
     // --- Whitespace ---
 
-    @Test fun `spaces`() = assertEquals(TokenType.WHITE_SPACE, only("   "))
-    @Test fun `newline`() = assertEquals(TokenType.WHITE_SPACE, only("\n"))
-    @Test fun `tab`() = assertEquals(TokenType.WHITE_SPACE, only("\t"))
+    @Test fun spaces() = assertEquals(TokenType.WHITE_SPACE, only("   "))
+    @Test fun newline() = assertEquals(TokenType.WHITE_SPACE, only("\n"))
+    @Test fun tab() = assertEquals(TokenType.WHITE_SPACE, only("\t"))
     @Test fun `mixed whitespace`() = assertEquals(TokenType.WHITE_SPACE, only("  \t\n  "))
 
     // --- Integration ---
