@@ -15,6 +15,9 @@ object NimHighlightingColors {
     val NUMBER        = key("NIM_NUMBER",        DefaultLanguageHighlighterColors.NUMBER)
     val IDENTIFIER    = key("NIM_IDENTIFIER",    DefaultLanguageHighlighterColors.IDENTIFIER)
     val OPERATOR      = key("NIM_OPERATOR",      DefaultLanguageHighlighterColors.OPERATION_SIGN)
+    val PAREN         = key("NIM_PAREN",         DefaultLanguageHighlighterColors.PARENTHESES)
+    val BRACKET       = key("NIM_BRACKET",       DefaultLanguageHighlighterColors.BRACKETS)
+    val BRACE         = key("NIM_BRACE",         DefaultLanguageHighlighterColors.BRACES)
 
     private fun key(name: String, fallback: TextAttributesKey) =
         TextAttributesKey.createTextAttributesKey(name, fallback)
@@ -32,6 +35,9 @@ class NimSyntaxHighlighter : SyntaxHighlighterBase() {
         NimTokenTypes.NUMBER                  -> arrayOf(NimHighlightingColors.NUMBER)
         NimTokenTypes.IDENTIFIER              -> arrayOf(NimHighlightingColors.IDENTIFIER)
         NimTokenTypes.OPERATOR                -> arrayOf(NimHighlightingColors.OPERATOR)
+        NimTokenTypes.LPAREN, NimTokenTypes.RPAREN     -> arrayOf(NimHighlightingColors.PAREN)
+        NimTokenTypes.LBRACKET, NimTokenTypes.RBRACKET -> arrayOf(NimHighlightingColors.BRACKET)
+        NimTokenTypes.LBRACE, NimTokenTypes.RBRACE    -> arrayOf(NimHighlightingColors.BRACE)
         else                                  -> emptyArray()
     }
 }

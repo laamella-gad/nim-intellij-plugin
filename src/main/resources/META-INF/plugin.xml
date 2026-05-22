@@ -82,6 +82,8 @@
 
         <langCodeStyleSettingsProvider implementation="com.laamella.nim.NimLanguageCodeStyleSettingsProvider"/>
 
+        <colorSettingsPage implementation="com.laamella.nim.NimColorSettingsPage"/>
+
         <lineIndentProvider implementation="com.laamella.nim.NimLineIndentProvider"/>
 
         <newProjectWizard.languageGenerator implementation="com.laamella.nim.newproject.NimNewProjectWizard"/>
