@@ -85,6 +85,8 @@ fun configureNimProject(project: Project) {
         projectDir.findChild("tests")?.let { contentEntry.markAs(it, NimDirKind.TEST) }
     }
 
+    configureNimLibraries(project)
+
     NotificationGroupManager.getInstance()
         .getNotificationGroup("Nim")
         .createNotification("Nimble project refreshed", NotificationType.INFORMATION)
