@@ -86,6 +86,7 @@ fun configureNimProject(project: Project) {
     }
 
     configureNimLibraries(project)
+    configureNimStdlib(project)
 
     NotificationGroupManager.getInstance()
         .getNotificationGroup("Nim")

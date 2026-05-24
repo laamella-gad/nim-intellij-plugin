@@ -39,7 +39,7 @@ fun configureNimLibraries(project: Project) {
                     val toRemove = builder.entities(LibraryEntity::class.java)
                         .filter { it.tableId == LibraryTableId.ProjectLibraryTableId }
                         .filter { lib -> lib.roots.any { it.url.url.startsWith(nimblePkgsDirUrl) } }
-                        .filter { it.name !in depNames }
+                        .filter { it.name !in depNames && it.name != "Nim" }
                         .toList()
 
                     if (module != null && toRemove.isNotEmpty()) {
@@ -114,6 +114,70 @@ private fun parseNimbleDeps(json: String, settings: NimSettings): List<NimDep> {
         result += NimDep(name, VfsUtilCore.pathToUrl(dir.toAbsolutePath().toString()))
     }
     return result
+}
+
+fun configureNimStdlib(project: Project) {
+    val settings = NimSettings.getInstance()
+    ApplicationManager.getApplication().executeOnPooledThread {
+        val stdlibDir = findNimStdlibDir(settings) ?: return@executeOnPooledThread
+
+        ApplicationManager.getApplication().invokeLater {
+            val workspaceModel = project.workspaceModel
+            val urlManager = workspaceModel.getVirtualFileUrlManager()
+            val entitySource = LegacyBridgeJpsEntitySourceFactory.getInstance(project)
+                .createEntitySourceForProjectLibrary(null)
+
+            ApplicationManager.getApplication().runWriteAction {
+                workspaceModel.updateProjectModel("Configure Nim stdlib") { builder ->
+                    val libId = LibraryId("Nim", LibraryTableId.ProjectLibraryTableId)
+                    val stdlibUrl = urlManager.getOrCreateFromUrl(VfsUtilCore.pathToUrl(stdlibDir.toString()))
+                    val roots = listOf(
+                        LibraryRoot(stdlibUrl, LibraryRootTypeId.COMPILED),
+                        LibraryRoot(stdlibUrl, LibraryRootTypeId.SOURCES),
+                    )
+                    val existing = builder.resolve(libId)
+                    if (existing == null) {
+                        builder.addEntity(LibraryEntity("Nim", LibraryTableId.ProjectLibraryTableId, roots, entitySource))
+                    } else {
+                        builder.modifyLibraryEntity(existing) {
+                            this.roots.clear()
+                            this.roots.addAll(roots)
+                        }
+                    }
+
+                    val module = builder.entities(ModuleEntity::class.java).firstOrNull()
+                    if (module != null) {
+                        val libDep = LibraryDependency(libId, false, DependencyScope.COMPILE)
+                        if (module.dependencies.none { it is LibraryDependency && it.library == libId }) {
+                            builder.modifyModuleEntity(module) { dependencies.add(libDep) }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+private fun findNimStdlibDir(settings: NimSettings): Path? {
+    val version = runNimVersion(settings) ?: return null
+    val pkgs2 = nimblePkgs2Dir(settings)
+    if (!Files.isDirectory(pkgs2)) return null
+    val nimDir = Files.newDirectoryStream(pkgs2, "nim-$version-*").use { it.firstOrNull() } ?: return null
+    val libDir = nimDir.resolve("lib")
+    return if (Files.isDirectory(libDir)) libDir else null
+}
+
+private fun runNimVersion(settings: NimSettings): String? {
+    return try {
+        val pb = ProcessBuilder(settings.nim(), "--version")
+            .redirectError(ProcessBuilder.Redirect.DISCARD)
+        if (settings.nimbleBinPath.isNotBlank()) {
+            val currentPath = System.getenv("PATH") ?: ""
+            pb.environment()["PATH"] = "${settings.nimbleBinPath}${File.pathSeparator}$currentPath"
+        }
+        val line = pb.start().inputStream.bufferedReader().readLine() ?: return null
+        Regex("""Version (\d+\.\d+\.\d+)""").find(line)?.groupValues?.get(1)
+    } catch (_: Exception) { null }
 }
 
 private fun nimblePkgs2Dir(settings: NimSettings): Path =
