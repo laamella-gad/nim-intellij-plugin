@@ -10,7 +10,7 @@ It is just a slopped together plugin that works well enough.
 Provided by the plugin:
 
 - Syntax highlighting
-- File type recognition (`.nim`, `.nims`, `.nimble`)
+- File type recognition (`.nim`, `.nims`, `.nimble`, `nimscript`)
 - Project setup from `.nimble` file (srcDir, binDir, tests/)
 - Code formatting via `nimpretty` (Reformat Code / Ctrl+Alt+L)
 - Comment/uncomment (Ctrl+/)
@@ -31,6 +31,8 @@ Provided by nimlangserver over LSP:
 - Folding
 - Structure view
 - Signature help
+- Nimble dependencies wired as project libraries for source navigation
+- Nim standard library available as a navigable "Nim" project library
 
 ## Requirements
 

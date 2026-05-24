@@ -16,6 +16,7 @@
             <li>Syntax highlighting with bracket matching and auto-close</li>
             <li>Run and test configurations for <code>.nim</code> files</li>
             <li>New project wizard for Nim projects</li>
+            <li>Nimble dependencies and Nim standard library added as navigable project libraries</li>
         </ul>
 
         <p><em>This is a community plugin, not officially supported by JetBrains or the Nim project.</em></p>
@@ -36,6 +37,8 @@
             <li>New project wizard now has all features of nimble init</li>
             <li><code>tests/</code> directory automatically marked as test source root</li>
             <li>all executable names are now configurable, enabling nimlsp</li>
+            <li>Nimble dependencies wired as project libraries for source navigation</li>
+            <li>Nim standard library added as a "Nim" project library</li>
         </ul>
         <b>0.1.0 (initial release)</b>
         <ul>
