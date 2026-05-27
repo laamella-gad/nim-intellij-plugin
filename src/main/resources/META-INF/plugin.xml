@@ -31,6 +31,10 @@
         </ol>
     ]]></description>
     <change-notes><![CDATA[
+        <b>0.3.0</b>
+        <ul>
+            <li>Windows support (untested, please report issues!)</li>
+        </ul>
         <b>0.2.0</b>
         <ul>
             <li>nimlangserver is auto-installed via nimble if missing</li>
@@ -66,13 +70,18 @@
         <applicationService serviceImplementation="com.laamella.nim.settings.NimSettings"/>
 
         <lang.parserDefinition language="Nim" implementationClass="com.laamella.nim.NimParserDefinition"/>
-        <lang.syntaxHighlighterFactory language="Nim" implementationClass="com.laamella.nim.NimSyntaxHighlighterFactory"/>
+        <lang.syntaxHighlighterFactory language="Nim"
+                                       implementationClass="com.laamella.nim.NimSyntaxHighlighterFactory"/>
         <lang.commenter language="Nim" implementationClass="com.laamella.nim.NimCommenter"/>
         <lang.quoteHandler language="Nim" implementationClass="com.laamella.nim.NimQuoteHandler"/>
         <lang.braceMatcher language="Nim" implementationClass="com.laamella.nim.NimBraceMatcher"/>
-        <lang.foldingBuilder language="Nim" implementationClass="com.redhat.devtools.lsp4ij.features.foldingRange.LSPFoldingRangeBuilder" order="first"/>
-        <lang.psiStructureViewFactory language="Nim" implementationClass="com.redhat.devtools.lsp4ij.features.documentSymbol.LSPDocumentSymbolStructureViewFactory"/>
-        <codeInsight.parameterInfo language="Nim" implementationClass="com.redhat.devtools.lsp4ij.features.signatureHelp.LSPParameterInfoHandler"/>
+        <lang.foldingBuilder language="Nim"
+                             implementationClass="com.redhat.devtools.lsp4ij.features.foldingRange.LSPFoldingRangeBuilder"
+                             order="first"/>
+        <lang.psiStructureViewFactory language="Nim"
+                                      implementationClass="com.redhat.devtools.lsp4ij.features.documentSymbol.LSPDocumentSymbolStructureViewFactory"/>
+        <codeInsight.parameterInfo language="Nim"
+                                   implementationClass="com.redhat.devtools.lsp4ij.features.signatureHelp.LSPParameterInfoHandler"/>
 
         <configurationType implementation="com.laamella.nim.run.NimRunConfigurationType"/>
         <runConfigurationProducer implementation="com.laamella.nim.run.NimRunConfigurationProducer"/>
@@ -114,11 +123,8 @@
             ]]></description>
         </server>
 
-        <languageMapping language="Nim"
-                         serverId="nim"
-                         languageId="nim"/>
+        <languageMapping language="Nim" serverId="nim" languageId="nim"/>
 
-        <fileTypeMapping fileType="Nim"
-                         serverId="nim"/>
+        <fileTypeMapping fileType="Nim" serverId="nim"/>
     </extensions>
 </idea-plugin>
