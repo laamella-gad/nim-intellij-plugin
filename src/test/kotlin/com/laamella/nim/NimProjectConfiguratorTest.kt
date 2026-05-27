@@ -3,6 +3,7 @@ package com.laamella.nim
 import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.roots.ModuleRootManager
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
+import com.laamella.nim.projectconfig.configureNimProject
 
 class NimProjectConfiguratorTest : BasePlatformTestCase() {
 

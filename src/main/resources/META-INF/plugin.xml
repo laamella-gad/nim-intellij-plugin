@@ -79,7 +79,7 @@
         <configurationType implementation="com.laamella.nim.run.NimTestRunConfigurationType"/>
         <runConfigurationProducer implementation="com.laamella.nim.run.NimTestRunConfigurationProducer"/>
 
-        <postStartupActivity implementation="com.laamella.nim.NimProjectConfigurator"/>
+        <postStartupActivity implementation="com.laamella.nim.projectconfig.NimProjectConfigurator"/>
 
         <externalFormatProcessor implementation="com.laamella.nim.NimFormatProcessor"/>
 
@@ -100,7 +100,7 @@
     </extensions>
 
     <projectListeners>
-        <listener class="com.laamella.nim.NimNimbleFileListener"
+        <listener class="com.laamella.nim.projectconfig.NimNimbleFileListener"
                   topic="com.intellij.openapi.vfs.newvfs.BulkFileListener"/>
     </projectListeners>
 

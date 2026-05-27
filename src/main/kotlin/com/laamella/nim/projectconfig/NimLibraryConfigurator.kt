@@ -1,4 +1,4 @@
-package com.laamella.nim
+package com.laamella.nim.projectconfig
 
 import com.google.gson.JsonParser
 import com.intellij.openapi.application.ApplicationManager
