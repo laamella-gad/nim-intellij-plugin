@@ -4,7 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Git
 
-Never commit automatically. Only commit when the user explicitly asks.
+Never commit automatically. Only commit when the user explicitly asks. Never push.
+
+## Documentation
+
+When a feature is finished, update CLAUDE.md (key classes table), README.md, and plugin.xml (change-notes) to reflect the change.
 
 ## Commands
 

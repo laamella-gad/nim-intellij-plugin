@@ -5,6 +5,7 @@ import com.intellij.psi.tree.IElementType
 
 class NimLexer : FlexAdapter(_NimLexer(null))
 
+/** @JvmField is required on every constant so the generated _NimLexer.java can reference them as fields, not getter calls. */
 object NimTokenTypes {
     @JvmField val LINE_COMMENT  = IElementType("NIM_LINE_COMMENT",  NimLanguage)
     @JvmField val DOC_COMMENT   = IElementType("NIM_DOC_COMMENT",   NimLanguage)

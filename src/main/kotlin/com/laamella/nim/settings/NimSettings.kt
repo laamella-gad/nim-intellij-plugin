@@ -8,6 +8,11 @@ import com.intellij.openapi.util.SystemInfo
 import com.intellij.util.xmlb.XmlSerializerUtil
 import java.nio.file.Path
 
+/**
+ * Persisted plugin settings. [nimbleBinPath] is prepended to PATH for all subprocesses so that
+ * tools are found even when IntelliJ was launched without the Nim toolchain on PATH.
+ * Exe name defaults include `.exe` on Windows; users can override with absolute paths.
+ */
 @State(name = "NimSettings", storages = [Storage("nim-plugin.xml")])
 class NimSettings : PersistentStateComponent<NimSettings> {
     var nimbleBinPath: String = Path.of(System.getProperty("user.home"), ".nimble", "bin").toString()

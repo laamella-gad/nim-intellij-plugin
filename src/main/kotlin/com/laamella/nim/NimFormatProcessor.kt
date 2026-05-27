@@ -10,6 +10,12 @@ import com.laamella.nim.settings.NimSettings
 import java.io.IOException
 import java.nio.file.Files
 
+/**
+ * Delegates Reformat Code (Ctrl+Alt+L) to nimpretty by writing the file to a temp file,
+ * running nimpretty on it, and replacing the document contents.
+ * [indent] is a no-op stub — Enter-key indentation is handled by [NimLineIndentProvider],
+ * not by ExternalFormatProcessor (which is only called during explicit reformat operations).
+ */
 class NimFormatProcessor : ExternalFormatProcessor {
     override fun getId() = "nimpretty"
 

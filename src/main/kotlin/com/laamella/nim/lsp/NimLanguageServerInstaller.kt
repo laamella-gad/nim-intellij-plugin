@@ -7,6 +7,11 @@ import com.redhat.devtools.lsp4ij.installation.LanguageServerInstallerBase
 import com.redhat.devtools.lsp4ij.server.definition.LanguageServerDefinition
 import java.io.File
 
+/**
+ * Checks whether nimlangserver is installed and installs it via `nimble install` if not.
+ * PATH is augmented with [NimSettings.nimbleBinPath] so that `nim` is findable even when
+ * IntelliJ was launched without the Nim toolchain on PATH.
+ */
 class NimLanguageServerInstaller(
     serverDefinition: LanguageServerDefinition? = LanguageServersRegistry.getInstance().getServerDefinition("nim")
 ) : LanguageServerInstallerBase(serverDefinition) {

@@ -9,6 +9,11 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.tree.IFileElementType
 import com.intellij.psi.tree.TokenSet
 
+/**
+ * Minimal parser definition — produces a flat token stream with no AST structure.
+ * A real grammar-based parser is not needed because LSP4IJ handles all semantic features;
+ * the PSI tree only needs to exist so the platform can attach [NimFile] and run the lexer.
+ */
 class NimParserDefinition : ParserDefinition {
     companion object {
         val FILE = IFileElementType(NimLanguage)
