@@ -16,8 +16,8 @@ import kotlin.io.path.createDirectories
 import kotlin.io.path.writeText
 
 enum class NimPackageType(val displayName: String) {
-    BINARY("Binary  - produces an executable for the end-user."),
-    LIBRARY("Library - provides functionality for other packages."),
+    BINARY("Binary  - produces an executable for the end-user"),
+    LIBRARY("Library - provides functionality for other packages"),
     HYBRID("Hybrid  - combination of library and binary");
 
     override fun toString() = displayName

@@ -7,6 +7,13 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.codeStyle.lineIndent.LineIndentProvider
 
+/**
+ * This is a hack. It handles the indent of a new line when you press enter.
+ * It looks at the last character of the line (after removing comments) and
+ * increases the indent of the new line if the last character is an obvious opener
+ * of something ([, (, : etc.).
+ * This misses various cases, like the indent after a "type" line
+ */
 class NimLineIndentProvider : LineIndentProvider {
     override fun isSuitableFor(language: Language?) = language == NimLanguage
 
