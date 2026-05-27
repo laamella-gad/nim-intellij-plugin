@@ -67,20 +67,20 @@ com.redhat.devtools.lsp4ij:
 | `NimCommenter` | Line comment `#`, block comment `#[`/`]#` — enables Ctrl+/ |
 | `NimQuoteHandler` | Auto-closes `"` and `'` |
 | `NimBraceMatcher` | Highlights matching `()`, `[]`, `{}` pairs |
-| `NimProjectConfigurator` | `ProjectActivity` — reads `.nimble` on project open; creates module if absent, creates `srcDir`/`binDir` if missing, marks them as source root / excluded; marks `tests/` as test source root if it exists |
-| `NimNimbleFileListener` | `BulkFileListener` registered via `projectListeners` — re-runs `configureNimProject` when the `.nimble` file changes or is created |
-| `configureNimProject` | Top-level function shared by `NimProjectConfigurator` and `NimNimbleFileListener`; performs all `.nimble`-driven project configuration |
-| `configureNimLibraries` | Runs `nimble deps --format:json` in a pooled thread, resolves installed packages from `~/.nimble/pkgs2/`, and adds them as project libraries linked to the module; stale libs (no longer in deps) are removed |
-| `configureNimStdlib` | Runs `nim --version` to find the version, locates `pkgs2/nim-VERSION-*/lib/`, and registers it as a project library named `"Nim"` |
+| `NimProjectConfigurator` | `ProjectActivity` — reads `.nimble` on project open; creates module if absent, creates `srcDir`/`binDir` if missing, marks them as source root / excluded; marks `tests/` as test source root if it exists. In `projectconfig/` |
+| `NimNimbleFileListener` | `BulkFileListener` registered via `projectListeners` — re-runs `configureNimProject` when the `.nimble` file changes or is created. In `projectconfig/` |
+| `configureNimProject` | Top-level function shared by `NimProjectConfigurator` and `NimNimbleFileListener`; performs all `.nimble`-driven project configuration. In `projectconfig/` |
+| `configureNimLibraries` | Runs `nimble deps --format:json` in a pooled thread, resolves installed packages from `~/.nimble/pkgs2/`, and adds them as project libraries linked to the module; stale libs (no longer in deps) are removed. In `projectconfig/` |
+| `configureNimStdlib` | Runs `nim --version` to find the version, locates `pkgs2/nim-VERSION-*/lib/`, and registers it as a project library named `"Nim"`. In `projectconfig/` |
 | `NimFormatProcessor` | `ExternalFormatProcessor` — runs `nimpretty` on Reformat Code; shows warning balloon if not on PATH |
 | `NimLineIndentProvider` | `LineIndentProvider` — computes Enter-key indentation by inspecting the previous line's last non-comment character; delegates shared helpers `nimOpensBlock`/`stripTrailingComment` |
 | `NimLanguageCodeStyleSettingsProvider` | Sets default indent/tab size to 2 spaces for Nim files |
 | `NimPackageType` | Enum: `BINARY`, `LIBRARY`, `HYBRID` — controls .nimble fields and generated source files to match `nimble init` output |
 | `NimNewProjectWizard` | `LanguageGeneratorNewProjectWizard` — File → New Project → Nim; exposes package type, version, author, description, and license (SPDX combo) fields; detects installed Nim version via `nim --version` for the `requires` constraint; delegates file creation to `createNimProjectStructure` |
 | `createNimProjectStructure` | Package-level function in `newproject/`; generates `*.nimble`, `src/name.nim`, and (for Library/Hybrid) `src/name/submodule.nim`; `bin/` only for Binary and Hybrid; `DEFAULT_NIM_VERSION = "2.0.0"` used as fallback `requires` version |
-| `NimLanguageServerFactory` | LSP4IJ entry point; creates `OSProcessStreamConnectionProvider` launching `nimlangserver`; client features (`isUseIntAsJsonRpcId=true`); returns `NimLanguageServerInstaller` from `createServerInstaller()` |
+| `NimLanguageServerFactory` | LSP4IJ entry point; creates `OSProcessStreamConnectionProvider` launching `nimlangserver`; prepends `nimbleBinPath` to PATH for the subprocess; client features (`isUseIntAsJsonRpcId=true`); returns `NimLanguageServerInstaller` from `createServerInstaller()` |
 | `NimLanguageServerInstaller` | `LanguageServerInstallerBase` — `checkServerInstalled()` tests exe via `File.canExecute()` (or PATH search for bare names); `install()` runs `nimble install --accept --useSystemNim nimlangserver`, prepending `nimbleBinPath` to PATH so `nim` is findable when IntelliJ was launched without the toolchain on PATH |
-| `NimSettings` | Application-level `PersistentStateComponent`; stores `nimbleBinPath` (toolchain directory) and `nimlangserverExe`/`nimbleExe`/`nimprettyExe` (filenames, default to tool name); `exePath(exe)` combines them; helpers `nimlangserver()`/`nimble()`/`nimpretty()`/`nim()` for callers |
+| `NimSettings` | Application-level `PersistentStateComponent`; stores `nimbleBinPath` (toolchain directory) and `nimlangserverExe`/`nimbleExe`/`nimprettyExe` (filenames, default to `tool.exe` on Windows / bare name on Unix); `exePath(exe)` combines them; helpers `nimlangserver()`/`nimble()`/`nimpretty()`/`nim()` for callers |
 | `NimSettingsConfigurable` | Settings UI at **Settings → Languages & Frameworks → Nim** |
 
 ### Known workarounds
@@ -96,6 +96,10 @@ Pinned in `build.gradle.kts`. Check current version at: https://plugins.jetbrain
 ### Platform target
 
 Controlled entirely by `gradle.properties` (`platformType`, `platformVersion`, `pluginSinceBuild`, `pluginUntilBuild`). No code changes needed to retarget.
+
+## Issue tracker
+
+https://codeberg.org/laamella-gad/nim-intellij-plugin/issues
 
 ## License
 
