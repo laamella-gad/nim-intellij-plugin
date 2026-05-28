@@ -48,10 +48,13 @@ com.intellij.lang.syntaxHighlighterFactory   → NimSyntaxHighlighterFactory
 com.intellij.lang.commenter                  → NimCommenter
 com.intellij.lang.quoteHandler               → NimQuoteHandler
 com.intellij.lang.braceMatcher               → NimBraceMatcher
+com.intellij.colorSettingsPage               → NimColorSettingsPage
 com.intellij.postStartupActivity             → NimProjectConfigurator
 com.intellij.externalFormatProcessor         → NimFormatProcessor
 com.intellij.lineIndentProvider              → NimLineIndentProvider
 com.intellij.langCodeStyleSettingsProvider   → NimLanguageCodeStyleSettingsProvider
+com.intellij.execution.configurationType     → NimRunConfigurationType, NimTestRunConfigurationType
+com.intellij.execution.RunConfigurationProducer → NimRunConfigurationProducer, NimTestRunConfigurationProducer
 projectListeners (BulkFileListener)          → NimNimbleFileListener
 com.redhat.devtools.lsp4ij:
   server                                     → NimLanguageServerFactory (id="nim")
@@ -75,14 +78,25 @@ com.redhat.devtools.lsp4ij:
 | `NimCommenter` | Line comment `#`, block comment `#[`/`]#` — enables Ctrl+/ |
 | `NimQuoteHandler` | Auto-closes `"` and `'` |
 | `NimBraceMatcher` | Highlights matching `()`, `[]`, `{}` pairs |
-| `NimProjectConfigurator` | `ProjectActivity` — reads `.nimble` on project open; creates module if absent, creates `srcDir`/`binDir` if missing, marks them as source root / excluded; marks `tests/` as test source root if it exists. In `projectconfig/` |
+| `NimProjectConfigurator` | `ProjectActivity` — on project open, calls `configureNimProject`. In `projectconfig/` |
 | `NimNimbleFileListener` | `BulkFileListener` registered via `projectListeners` — re-runs `configureNimProject` when the `.nimble` file changes or is created. In `projectconfig/` |
-| `configureNimProject` | Top-level function shared by `NimProjectConfigurator` and `NimNimbleFileListener`; performs all `.nimble`-driven project configuration. In `projectconfig/` |
-| `configureNimLibraries` | Runs `nimble deps --format:json` in a pooled thread, resolves installed packages from `~/.nimble/pkgs2/`, and adds them as project libraries linked to the module; stale libs (no longer in deps) are removed. In `projectconfig/` |
-| `configureNimStdlib` | Runs `nim --version` to find the version, locates `pkgs2/nim-VERSION-*/lib/`, and registers it as a project library named `"Nim"`. In `projectconfig/` |
+| `configureNimProject` | Coordinator called by `NimProjectConfigurator` and `NimNimbleFileListener`; delegates to `configureNimModule`, `configureNimDirectories`, `configureNimLibraries`, `configureNimStdlib`; shows "Nimble project refreshed" balloon. In `NimProjectConfigurator.kt` |
+| `configureNimModule` | Creates or reuses the project's single module (Nim projects are single-module by convention). In `NimModuleConfigurator.kt` |
+| `configureNimDirectories` | Parses `.nimble` key/value assignments; creates `srcDir`/`binDir` if absent; marks them as source root / excluded; marks `tests/` as test source root if present. In `NimDirectoriesConfigurator.kt` |
+| `configureNimLibraries` | Runs `nimble deps --format:json` in a pooled thread, resolves installed packages from `~/.nimble/pkgs2/`, and adds them as project libraries linked to the module; stale libs (no longer in deps) are removed. In `NimLibraryConfigurator.kt` |
+| `configureNimStdlib` | Runs `nim --version` to find the version, locates `pkgs2/nim-VERSION-*/lib/`, and registers it as a project library named `"Nim"`. In `NimLibraryConfigurator.kt` |
 | `NimFormatProcessor` | `ExternalFormatProcessor` — runs `nimpretty` on Reformat Code; shows warning balloon if not on PATH |
 | `NimLineIndentProvider` | `LineIndentProvider` — computes Enter-key indentation by inspecting the previous line's last non-comment character; delegates shared helpers `nimOpensBlock`/`stripTrailingComment` |
 | `NimLanguageCodeStyleSettingsProvider` | Sets default indent/tab size to 2 spaces for Nim files |
+| `NimColorSettingsPage` | `ColorSettingsPage` exposing all Nim token colors at **Settings → Editor → Color Scheme → Nim**; includes demo code snippet |
+| `NimRunConfigurationType` | `ConfigurationType` registering "Nim" run configurations (`nimble run`) |
+| `NimRunConfiguration` | Stores `binName` (optional target binary) and `workingDirectory`; serialized to `.idea/` |
+| `NimCommandLineState` | Executes `nimble run [binName]` with toolchain PATH prepended. In `run/` |
+| `NimRunConfigurationProducer` | Auto-creates `nimble run` config when right-clicking a `.nimble` file. In `run/` |
+| `NimTestRunConfigurationType` | `ConfigurationType` registering "Nim Test" run configurations (`nimble test`) |
+| `NimTestRunConfiguration` | Stores `workingDirectory`; serialized to `.idea/`. In `run/` |
+| `NimTestCommandLineState` | Executes `nimble test` with toolchain PATH prepended. In `run/` |
+| `NimTestRunConfigurationProducer` | Auto-creates `nimble test` config when right-clicking a `.nimble` file. In `run/` |
 | `NimPackageType` | Enum: `BINARY`, `LIBRARY`, `HYBRID` — controls .nimble fields and generated source files to match `nimble init` output |
 | `NimNewProjectWizard` | `LanguageGeneratorNewProjectWizard` — File → New Project → Nim; exposes package type, version, author, description, and license (SPDX combo) fields; detects installed Nim version via `nim --version` for the `requires` constraint; delegates file creation to `createNimProjectStructure` |
 | `createNimProjectStructure` | Package-level function in `newproject/`; generates `*.nimble`, `src/name.nim`, and (for Library/Hybrid) `src/name/submodule.nim`; `bin/` only for Binary and Hybrid; `DEFAULT_NIM_VERSION = "2.0.0"` used as fallback `requires` version |

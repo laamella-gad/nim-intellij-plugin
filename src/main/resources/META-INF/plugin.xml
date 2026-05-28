@@ -43,6 +43,7 @@
             <li>all executable names are now configurable, enabling nimlsp</li>
             <li>Nimble dependencies wired as project libraries for source navigation</li>
             <li>Nim standard library added as a "Nim" project library</li>
+            <li>Customizable syntax highlighting colors</li>
         </ul>
         <b>0.1.0 (initial release)</b>
         <ul>
