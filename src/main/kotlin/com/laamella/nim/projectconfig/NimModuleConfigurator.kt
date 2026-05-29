@@ -12,7 +12,7 @@ fun configureNimModule(project: Project): Module {
     return ModuleManager.getInstance(project).modules.firstOrNull()
         ?: ApplicationManager.getApplication().runWriteAction(Computable {
             ModuleManager.getInstance(project).newModule(
-                "${project.basePath}/${project.name}.iml",
+                "${project.projectFile!!.parent.path}/${project.name}.iml",
                 ModuleTypeManager.getInstance().defaultModuleType.id
             )
         })
