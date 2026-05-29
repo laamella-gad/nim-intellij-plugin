@@ -13,7 +13,7 @@ import java.io.File
 import java.nio.file.Files
 import java.nio.file.Path
 
-private data class NimDep(val name: String, val installUrl: String)
+internal data class NimDep(val name: String, val installUrl: String)
 
 fun configureNimLibraries(project: Project) {
     val settings = NimSettings.getInstance()
@@ -27,7 +27,7 @@ fun configureNimLibraries(project: Project) {
             val urlManager = workspaceModel.getVirtualFileUrlManager()
             val entitySource = LegacyBridgeJpsEntitySourceFactory.getInstance(project)
                 .createEntitySourceForProjectLibrary(null)
-            val nimblePkgsDir = nimblePkgs2Dir(settings)
+            val nimblePkgsDir = nimblePkgs2Dir(settings.nimbleBinPath)
             val nimblePkgsDirUrl = VfsUtilCore.pathToUrl(nimblePkgsDir.toString())
 
             ApplicationManager.getApplication().runWriteAction {
@@ -96,11 +96,10 @@ private fun runNimbleDeps(settings: NimSettings, projectDir: String): List<NimDe
     if (process.waitFor() != 0) return null
     val jsonStart = output.indexOf('[')
     if (jsonStart < 0) return null
-    return parseNimbleDeps(output.substring(jsonStart), settings)
+    return parseNimbleDeps(output.substring(jsonStart), nimblePkgs2Dir(settings.nimbleBinPath))
 }
 
-private fun parseNimbleDeps(json: String, settings: NimSettings): List<NimDep> {
-    val pkgs2Dir = nimblePkgs2Dir(settings)
+internal fun parseNimbleDeps(json: String, pkgs2Dir: Path): List<NimDep> {
     if (!Files.isDirectory(pkgs2Dir)) return emptyList()
 
     val result = mutableListOf<NimDep>()
@@ -160,28 +159,28 @@ fun configureNimStdlib(project: Project) {
 
 private fun findNimStdlibDir(settings: NimSettings): Path? {
     val version = runNimVersion(settings) ?: return null
-    val pkgs2 = nimblePkgs2Dir(settings)
+    val pkgs2 = nimblePkgs2Dir(settings.nimbleBinPath)
     if (!Files.isDirectory(pkgs2)) return null
     val nimDir = Files.newDirectoryStream(pkgs2, "nim-$version-*").use { it.firstOrNull() } ?: return null
     val libDir = nimDir.resolve("lib")
     return if (Files.isDirectory(libDir)) libDir else null
 }
 
-private fun runNimVersion(settings: NimSettings): String? {
-    return try {
-        val pb = ProcessBuilder(settings.nim(), "--version")
-            .redirectError(ProcessBuilder.Redirect.DISCARD)
-        if (settings.nimbleBinPath.isNotBlank()) {
-            val currentPath = System.getenv("PATH") ?: ""
-            pb.environment()["PATH"] = "${settings.nimbleBinPath}${File.pathSeparator}$currentPath"
-        }
-        val line = pb.start().inputStream.bufferedReader().readLine() ?: return null
-        Regex("""Version (\d+\.\d+\.\d+)""").find(line)?.groupValues?.get(1)
-    } catch (_: Exception) { null }
-}
+private fun runNimVersion(settings: NimSettings): String? = runCatching {
+    val pb = ProcessBuilder(settings.nim(), "--version")
+        .redirectError(ProcessBuilder.Redirect.DISCARD)
+    if (settings.nimbleBinPath.isNotBlank()) {
+        val currentPath = System.getenv("PATH") ?: ""
+        pb.environment()["PATH"] = "${settings.nimbleBinPath}${File.pathSeparator}$currentPath"
+    }
+    pb.start().inputStream.bufferedReader().readLine()?.let { parseNimVersion(it) }
+}.getOrNull()
 
-private fun nimblePkgs2Dir(settings: NimSettings): Path =
-    if (settings.nimbleBinPath.isNotBlank())
-        Path.of(settings.nimbleBinPath).parent.resolve("pkgs2")
+internal fun parseNimVersion(firstLine: String): String? =
+    Regex("""Version (\d+\.\d+\.\d+)""").find(firstLine)?.groupValues?.get(1)
+
+internal fun nimblePkgs2Dir(nimbleBinPath: String): Path =
+    if (nimbleBinPath.isNotBlank())
+        Path.of(nimbleBinPath).parent.resolve("pkgs2")
     else
         Path.of(System.getProperty("user.home"), ".nimble", "pkgs2")
