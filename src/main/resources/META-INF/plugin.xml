@@ -33,7 +33,7 @@
     <change-notes><![CDATA[
         <b>0.3.0</b>
         <ul>
-            <li>Windows support (untested, please report issues!)</li>
+            <li>Initial Windows support (untested, please report issues!)</li>
         </ul>
         <b>0.2.0</b>
         <ul>

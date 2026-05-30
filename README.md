@@ -11,11 +11,14 @@ Provided by the plugin:
 
 - Syntax highlighting
 - File type recognition (`.nim`, `.nims`, `.nimble`, `nimscript`)
-- Project setup from `.nimble` file (srcDir, binDir, tests/)
+- Project setup from `.nimble` file 
+  - srcDir, binDir, tests/
+  - external libraries list
+  - standard library list
 - Code formatting via `nimpretty` (Reformat Code / Ctrl+Alt+L)
 - Comment/uncomment (Ctrl+/)
 - Auto-close quotes and brackets
-- Runner/test runner. Right-click the nimble file.
+- Runner/test runner. _Right-click the nimble file._
 - New Project wizard (File → New Project → Nim)
 
 Provided by nimlangserver over LSP:
@@ -39,6 +42,7 @@ Provided by nimlangserver over LSP:
 - IntelliJ IDEA 2026.1 (Community or Ultimate)
 - [Nim and Nimble](https://nim-lang.org/install.html) installed
 - [nimlangserver](https://github.com/nim-lang/langserver) — auto-installed by the plugin if missing; or install manually: `nimble install nimlangserver`
+  - alternatively, use [nimlsp](https://github.com/PMunch/nimlsp)
 - [nimpretty](https://nim-lang.org/docs/nimpretty.html) for formatting: `nimble install nimpretty` (optional)
 
 ## Installation
