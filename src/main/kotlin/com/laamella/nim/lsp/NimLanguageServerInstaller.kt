@@ -33,7 +33,7 @@ class NimLanguageServerInstaller(
         val settings = NimSettings.getInstance()
         val nimble = settings.nimble()
         progress("Running $nimble install nimlangserver...", 0.3, indicator)
-        val pb = ProcessBuilder(nimble, "install", "--accept", "--useSystemNim", "nimlangserver")
+        val pb = ProcessBuilder(nimble, "install", "--accept", "nimlangserver")
             .redirectErrorStream(true)
         if (settings.nimbleBinPath.isNotBlank()) {
             val currentPath = System.getenv("PATH") ?: ""
