@@ -3,6 +3,7 @@ package com.laamella.nim.settings
 import com.intellij.openapi.fileChooser.FileChooserDescriptor
 import com.intellij.openapi.options.Configurable
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
+import com.intellij.openapi.util.SystemInfo
 import com.intellij.ui.dsl.builder.AlignX
 import com.intellij.ui.dsl.builder.panel
 import javax.swing.JComponent
@@ -35,6 +36,15 @@ class NimSettingsConfigurable : Configurable {
             row("nimpretty executable name:") { cell(nimprettyExe!!).align(AlignX.FILL) }
             row {
                 button("Reset to Defaults") { resetToDefaults() }
+            }
+            row {
+                @Suppress("DialogTitleCapitalization")
+                button("Set to use nimlangserver") { nimlangserverExe?.text = NimSettings().nimlangserverExe }
+                @Suppress("DialogTitleCapitalization")
+                button("Set to use nimlsp") { nimlangserverExe?.text = if (SystemInfo.isWindows) "nimlsp.exe" else "nimlsp" }
+                // Stub: "nim check" is not launchable as an LSP server yet.
+                @Suppress("DialogTitleCapitalization")
+                button("Set to use nim check on save") { nimlangserverExe?.text = "" }
             }
         }
     }
