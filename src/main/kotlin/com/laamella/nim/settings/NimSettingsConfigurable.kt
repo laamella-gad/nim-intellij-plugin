@@ -33,7 +33,18 @@ class NimSettingsConfigurable : Configurable {
             row("nimlangserver or nimlsp executable name:") { cell(nimlangserverExe!!).align(AlignX.FILL) }
             row("nimble executable name:") { cell(nimbleExe!!).align(AlignX.FILL) }
             row("nimpretty executable name:") { cell(nimprettyExe!!).align(AlignX.FILL) }
+            row {
+                button("Reset to Defaults") { resetToDefaults() }
+            }
         }
+    }
+
+    private fun resetToDefaults() {
+        val defaults = NimSettings()
+        nimbleBinPath?.text = defaults.nimbleBinPath
+        nimlangserverExe?.text = defaults.nimlangserverExe
+        nimbleExe?.text = defaults.nimbleExe
+        nimprettyExe?.text = defaults.nimprettyExe
     }
 
     override fun isModified(): Boolean {
