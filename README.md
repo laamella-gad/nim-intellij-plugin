@@ -20,6 +20,7 @@ Provided by the plugin:
 - Auto-close quotes and brackets
 - Runner/test runner. _Right-click the nimble file._
 - New Project wizard (File → New Project → Nim)
+- Option to not use an LSP, and use "nim check" instead
 
 Provided by nimlangserver over LSP:
 
@@ -60,6 +61,8 @@ Then install the ZIP from `build/distributions/` via **Settings → Plugins → 
 **Settings → Languages & Frameworks → Nim**:
 - **Nim toolchain path** — directory containing the toolchain binaries (default: `/home/<username>/.nimble/bin`)
 - **nimlangserver / nimble / nimpretty executable name** — filename of each tool within that directory (defaults: `nimlangserver`, `nimble`, `nimpretty`)
+
+Leave the language server executable name empty (button: **Set to use nim check on save**) to skip the LSP server entirely; the plugin then runs `nim check` on each save and marks the results in the editor.
 
 ## Contributing
 

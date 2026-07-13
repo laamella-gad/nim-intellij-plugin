@@ -55,7 +55,7 @@ com.intellij.lineIndentProvider              → NimLineIndentProvider
 com.intellij.langCodeStyleSettingsProvider   → NimLanguageCodeStyleSettingsProvider
 com.intellij.execution.configurationType     → NimRunConfigurationType, NimTestRunConfigurationType
 com.intellij.execution.RunConfigurationProducer → NimRunConfigurationProducer, NimTestRunConfigurationProducer
-projectListeners (BulkFileListener)          → NimNimbleFileListener
+projectListeners (BulkFileListener)          → NimNimbleFileListener, NimCheckOnSaveListener
 com.redhat.devtools.lsp4ij:
   server                                     → NimLanguageServerFactory (id="nim")
   languageMapping language=Nim               → server id="nim"
@@ -103,8 +103,12 @@ com.redhat.devtools.lsp4ij:
 | `NimPackageType` | Enum: `BINARY`, `LIBRARY`, `HYBRID` — controls .nimble fields and generated source files to match `nimble init` output |
 | `NimNewProjectWizard` | `LanguageGeneratorNewProjectWizard` — File → New Project → Nim; exposes package type, version, author, description, and license (SPDX combo) fields; detects installed Nim version via `nim --version` for the `requires` constraint; delegates file creation to `createNimProjectStructure` |
 | `createNimProjectStructure` | Package-level function in `newproject/`; generates `*.nimble`, `src/name.nim`, and (for Library/Hybrid) `src/name/submodule.nim`; `bin/` only for Binary and Hybrid; `DEFAULT_NIM_VERSION = "2.0.0"` used as fallback `requires` version |
-| `NimLanguageServerFactory` | LSP4IJ entry point; creates `OSProcessStreamConnectionProvider` launching `nimlangserver`; prepends `nimbleBinPath` to PATH for the subprocess; client features (`isUseIntAsJsonRpcId=true`); returns `NimLanguageServerInstaller` from `createServerInstaller()` |
-| `NimLanguageServerInstaller` | `LanguageServerInstallerBase` — `checkServerInstalled()` tests exe via `File.canExecute()` (or PATH search for bare names); `install()` runs `nimble install --accept --useSystemNim nimlangserver`, prepending `nimbleBinPath` to PATH so `nim` is findable when IntelliJ was launched without the toolchain on PATH |
+| `NimLanguageServerFactory` | LSP4IJ entry point; creates `OSProcessStreamConnectionProvider` launching `nimlangserver`; prepends `nimbleBinPath` to PATH for the subprocess; client features (`isUseIntAsJsonRpcId=true`, `isEnabled=false` when `nimlangserverExe` is blank — disables the server and its auto-install); returns `NimLanguageServerInstaller` from `createServerInstaller()` |
+| `NimLanguageServerInstaller` | `LanguageServerInstallerBase` — `checkServerInstalled()` returns true early when `nimlangserverExe` is blank (nim-check mode), else tests exe via `File.canExecute()` (or PATH search for bare names); `install()` runs `nimble install --accept --useSystemNim nimlangserver`, prepending `nimbleBinPath` to PATH so `nim` is findable when IntelliJ was launched without the toolchain on PATH |
+| `NimCheckOnSaveListener` | `BulkFileListener` (`projectListeners`) — when `nimlangserverExe` is blank, runs `nim check` on each saved `.nim` file. In `check/NimCheckOnSave.kt` |
+| `NimCheckOnSave` | Runs `nim check` on a pooled thread (superseded runs killed via per-file `Process` map), filters problems to the saved file, applies `RangeHighlighter`s via `DocumentMarkupModel` (Error/Warning/Hint → error/warning/weak-warning); one-shot "nim not found" balloon re-armed from settings apply. In `check/` |
+| `parseNimCheckOutput` | `internal` — parses `nim check` output lines `path(line, col) Severity: message`; indented lines continue the previous message; noise dropped. Testable without toolchain. In `check/NimCheckOnSave.kt` |
+| `problemRange` | `internal` — maps a problem's 1-based line/col to the identifier `TextRange` in a `Document` (single-char fallback, clamped to the line). In `check/NimCheckOnSave.kt` |
 | `NimSettings` | Application-level `PersistentStateComponent`; stores `nimbleBinPath` (toolchain directory) and `nimlangserverExe`/`nimbleExe`/`nimprettyExe` (filenames, default to `tool.exe` on Windows / bare name on Unix); `exePath(exe)` combines them; helpers `nimlangserver()`/`nimble()`/`nimpretty()`/`nim()` for callers |
 | `NimSettingsConfigurable` | Settings UI at **Settings → Languages & Frameworks → Nim** |
 

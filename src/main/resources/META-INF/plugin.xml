@@ -33,7 +33,9 @@
     <change-notes><![CDATA[
         <b>0.4.0</b>
         <ul>
-            <li>"Reset to Defaults" button in the Nim settings page</li>
+            <li>LSP-free mode: leave the language server executable empty (or click "Set to use nim check on save")
+                and <code>nim check</code> runs on every save, marking errors/warnings/hints in the editor</li>
+            <li>"Reset to Defaults" and LSP preset buttons in the Nim settings page</li>
         </ul>
         <b>0.3.0</b>
         <ul>
@@ -115,6 +117,8 @@
 
     <projectListeners>
         <listener class="com.laamella.nim.projectconfig.NimNimbleFileListener"
+                  topic="com.intellij.openapi.vfs.newvfs.BulkFileListener"/>
+        <listener class="com.laamella.nim.check.NimCheckOnSaveListener"
                   topic="com.intellij.openapi.vfs.newvfs.BulkFileListener"/>
     </projectListeners>
 

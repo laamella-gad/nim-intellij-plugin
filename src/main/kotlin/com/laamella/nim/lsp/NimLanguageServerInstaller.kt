@@ -19,6 +19,8 @@ class NimLanguageServerInstaller(
     override fun checkServerInstalled(indicator: ProgressIndicator): Boolean {
         progressCheckingServerInstalled(indicator)
         val settings = NimSettings.getInstance()
+        // Blank exe = "nim check on save" mode: nothing to install.
+        if (settings.nimlangserverExe.isBlank()) return true
         val exe = settings.nimlangserver()
         val file = File(exe)
         return if (file.isAbsolute) {

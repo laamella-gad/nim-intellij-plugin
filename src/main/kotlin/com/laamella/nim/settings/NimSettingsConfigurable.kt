@@ -2,8 +2,11 @@ package com.laamella.nim.settings
 
 import com.intellij.openapi.fileChooser.FileChooserDescriptor
 import com.intellij.openapi.options.Configurable
+import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
 import com.intellij.openapi.util.SystemInfo
+import com.laamella.nim.check.NimCheckOnSave
+import com.redhat.devtools.lsp4ij.LanguageServerManager
 import com.intellij.ui.dsl.builder.AlignX
 import com.intellij.ui.dsl.builder.panel
 import javax.swing.JComponent
@@ -42,7 +45,7 @@ class NimSettingsConfigurable : Configurable {
                 button("Set to use nimlangserver") { nimlangserverExe?.text = NimSettings().nimlangserverExe }
                 @Suppress("DialogTitleCapitalization")
                 button("Set to use nimlsp") { nimlangserverExe?.text = if (SystemInfo.isWindows) "nimlsp.exe" else "nimlsp" }
-                // Stub: "nim check" is not launchable as an LSP server yet.
+                // Blank exe = no LSP; NimCheckOnSaveListener provides diagnostics instead.
                 @Suppress("DialogTitleCapitalization")
                 button("Set to use nim check on save") { nimlangserverExe?.text = "" }
             }
@@ -67,10 +70,20 @@ class NimSettingsConfigurable : Configurable {
 
     override fun apply() {
         val s = NimSettings.getInstance()
+        val wasBlank = s.nimlangserverExe.isBlank()
         s.nimbleBinPath = nimbleBinPath?.text.orEmpty()
         s.nimlangserverExe = nimlangserverExe?.text.orEmpty()
         s.nimbleExe = nimbleExe?.text.orEmpty()
         s.nimprettyExe = nimprettyExe?.text.orEmpty()
+        NimCheckOnSave.resetMissingNimWarning()
+        val isBlank = s.nimlangserverExe.isBlank()
+        if (wasBlank != isBlank) {
+            // isEnabled() only prevents new starts; a running server must be stopped explicitly.
+            ProjectManager.getInstance().openProjects.forEach { project ->
+                val manager = LanguageServerManager.getInstance(project)
+                if (isBlank) manager.stop("nim") else manager.start("nim")
+            }
+        }
     }
 
     override fun reset() {
