@@ -109,7 +109,8 @@ com.redhat.devtools.lsp4ij:
 | `NimCheckOnSave` | Runs `nim check` on a pooled thread (superseded runs killed via per-file `Process` map), filters problems to the saved file, applies `RangeHighlighter`s via `DocumentMarkupModel` (Error/Warning/Hint → error/warning/weak-warning); one-shot "nim not found" balloon re-armed from settings apply. In `check/` |
 | `parseNimCheckOutput` | `internal` — parses `nim check` output lines `path(line, col) Severity: message`; indented lines continue the previous message; noise dropped. Testable without toolchain. In `check/NimCheckOnSave.kt` |
 | `problemRange` | `internal` — maps a problem's 1-based line/col to the identifier `TextRange` in a `Document` (single-char fallback, clamped to the line). In `check/NimCheckOnSave.kt` |
-| `NimSettings` | Application-level `PersistentStateComponent`; stores `nimbleBinPath` (toolchain directory) and `nimlangserverExe`/`nimbleExe`/`nimprettyExe` (filenames, default to `tool.exe` on Windows / bare name on Unix); `exePath(exe)` combines them; helpers `nimlangserver()`/`nimble()`/`nimpretty()`/`nim()` for callers |
+| `NimSettings` | Application-level `PersistentStateComponent`; stores `nimbleBinPath` (toolchain directory) and `nimlangserverExe`/`nimbleExe`/`nimprettyExe` (filenames); `exePath(exe)` combines them; helpers `nimlangserver()`/`nimble()`/`nimpretty()`/`nim()` for callers |
+| `NimSettingsDefaults` | Factory object for all `NimSettings` default values (`nimbleBinPath()`, `nimlangserverExe()`, `nimlspExe()`, …); exe names get `.exe` on Windows / bare name on Unix; used by `NimSettings` initializers and the settings UI's reset/preset buttons |
 | `NimSettingsConfigurable` | Settings UI at **Settings → Languages & Frameworks → Nim** |
 
 ### Known workarounds

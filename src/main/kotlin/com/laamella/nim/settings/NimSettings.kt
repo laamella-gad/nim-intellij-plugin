@@ -4,22 +4,21 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
-import com.intellij.openapi.util.SystemInfo
 import com.intellij.util.xmlb.XmlSerializerUtil
 import java.nio.file.Path
 
 /**
  * Persisted plugin settings. [nimbleBinPath] is prepended to PATH for all subprocesses so that
  * tools are found even when IntelliJ was launched without the Nim toolchain on PATH.
- * Exe name defaults include `.exe` on Windows; users can override with absolute paths.
+ * Defaults come from [NimSettingsDefaults].
  */
 @State(name = "NimSettings", storages = [Storage("nim-plugin.xml")])
 class NimSettings : PersistentStateComponent<NimSettings> {
-    var nimbleBinPath: String = Path.of(System.getProperty("user.home"), ".nimble", "bin").toString()
-    var nimlangserverExe: String = if (SystemInfo.isWindows) "nimlangserver.exe" else "nimlangserver"
-    var nimbleExe: String = if (SystemInfo.isWindows) "nimble.exe" else "nimble"
-    var nimprettyExe: String = if (SystemInfo.isWindows) "nimpretty.exe" else "nimpretty"
-    var nimExe: String = if (SystemInfo.isWindows) "nim.exe" else "nim"
+    var nimbleBinPath: String = NimSettingsDefaults.nimbleBinPath()
+    var nimlangserverExe: String = NimSettingsDefaults.nimlangserverExe()
+    var nimbleExe: String = NimSettingsDefaults.nimbleExe()
+    var nimprettyExe: String = NimSettingsDefaults.nimprettyExe()
+    var nimExe: String = NimSettingsDefaults.nimExe()
 
     fun exePath(exe: String): String =
         if (nimbleBinPath.isBlank()) exe

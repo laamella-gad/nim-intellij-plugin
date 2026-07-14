@@ -4,7 +4,6 @@ import com.intellij.openapi.fileChooser.FileChooserDescriptor
 import com.intellij.openapi.options.Configurable
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
-import com.intellij.openapi.util.SystemInfo
 import com.laamella.nim.check.NimCheckOnSave
 import com.redhat.devtools.lsp4ij.LanguageServerManager
 import com.intellij.ui.dsl.builder.AlignX
@@ -42,9 +41,9 @@ class NimSettingsConfigurable : Configurable {
             }
             row {
                 @Suppress("DialogTitleCapitalization")
-                button("Set to use nimlangserver") { nimlangserverExe?.text = NimSettings().nimlangserverExe }
+                button("Set to use nimlangserver") { nimlangserverExe?.text = NimSettingsDefaults.nimlangserverExe() }
                 @Suppress("DialogTitleCapitalization")
-                button("Set to use nimlsp") { nimlangserverExe?.text = if (SystemInfo.isWindows) "nimlsp.exe" else "nimlsp" }
+                button("Set to use nimlsp") { nimlangserverExe?.text = NimSettingsDefaults.nimlspExe() }
                 // Blank exe = no LSP; NimCheckOnSaveListener provides diagnostics instead.
                 @Suppress("DialogTitleCapitalization")
                 button("Set to use nim check on save") { nimlangserverExe?.text = "" }
@@ -53,11 +52,10 @@ class NimSettingsConfigurable : Configurable {
     }
 
     private fun resetToDefaults() {
-        val defaults = NimSettings()
-        nimbleBinPath?.text = defaults.nimbleBinPath
-        nimlangserverExe?.text = defaults.nimlangserverExe
-        nimbleExe?.text = defaults.nimbleExe
-        nimprettyExe?.text = defaults.nimprettyExe
+        nimbleBinPath?.text = NimSettingsDefaults.nimbleBinPath()
+        nimlangserverExe?.text = NimSettingsDefaults.nimlangserverExe()
+        nimbleExe?.text = NimSettingsDefaults.nimbleExe()
+        nimprettyExe?.text = NimSettingsDefaults.nimprettyExe()
     }
 
     override fun isModified(): Boolean {
