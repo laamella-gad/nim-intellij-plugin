@@ -4,8 +4,7 @@ import com.intellij.openapi.util.SystemInfo
 import java.nio.file.Path
 
 /**
- * Factory for the default values of [NimSettings]. Exe name defaults include `.exe` on Windows;
- * users can override with absolute paths.
+ * Factory for the default values of [NimSettings]. Exe name defaults include `.exe` on Windows
  */
 object NimSettingsDefaults {
     fun nimbleBinPath(): String = Path.of(System.getProperty("user.home"), ".nimble", "bin").toString()
