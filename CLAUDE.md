@@ -129,7 +129,7 @@ Controlled entirely by `gradle.properties` (`platformType`, `platformVersion`, `
 
 ## Issue tracker
 
-https://codeberg.org/laamella-gad/nim-intellij-plugin/issues
+https://github.com/laamella-gad/nim-intellij-plugin/issues
 
 ## License
 

@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.laamella.nim</id>
     <name>Nim using nimlangserver</name>
-    <vendor email="hexagonaal@gmail.com" url="https://codeberg.org/laamella/nim-intellij-plugin">Laamella Gad</vendor>
+    <vendor email="hexagonaal@gmail.com" url="https://github.com/laamella-gad/nim-intellij-plugin">Laamella Gad</vendor>
     <description><![CDATA[
         Full Nim language support powered by <a href="https://github.com/nim-lang/langserver">nimlangserver</a>
         or <a href="https://github.com/PMunch/nimlsp">nimlsp</a>
