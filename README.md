@@ -1,6 +1,11 @@
 # Nim IntelliJ Plugin
 
-Nim language support for IntelliJ IDEA and other JetBrains IDEs, powered by [nimlangserver](https://github.com/nim-lang/langserver) via [LSP4IJ](https://github.com/redhat-developer/lsp4ij).
+Nim language support for IntelliJ IDEA and other JetBrains IDEs.
+
+Supports three approaches since Nim's tooling is notoriously bad:
+ * [nimlangserver](https://github.com/nim-lang/langserver) via [LSP4IJ](https://github.com/redhat-developer/lsp4ij).
+ * [nimlsp](https://github.com/PMunch/nimlsp) via [LSP4IJ](https://github.com/redhat-developer/lsp4ij).
+ * No LSP, just "nim check"
 
 This is not official in any way.
 It is just a slopped together plugin that works well enough.

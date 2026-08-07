@@ -1,10 +1,24 @@
 package com.laamella.nim.projectconfig
 
+import com.intellij.notification.Notification
+import com.intellij.notification.Notifications
 import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.roots.ModuleRootManager
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
 
 class NimProjectConfiguratorTest : BasePlatformTestCase() {
+
+    private fun captureNotifications(block: () -> Unit): List<Notification> {
+        val notifications = mutableListOf<Notification>()
+        val connection = project.messageBus.connect(testRootDisposable)
+        connection.subscribe(Notifications.TOPIC, object : Notifications {
+            override fun notify(notification: Notification) {
+                notifications.add(notification)
+            }
+        })
+        block()
+        return notifications
+    }
 
     private fun sourceFolderUrls(): List<String> {
         val module = ModuleManager.getInstance(project).modules.first()
@@ -80,6 +94,17 @@ class NimProjectConfiguratorTest : BasePlatformTestCase() {
         val before = sourceFolderUrls().size
         configureNimProject(project)
         assertEquals(before, sourceFolderUrls().size)
+    }
+
+    fun `test no notification when no nimble file`() {
+        val notifications = captureNotifications { configureNimProject(project) }
+        assertTrue(notifications.none { it.content.contains("Nimble project refreshed") })
+    }
+
+    fun `test notification shown when nimble file present`() {
+        myFixture.addFileToProject("test.nimble", """version = "1.0.0"""")
+        val notifications = captureNotifications { configureNimProject(project) }
+        assertTrue(notifications.any { it.content.contains("Nimble project refreshed") })
     }
 
     fun `test configureNimModule reuses existing module`() {

@@ -2,16 +2,12 @@ package com.laamella.nim.projectconfig
 
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.module.Module
-import com.intellij.openapi.project.Project
-import com.intellij.openapi.project.guessProjectDir
 import com.intellij.openapi.roots.ContentEntry
 import com.intellij.openapi.roots.ModuleRootModificationUtil
 import com.intellij.openapi.util.Computable
 import com.intellij.openapi.vfs.VirtualFile
 
-fun configureNimDirectories(project: Project, module: Module) {
-    val projectDir = project.guessProjectDir() ?: return
-    val nimbleFile = projectDir.children.find { it.extension == "nimble" } ?: return
+fun configureNimDirectories(projectDir: VirtualFile, module: Module, nimbleFile: VirtualFile) {
     val nimble = String(nimbleFile.contentsToByteArray())
     // Nimble files are Nim source, not a standard config format — hand-parse the simple key = "value" assignments
     val nimbleMap = buildMap {

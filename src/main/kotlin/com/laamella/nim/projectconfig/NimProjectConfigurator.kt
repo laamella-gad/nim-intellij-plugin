@@ -3,16 +3,9 @@ package com.laamella.nim.projectconfig
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.ApplicationManager
-import com.intellij.openapi.module.Module
-import com.intellij.openapi.module.ModuleManager
-import com.intellij.openapi.module.ModuleTypeManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.guessProjectDir
-import com.intellij.openapi.roots.ContentEntry
-import com.intellij.openapi.roots.ModuleRootModificationUtil
 import com.intellij.openapi.startup.ProjectActivity
-import com.intellij.openapi.util.Computable
-import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.vfs.newvfs.BulkFileListener
 import com.intellij.openapi.vfs.newvfs.events.VFileEvent
 
@@ -38,8 +31,11 @@ class NimNimbleFileListener(private val project: Project) : BulkFileListener {
 }
 
 fun configureNimProject(project: Project) {
+    val projectDir = project.guessProjectDir() ?: return
+    val nimbleFile = projectDir.children.find { it.extension == "nimble" } ?: return
+
     val module = configureNimModule(project)
-    configureNimDirectories(project, module)
+    configureNimDirectories(projectDir, module, nimbleFile)
     configureNimLibraries(project)
     configureNimStdlib(project)
 
