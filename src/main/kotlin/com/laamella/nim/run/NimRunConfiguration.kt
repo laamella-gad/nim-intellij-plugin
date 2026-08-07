@@ -10,6 +10,7 @@ class NimRunConfiguration(project: Project, factory: ConfigurationFactory) :
     LocatableConfigurationBase<RunConfigurationOptions>(project, factory, "Nim") {
 
     var binName: String = ""
+    var filePath: String = ""
     var workingDirectory: String = project.basePath ?: ""
 
     override fun getConfigurationEditor() = NimRunConfigurationEditor()
@@ -24,12 +25,14 @@ class NimRunConfiguration(project: Project, factory: ConfigurationFactory) :
     override fun readExternal(element: Element) {
         super.readExternal(element)
         binName = element.getAttributeValue("binName") ?: ""
+        filePath = element.getAttributeValue("filePath") ?: ""
         workingDirectory = element.getAttributeValue("workingDirectory") ?: project.basePath ?: ""
     }
 
     override fun writeExternal(element: Element) {
         super.writeExternal(element)
         element.setAttribute("binName", binName)
+        element.setAttribute("filePath", filePath)
         element.setAttribute("workingDirectory", workingDirectory)
     }
 }

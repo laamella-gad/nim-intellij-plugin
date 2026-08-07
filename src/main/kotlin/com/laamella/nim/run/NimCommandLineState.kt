@@ -19,10 +19,14 @@ class NimCommandLineState(
 
     private fun buildCommandLine(): GeneralCommandLine {
         val settings = NimSettings.getInstance()
-        val cmd = GeneralCommandLine(settings.nimble(), "run")
-            .withWorkDirectory(config.workingDirectory)
-            .withCharset(Charsets.UTF_8)
-        if (config.binName.isNotBlank()) cmd.addParameter(config.binName)
+        val cmd = if (config.filePath.isNotBlank()) {
+            GeneralCommandLine(settings.nim(), "r", config.filePath)
+        } else {
+            GeneralCommandLine(settings.nimble(), "run").also {
+                if (config.binName.isNotBlank()) it.addParameter(config.binName)
+            }
+        }
+        cmd.withWorkDirectory(config.workingDirectory).withCharset(Charsets.UTF_8)
         if (settings.nimbleBinPath.isNotBlank()) {
             val currentPath = System.getenv("PATH") ?: ""
             cmd.withEnvironment("PATH", "${settings.nimbleBinPath}${File.pathSeparator}$currentPath")

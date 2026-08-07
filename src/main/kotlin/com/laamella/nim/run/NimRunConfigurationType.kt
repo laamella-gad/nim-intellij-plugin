@@ -7,7 +7,7 @@ import javax.swing.Icon
 
 class NimRunConfigurationType : ConfigurationType {
     override fun getDisplayName() = "Nim"
-    override fun getConfigurationTypeDescription() = "Run Nim program via nimble"
+    override fun getConfigurationTypeDescription() = "Run a Nim program via nimble run or nim r"
     override fun getIcon(): Icon = NimIcons.FILE
     override fun getId() = "NimRunConfiguration"
     override fun getConfigurationFactories(): Array<ConfigurationFactory> =

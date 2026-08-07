@@ -37,6 +37,7 @@
                 and <code>nim check</code> runs on every save, marking errors/warnings/hints in the editor</li>
             <li>"Reset to Defaults" and LSP preset buttons in the Nim settings page</li>
             <li>Fix: "Nimble project refreshed" balloon no longer shown for non-nimble projects</li>
+            <li>Right-click any <code>.nim</code> file to create a "nim r" run configuration, not just <code>.nimble</code> files</li>
         </ul>
         <b>0.3.0</b>
         <ul>

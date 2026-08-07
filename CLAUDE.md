@@ -92,10 +92,10 @@ com.redhat.devtools.lsp4ij:
 | `NimLineIndentProvider` | `LineIndentProvider` — computes Enter-key indentation by inspecting the previous line's last non-comment character; delegates shared helpers `nimOpensBlock`/`stripTrailingComment` |
 | `NimLanguageCodeStyleSettingsProvider` | Sets default indent/tab size to 2 spaces for Nim files |
 | `NimColorSettingsPage` | `ColorSettingsPage` exposing all Nim token colors at **Settings → Editor → Color Scheme → Nim**; includes demo code snippet |
-| `NimRunConfigurationType` | `ConfigurationType` registering "Nim" run configurations (`nimble run`) |
-| `NimRunConfiguration` | Stores `binName` (optional target binary) and `workingDirectory`; serialized to `.idea/` |
-| `NimCommandLineState` | Executes `nimble run [binName]` with toolchain PATH prepended. In `run/` |
-| `NimRunConfigurationProducer` | Auto-creates `nimble run` config when right-clicking a `.nimble` file. In `run/` |
+| `NimRunConfigurationType` | `ConfigurationType` registering "Nim" run configurations (`nimble run` or `nim r`) |
+| `NimRunConfiguration` | Stores `binName` (optional target binary for `nimble run`), `filePath` (optional `.nim` file — when set, runs `nim r <filePath>` instead of `nimble run`), and `workingDirectory`; serialized to `.idea/` |
+| `NimCommandLineState` | Executes `nim r <filePath>` when `filePath` is set, else `nimble run [binName]`; toolchain PATH prepended either way. In `run/` |
+| `NimRunConfigurationProducer` | Auto-creates a `nimble run` config when right-clicking a `.nimble` file, or a `nim r <file>` config when right-clicking any `.nim` file. In `run/` |
 | `NimTestRunConfigurationType` | `ConfigurationType` registering "Nim Test" run configurations (`nimble test`) |
 | `NimTestRunConfiguration` | Stores `workingDirectory`; serialized to `.idea/`. In `run/` |
 | `NimTestCommandLineState` | Executes `nimble test` with toolchain PATH prepended. In `run/` |

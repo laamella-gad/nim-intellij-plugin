@@ -18,12 +18,27 @@ class NimRunConfigurationProducer : LazyRunConfigurationProducer<NimRunConfigura
         sourceElement: Ref<PsiElement>
     ): Boolean {
         val file = context.location?.virtualFile ?: return false
-        if (file.extension != "nimble") return false
-        val baseDir = context.project.guessProjectDir() ?: return false
-        configuration.workingDirectory = baseDir.path
-        configuration.binName = ""
-        configuration.name = "nimble run"
-        return true
+        return when (file.extension) {
+            "nimble" -> {
+                val baseDir = context.project.guessProjectDir() ?: return false
+                configuration.workingDirectory = baseDir.path
+                configuration.filePath = ""
+                configuration.binName = ""
+                configuration.name = "nimble run"
+                true
+            }
+
+            "nim" -> {
+                val parent = file.parent ?: return false
+                configuration.workingDirectory = parent.path
+                configuration.filePath = file.path
+                configuration.binName = ""
+                configuration.name = "nim r ${file.name}"
+                true
+            }
+
+            else -> false
+        }
     }
 
     override fun isConfigurationFromContext(
@@ -31,8 +46,15 @@ class NimRunConfigurationProducer : LazyRunConfigurationProducer<NimRunConfigura
         context: ConfigurationContext
     ): Boolean {
         val file = context.location?.virtualFile ?: return false
-        if (file.extension != "nimble") return false
-        val baseDir = context.project.guessProjectDir() ?: return false
-        return configuration.workingDirectory == baseDir.path && configuration.binName.isBlank()
+        return when (file.extension) {
+            "nimble" -> {
+                val baseDir = context.project.guessProjectDir() ?: return false
+                configuration.workingDirectory == baseDir.path && configuration.filePath.isBlank() && configuration.binName.isBlank()
+            }
+
+            "nim" -> configuration.filePath == file.path
+
+            else -> false
+        }
     }
 }
