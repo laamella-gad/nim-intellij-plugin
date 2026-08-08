@@ -8,9 +8,9 @@ import com.intellij.execution.runners.ExecutionEnvironment
 import com.laamella.nim.settings.NimSettings
 import java.io.File
 
-class NimCommandLineState(
+class NimbleCommandLineState(
     environment: ExecutionEnvironment,
-    private val config: NimRunConfiguration
+    private val config: NimbleRunConfiguration
 ) : CommandLineState(environment) {
 
     override fun startProcess() = ProcessHandlerFactory.getInstance()
@@ -19,9 +19,10 @@ class NimCommandLineState(
 
     private fun buildCommandLine(): GeneralCommandLine {
         val settings = NimSettings.getInstance()
-        val cmd = GeneralCommandLine(settings.nim(), "r", config.filePath)
-            .withWorkDirectory(config.workingDirectory)
-            .withCharset(Charsets.UTF_8)
+        val cmd = GeneralCommandLine(settings.nimble(), "run").also {
+            if (config.binName.isNotBlank()) it.addParameter(config.binName)
+        }
+        cmd.withWorkDirectory(config.workingDirectory).withCharset(Charsets.UTF_8)
         if (settings.nimbleBinPath.isNotBlank()) {
             val currentPath = System.getenv("PATH") ?: ""
             cmd.withEnvironment("PATH", "${settings.nimbleBinPath}${File.pathSeparator}$currentPath")

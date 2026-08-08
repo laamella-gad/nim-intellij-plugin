@@ -53,8 +53,8 @@ com.intellij.postStartupActivity             → NimProjectConfigurator
 com.intellij.externalFormatProcessor         → NimFormatProcessor
 com.intellij.lineIndentProvider              → NimLineIndentProvider
 com.intellij.langCodeStyleSettingsProvider   → NimLanguageCodeStyleSettingsProvider
-com.intellij.execution.configurationType     → NimRunConfigurationType, NimTestRunConfigurationType
-com.intellij.execution.RunConfigurationProducer → NimRunConfigurationProducer, NimTestRunConfigurationProducer
+com.intellij.execution.configurationType     → NimbleRunConfigurationType, NimRunConfigurationType, NimTestRunConfigurationType
+com.intellij.execution.RunConfigurationProducer → NimbleRunConfigurationProducer, NimRunConfigurationProducer, NimTestRunConfigurationProducer
 projectListeners (BulkFileListener)          → NimNimbleFileListener, NimCheckOnSaveListener
 com.redhat.devtools.lsp4ij:
   server                                     → NimLanguageServerFactory (id="nim")
@@ -92,10 +92,14 @@ com.redhat.devtools.lsp4ij:
 | `NimLineIndentProvider` | `LineIndentProvider` — computes Enter-key indentation by inspecting the previous line's last non-comment character; delegates shared helpers `nimOpensBlock`/`stripTrailingComment` |
 | `NimLanguageCodeStyleSettingsProvider` | Sets default indent/tab size to 2 spaces for Nim files |
 | `NimColorSettingsPage` | `ColorSettingsPage` exposing all Nim token colors at **Settings → Editor → Color Scheme → Nim**; includes demo code snippet |
-| `NimRunConfigurationType` | `ConfigurationType` registering "Nim" run configurations (`nimble run` or `nim r`) |
-| `NimRunConfiguration` | Stores `binName` (optional target binary for `nimble run`), `filePath` (optional `.nim` file — when set, runs `nim r <filePath>` instead of `nimble run`), and `workingDirectory`; serialized to `.idea/` |
-| `NimCommandLineState` | Executes `nim r <filePath>` when `filePath` is set, else `nimble run [binName]`; toolchain PATH prepended either way. In `run/` |
-| `NimRunConfigurationProducer` | Auto-creates a `nimble run` config when right-clicking a `.nimble` file, or a `nim r <file>` config when right-clicking any `.nim` file. In `run/` |
+| `NimbleRunConfigurationType` | `ConfigurationType` registering "Nim" run configurations (`nimble run`) |
+| `NimbleRunConfiguration` | Stores `binName` (optional target binary for `nimble run`) and `workingDirectory`; serialized to `.idea/` |
+| `NimbleCommandLineState` | Executes `nimble run [binName]`; toolchain PATH prepended. In `run/` |
+| `NimbleRunConfigurationProducer` | Auto-creates a `nimble run` config when right-clicking a `.nimble` file. In `run/` |
+| `NimRunConfigurationType` | `ConfigurationType` registering "Nim File" run configurations (`nim r <file>`) |
+| `NimRunConfiguration` | Stores `filePath` (the `.nim` file to run) and `workingDirectory`; serialized to `.idea/` |
+| `NimCommandLineState` | Executes `nim r <filePath>`; toolchain PATH prepended. In `run/` |
+| `NimRunConfigurationProducer` | Auto-creates a `nim r <file>` config when right-clicking any `.nim` file. In `run/` |
 | `NimTestRunConfigurationType` | `ConfigurationType` registering "Nim Test" run configurations (`nimble test`) |
 | `NimTestRunConfiguration` | Stores `workingDirectory`; serialized to `.idea/`. In `run/` |
 | `NimTestCommandLineState` | Executes `nimble test` with toolchain PATH prepended. In `run/` |

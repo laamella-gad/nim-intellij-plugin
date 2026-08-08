@@ -23,7 +23,7 @@ Provided by the plugin:
 - Code formatting via `nimpretty` (Reformat Code / Ctrl+Alt+L)
 - Comment/uncomment (Ctrl+/)
 - Auto-close quotes and brackets
-- Runner/test runner. _Right-click the nimble file._
+- Runner/test runner. _Right-click a `.nimble` file for "nimble run"/"nimble test", or any `.nim` file for "nim r"._
 - New Project wizard (File → New Project → Nim)
 - Option to not use an LSP, and use "nim check" instead
 
