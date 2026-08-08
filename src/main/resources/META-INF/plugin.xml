@@ -34,6 +34,7 @@
         <b>0.5.0</b>
         <ul>
             <li>Fix: <code>nim check</code> problems (LSP-free mode) now appear in the Problems tool window, not just as editor markup</li>
+            <li><code>nim check</code> (LSP-free mode) now also runs immediately when a <code>.nim</code> file is opened, not just on save</li>
         </ul>
         <b>0.4.0</b>
         <ul>
@@ -130,6 +131,8 @@
                   topic="com.intellij.openapi.vfs.newvfs.BulkFileListener"/>
         <listener class="com.laamella.nim.check.NimCheckOnSaveListener"
                   topic="com.intellij.openapi.vfs.newvfs.BulkFileListener"/>
+        <listener class="com.laamella.nim.check.NimCheckOnOpenListener"
+                  topic="com.intellij.openapi.fileEditor.FileEditorManagerListener"/>
     </projectListeners>
 
     <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">

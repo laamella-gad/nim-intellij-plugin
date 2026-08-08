@@ -56,6 +56,7 @@ com.intellij.langCodeStyleSettingsProvider   → NimLanguageCodeStyleSettingsPro
 com.intellij.execution.configurationType     → NimbleRunConfigurationType, NimRunConfigurationType, NimTestRunConfigurationType
 com.intellij.execution.RunConfigurationProducer → NimbleRunConfigurationProducer, NimRunConfigurationProducer, NimTestRunConfigurationProducer
 projectListeners (BulkFileListener)          → NimNimbleFileListener, NimCheckOnSaveListener
+projectListeners (FileEditorManagerListener) → NimCheckOnOpenListener
 com.redhat.devtools.lsp4ij:
   server                                     → NimLanguageServerFactory (id="nim")
   languageMapping language=Nim               → server id="nim"
@@ -110,6 +111,7 @@ com.redhat.devtools.lsp4ij:
 | `NimLanguageServerFactory` | LSP4IJ entry point; creates `OSProcessStreamConnectionProvider` launching `nimlangserver`; prepends `nimbleBinPath` to PATH for the subprocess; client features (`isUseIntAsJsonRpcId=true`, `isEnabled=false` when `nimlangserverExe` is blank — disables the server and its auto-install); returns `NimLanguageServerInstaller` from `createServerInstaller()` |
 | `NimLanguageServerInstaller` | `LanguageServerInstallerBase` — `checkServerInstalled()` returns true early when `nimlangserverExe` is blank (nim-check mode), else tests exe via `File.canExecute()` (or PATH search for bare names); `install()` runs `nimble install --accept --useSystemNim nimlangserver`, prepending `nimbleBinPath` to PATH so `nim` is findable when IntelliJ was launched without the toolchain on PATH |
 | `NimCheckOnSaveListener` | `BulkFileListener` (`projectListeners`) — when `nimlangserverExe` is blank, runs `nim check` on each saved `.nim` file. In `check/NimCheckOnSave.kt` |
+| `NimCheckOnOpenListener` | `FileEditorManagerListener` (`projectListeners`) — same `nimlangserverExe`-blank gate, runs `nim check` immediately when a `.nim` file is opened. In `check/NimCheckOnSave.kt` |
 | `NimCheckOnSave` | Runs `nim check` on a pooled thread (superseded runs killed via per-file `Process` map), filters problems to the saved file, caches them per path and calls `DaemonCodeAnalyzer.restart` so `NimCheckExternalAnnotator` re-applies them; one-shot "nim not found" balloon re-armed from settings apply. In `check/` |
 | `NimCheckExternalAnnotator` | `ExternalAnnotator` — turns `NimCheckOnSave`'s cached results into real annotations (Error/Warning/Hint → error/warning/weak-warning `HighlightSeverity`), which is what makes them show up in the Problems tool window, not just editor markup. In `check/` |
 | `parseNimCheckOutput` | `internal` — parses `nim check` output lines `path(line, col) Severity: message`; indented lines continue the previous message; noise dropped. Testable without toolchain. In `check/NimCheckOnSave.kt` |

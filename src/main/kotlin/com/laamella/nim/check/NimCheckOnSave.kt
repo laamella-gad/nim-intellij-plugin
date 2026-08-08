@@ -5,6 +5,8 @@ import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.editor.Document
+import com.intellij.openapi.fileEditor.FileEditorManager
+import com.intellij.openapi.fileEditor.FileEditorManagerListener
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.guessProjectDir
 import com.intellij.openapi.util.TextRange
@@ -83,6 +85,19 @@ class NimCheckOnSaveListener(private val project: Project) : BulkFileListener {
             .filter { it.extension == "nim" }
             .distinctBy { it.path }
             .forEach { NimCheckOnSave.runNimCheck(project, it) }
+    }
+}
+
+/**
+ * Runs `nim check` as soon as a `.nim` file is opened, so problems show up without
+ * waiting for the first save. Same [NimSettings.nimlangserverExe]-blank gate as
+ * [NimCheckOnSaveListener].
+ */
+class NimCheckOnOpenListener(private val project: Project) : FileEditorManagerListener {
+    override fun fileOpened(source: FileEditorManager, file: VirtualFile) {
+        if (NimSettings.getInstance().nimlangserverExe.isNotBlank()) return
+        if (file.extension != "nim") return
+        NimCheckOnSave.runNimCheck(project, file)
     }
 }
 
