@@ -32,15 +32,20 @@ data class NimCheckProblem(
 )
 
 private val PROBLEM_LINE = Regex("""^(.+?)\((\d+), (\d+)\) (Error|Warning|Hint): (.*)$""")
+private val GENERATED_ID = Regex("""\btmp_\d+\b""")
+
+/** Strips the numeric suffix off compiler-generated temp names (e.g. `tmp_587203598` → `tmp`),
+ *  since it's freshly generated per compilation and carries no useful information. */
+private fun stripGeneratedIds(message: String) = message.replace(GENERATED_ID, "tmp")
 
 /**
  * Parses `nim check` output into problems. Lines that don't carry a position
  * (config hints, dot progress lines) are dropped; indented lines continue the
- * previous problem's message (e.g. type mismatch candidate lists). Nim reprints
- * the exact same diagnostic once per generic instantiation / import path when the
- * offending line is reached from several places in the module graph, so exact
- * (file, line, col, severity, message) duplicates are collapsed to their first
- * occurrence.
+ * previous problem's message (e.g. type mismatch candidate lists). Generated temp
+ * variable IDs (`tmp_NNN`) are stripped from messages, since nim reprints the same
+ * diagnostic once per generic instantiation / import path with a freshly generated
+ * name each time; stripping them first lets the plain duplicate collapse below merge
+ * those repeats down to one.
  */
 internal fun parseNimCheckOutput(output: String): List<NimCheckProblem> {
     val problems = mutableListOf<NimCheckProblem>()
@@ -48,10 +53,12 @@ internal fun parseNimCheckOutput(output: String): List<NimCheckProblem> {
         val m = PROBLEM_LINE.matchEntire(line)
         if (m != null) {
             val (path, ln, col, sev, msg) = m.destructured
-            problems += NimCheckProblem(path, ln.toInt(), col.toInt(), NimCheckSeverity.valueOf(sev.uppercase()), msg)
+            problems += NimCheckProblem(
+                path, ln.toInt(), col.toInt(), NimCheckSeverity.valueOf(sev.uppercase()), stripGeneratedIds(msg)
+            )
         } else if (problems.isNotEmpty() && line.isNotBlank() && line.first().isWhitespace()) {
             val last = problems.removeLast()
-            problems += last.copy(message = last.message + "\n" + line.trim())
+            problems += last.copy(message = last.message + "\n" + stripGeneratedIds(line.trim()))
         }
     }
     return problems.distinct()

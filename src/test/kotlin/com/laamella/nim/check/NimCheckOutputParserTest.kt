@@ -83,6 +83,19 @@ class NimCheckOutputParserTest {
     }
 
     @Test
+    fun `generated temp names are stripped, collapsing repeats into one`() {
+        val output = listOf(
+            "/p/a.nim(124, 16) Error: 'value(tmp_587203598)' cannot be assigned to",
+            "/p/a.nim(124, 16) Error: 'value(tmp_587203922)' cannot be assigned to",
+        ).joinToString("\n")
+
+        val problems = parseNimCheckOutput(output)
+
+        assertEquals(1, problems.size)
+        assertEquals("'value(tmp)' cannot be assigned to", problems[0].message)
+    }
+
+    @Test
     fun `empty output yields no problems`() {
         assertTrue(parseNimCheckOutput("").isEmpty())
     }
