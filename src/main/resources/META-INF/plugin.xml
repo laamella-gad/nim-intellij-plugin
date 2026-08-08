@@ -38,9 +38,6 @@
             <li>"Reset to Defaults" and LSP preset buttons in the Nim settings page</li>
             <li>Fix: "Nimble project refreshed" balloon no longer shown for non-nimble projects</li>
             <li>Right-click any <code>.nim</code> file to create a "nim r" run configuration, not just <code>.nimble</code> files</li>
-            <li>Split the ambiguous "Nim" run configuration into two distinct types: "Nim" (<code>nimble run</code>,
-                right-click a <code>.nimble</code> file) and "Nim File" (<code>nim r</code>, right-click any
-                <code>.nim</code> file)</li>
         </ul>
         <b>0.3.0</b>
         <ul>
