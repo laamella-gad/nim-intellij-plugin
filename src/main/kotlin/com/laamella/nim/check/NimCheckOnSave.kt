@@ -1,19 +1,12 @@
 package com.laamella.nim.check
 
+import com.intellij.codeInsight.daemon.DaemonCodeAnalyzer
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.editor.Document
-import com.intellij.openapi.editor.colors.CodeInsightColors
-import com.intellij.openapi.editor.colors.EditorColorsManager
-import com.intellij.openapi.editor.impl.DocumentMarkupModel
-import com.intellij.openapi.editor.markup.HighlighterLayer
-import com.intellij.openapi.editor.markup.HighlighterTargetArea
-import com.intellij.openapi.editor.markup.RangeHighlighter
-import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.guessProjectDir
-import com.intellij.openapi.util.Key
 import com.intellij.openapi.util.TextRange
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.vfs.newvfs.BulkFileListener
@@ -41,7 +34,11 @@ private val PROBLEM_LINE = Regex("""^(.+?)\((\d+), (\d+)\) (Error|Warning|Hint):
 /**
  * Parses `nim check` output into problems. Lines that don't carry a position
  * (config hints, dot progress lines) are dropped; indented lines continue the
- * previous problem's message (e.g. type mismatch candidate lists).
+ * previous problem's message (e.g. type mismatch candidate lists). Nim reprints
+ * the exact same diagnostic once per generic instantiation / import path when the
+ * offending line is reached from several places in the module graph, so exact
+ * (file, line, col, severity, message) duplicates are collapsed to their first
+ * occurrence.
  */
 internal fun parseNimCheckOutput(output: String): List<NimCheckProblem> {
     val problems = mutableListOf<NimCheckProblem>()
@@ -55,7 +52,7 @@ internal fun parseNimCheckOutput(output: String): List<NimCheckProblem> {
             problems += last.copy(message = last.message + "\n" + line.trim())
         }
     }
-    return problems
+    return problems.distinct()
 }
 
 /** Text range to underline for a problem: the identifier at (line, col), or a single character. */
@@ -90,9 +87,12 @@ class NimCheckOnSaveListener(private val project: Project) : BulkFileListener {
 }
 
 object NimCheckOnSave {
-    private val HIGHLIGHTERS_KEY = Key.create<List<RangeHighlighter>>("nim.check.highlighters")
+    private val problemsCache = ConcurrentHashMap<String, List<NimCheckProblem>>()
     private val runningChecks = ConcurrentHashMap<String, Process>()
     private val warnedMissingNim = AtomicBoolean(false)
+
+    /** Cached results for [NimCheckExternalAnnotator], which turns them into real editor annotations. */
+    fun problemsFor(path: String): List<NimCheckProblem> = problemsCache[path] ?: emptyList()
 
     /** Re-arms the "nim not found" balloon, e.g. after the user fixed the toolchain path. */
     fun resetMissingNimWarning() = warnedMissingNim.set(false)
@@ -136,26 +136,8 @@ object NimCheckOnSave {
 
     private fun applyProblems(project: Project, file: VirtualFile, problems: List<NimCheckProblem>) {
         if (project.isDisposed || !file.isValid) return
-        val document = FileDocumentManager.getInstance().getDocument(file) ?: return
-        val markup = DocumentMarkupModel.forDocument(document, project, true)
-
-        document.getUserData(HIGHLIGHTERS_KEY)?.forEach { it.dispose() }
-
-        val scheme = EditorColorsManager.getInstance().globalScheme
-        val highlighters = problems.mapNotNull { problem ->
-            val range = problemRange(document, problem) ?: return@mapNotNull null
-            val (layer, attributesKey) = when (problem.severity) {
-                NimCheckSeverity.ERROR -> HighlighterLayer.ERROR to CodeInsightColors.ERRORS_ATTRIBUTES
-                NimCheckSeverity.WARNING -> HighlighterLayer.WARNING to CodeInsightColors.WARNINGS_ATTRIBUTES
-                NimCheckSeverity.HINT -> HighlighterLayer.WEAK_WARNING to CodeInsightColors.WEAK_WARNING_ATTRIBUTES
-            }
-            markup.addRangeHighlighter(
-                range.startOffset, range.endOffset, layer,
-                scheme.getAttributes(attributesKey), HighlighterTargetArea.EXACT_RANGE
-            ).apply {
-                errorStripeTooltip = "nim check: ${problem.message}"
-            }
-        }
-        document.putUserData(HIGHLIGHTERS_KEY, highlighters)
+        problemsCache[file.path] = problems
+        // Triggers a new highlighting pass so NimCheckExternalAnnotator picks up the fresh results.
+        DaemonCodeAnalyzer.getInstance(project).restart(file)
     }
 }

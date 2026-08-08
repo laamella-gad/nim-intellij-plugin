@@ -60,6 +60,29 @@ class NimCheckOutputParserTest {
     }
 
     @Test
+    fun `identical diagnostics repeated across instantiations collapse to one each`() {
+        val block = listOf(
+            "/p/a.nim(118, 26) Error: ambiguous identifier: 'Event' -- use one of the following:",
+            "  dom.Event: Event",
+            "  vdom.Event: Event",
+            "",
+            "/p/a.nim(118, 26) Error: expression 'Event' has no type (or is ambiguous)",
+            "/p/a.nim(118, 26) Error: expected type, but got: Event",
+        )
+        val output = List(4) { block }.flatten().joinToString("\n")
+
+        val problems = parseNimCheckOutput(output)
+
+        assertEquals(3, problems.size)
+        assertEquals(
+            "ambiguous identifier: 'Event' -- use one of the following:\ndom.Event: Event\nvdom.Event: Event",
+            problems[0].message
+        )
+        assertEquals("expression 'Event' has no type (or is ambiguous)", problems[1].message)
+        assertEquals("expected type, but got: Event", problems[2].message)
+    }
+
+    @Test
     fun `empty output yields no problems`() {
         assertTrue(parseNimCheckOutput("").isEmpty())
     }
