@@ -35,6 +35,7 @@
         <ul>
             <li><code>nim check</code> problems (LSP-free mode) now appear in the Problems tool window, not just as editor markup</li>
             <li><code>nim check</code> (LSP-free mode) now also runs immediately when a <code>.nim</code> file is opened, not just on save</li>
+            <li>Nim standard library project library now shows its version, e.g. "Nim 2.0.0"</li>
         </ul>
         <b>0.4.0</b>
         <ul>

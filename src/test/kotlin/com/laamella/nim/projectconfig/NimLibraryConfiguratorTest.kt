@@ -111,4 +111,26 @@ class NimLibraryConfiguratorTest {
             pkgs2.toFile().deleteRecursively()
         }
     }
+
+    @Test fun `extractJsonArray finds clean array`() {
+        assertEquals("""[{"name":"alpha"}]""", extractJsonArray("""[{"name":"alpha"}]"""))
+    }
+
+    @Test fun `extractJsonArray skips leading warning brackets`() {
+        val output = "[Warning]: no lockfile found, computing dependencies\n" + """[{"name":"alpha","resolvedTo":"1.0.0"}]"""
+        assertEquals("""[{"name":"alpha","resolvedTo":"1.0.0"}]""", extractJsonArray(output))
+    }
+
+    @Test fun `extractJsonArray ignores brackets inside string values`() {
+        val json = """[{"name":"alpha","installUrl":"file:///pkgs2/alpha[1]"}]"""
+        assertEquals(json, extractJsonArray(json))
+    }
+
+    @Test fun `extractJsonArray returns null when no array present`() {
+        assertNull(extractJsonArray("command not found"))
+    }
+
+    @Test fun `extractJsonArray returns null for unterminated array`() {
+        assertNull(extractJsonArray("""[{"name":"alpha""""))
+    }
 }

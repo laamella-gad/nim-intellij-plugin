@@ -40,8 +40,7 @@ Provided by nimlangserver over LSP:
 - Folding
 - Structure view
 - Signature help
-- Nimble dependencies wired as project libraries for source navigation
-- Nim standard library available as a navigable "Nim" project library
+- Nimble/standard libraries
 
 ## Requirements
 
